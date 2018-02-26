@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -14,6 +12,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -24,13 +23,39 @@ android {
     }
 }
 
+kapt {
+    generateStubs = true
+}
+
+ext {
+    supportLibraryVersion = '26.1.0'
+
+    jUnitVersion = '4.12'
+    androidTestRunnerVersion = '1.0.1'
+    espressoVersion = '3.0.1'
+}
+
 dependencies {
+    // Libraries from project-specific jars
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}"
+
+    // Android data-binding annotation processor for Kotlin
+    kapt "com.android.databinding:compiler:${androidPluginVersion}"
+
+    // Google Design Support libraries
+    implementation "com.android.support:appcompat-v7:${supportLibraryVersion}"
+    implementation "com.android.support:design:${supportLibraryVersion}"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    // JUnit Test Runner
     testImplementation 'junit:junit:4.12'
+
+    // Android specific test runner
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
+
+    // Core espresso library for UI tests
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile 'com.android.support:design:26.1.0'
 }
