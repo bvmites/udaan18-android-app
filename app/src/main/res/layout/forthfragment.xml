@@ -1,13 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contact_us_linear_layout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
-    android:gravity="center">
-    <TextView
-        android:layout_width="wrap_content"
+    android:scrollbars="vertical">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/about_us_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/udaan_wing" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/about_us_title"
+            android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="are"
-        android:textSize="50dp"
-        android:textColor="#000"/>
-</LinearLayout>
+            android:gravity="center"
+            android:text="Udaan - 18"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="32sp" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimaryDark" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/about_us_connect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Connect with us"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/mail"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="fitCenter"
+                app:backgroundTint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_mail" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/facebook"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="fitCenter"
+                app:backgroundTint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_facebook" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/youtube"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="fitCenter"
+                app:backgroundTint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_youtube" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/playstore"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="fitCenter"
+                app:backgroundTint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_play" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/website"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="fitCenter"
+                app:backgroundTint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_web" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/phone"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="fitCenter"
+                app:backgroundTint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_windows" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimaryDark" />
+
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/about_us_reach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Reach Us"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp">
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/map_view"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                app:backgroundTint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_place" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="BVM Engineering College, Opp, Shastri Maidan, Mota Bazaar, Vallabh Vidhyanagar, Anand, Gujarat 388120, India"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+        </android.support.v7.widget.LinearLayoutCompat>
+    </android.support.v7.widget.LinearLayoutCompat>
+</android.support.v7.widget.LinearLayoutCompat>
