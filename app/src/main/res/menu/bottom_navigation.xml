@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_events"
+        android:enabled="true"
+        android:icon="@drawable/ic_camera"
+        android:title="@string/label_events"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_photo"
+        android:enabled="true"
+        android:icon="@drawable/ic_camera"
+        android:title="@string/label_photo"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_aboutUdaan"
+        android:enabled="true"
+        android:icon="@drawable/ic_camera"
+        android:title="@string/label_aboutUdaan"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_team"
+        android:enabled="true"
+        android:icon="@drawable/ic_camera"
+        android:title="@string/label_team"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_newsFeed"
+        android:enabled="true"
+        android:icon="@drawable/ic_camera"
+        android:title="@string/label_newsFeed"
+        app:showAsAction="ifRoom"/>
+</menu>

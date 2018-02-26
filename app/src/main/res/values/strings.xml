@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Udaan-18</string>
+
+    <string name="label_events">Events</string>
+    <string name="label_photo">Photo</string>
+    <string name="label_aboutUdaan">About Udaan</string>
+    <string name="label_team">Our Team</string>
+    <string name="label_newsFeed">News</string>
 </resources>

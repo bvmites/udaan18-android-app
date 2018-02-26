@@ -5,6 +5,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    dataBinding.enabled = true
+
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.udaan18.udaan18.android"
