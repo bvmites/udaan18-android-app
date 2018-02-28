@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     this.dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+    this.setSupportActionBar(this.dataBinding.toolbar);
     
     this.dataBinding
         .bottomNavigation

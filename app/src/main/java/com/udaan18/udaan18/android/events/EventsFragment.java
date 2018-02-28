@@ -18,6 +18,7 @@ import com.udaan18.udaan18.android.model.eventCategory.Container;
 import com.udaan18.udaan18.android.model.eventCategory.Event;
 import com.udaan18.udaan18.android.model.eventCategory.Tech;
 import com.udaan18.udaan18.android.util.RestClient;
+import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
 
 import java.util.List;
 
@@ -53,6 +54,7 @@ public class EventsFragment extends Fragment {
       @Override
       public void onResponse(Call<Container> call, Response<Container> response) {
         Container container=response.body();
+          SharedPreferenceHelper.storeEventsData(EventsFragment.this.getContext(), container);
         List<Tech> event=container.getTech();
        //Toast.makeText(dataBinding.getRoot().getContext(),"Error1"+event.get(0).getEvents().size(),Toast.LENGTH_LONG).show();
         RecyclerView view=dataBinding.getRoot().findViewById(R.id.event_recycleview);

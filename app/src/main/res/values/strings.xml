@@ -6,4 +6,7 @@
     <string name="label_aboutUdaan">About Udaan</string>
     <string name="label_team">Our Team</string>
     <string name="label_newsFeed">News</string>
+
+    <string name="PREFS_FILE_NAME">com.udaan18.android</string>
+    <string name="PREFS_EVENTS_DATA">events_data</string>
 </resources>
