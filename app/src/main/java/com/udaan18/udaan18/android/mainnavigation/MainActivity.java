@@ -6,6 +6,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -14,9 +15,10 @@ import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.about.AboutUdaanFragment;
 import com.udaan18.udaan18.android.databinding.ActivityMainBinding;
 import com.udaan18.udaan18.android.events.EventsFragment;
+import com.udaan18.udaan18.android.events.MainCategory;
 import com.udaan18.udaan18.android.news.NewsFragment;
 import com.udaan18.udaan18.android.photo.PhotoFragment;
-import com.udaan18.udaan18.android.team.TeamFragment;
+import com.udaan18.udaan18.android.team.ContainedDetail;
 
 /**
  * Created by abhishek on 2/25/2018.
@@ -28,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
   private EventsFragment eventsFragment;
   private PhotoFragment photoFragment;
   private AboutUdaanFragment aboutUdaanFragment;
-  private TeamFragment teamFragment;
+    private MainCategory category;
+    private ContainedDetail containedDetail;
   private NewsFragment newsFragment;
+    private CollapsingToolbarLayout.LayoutParams lp;
   
   @IdRes
   private int currentSelectedSection;
@@ -38,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     this.dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
-    this.setSupportActionBar(this.dataBinding.toolbar);
-    
     this.dataBinding
         .bottomNavigation
         .setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -50,8 +51,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
           }
         });
-    
-    this.loadFragment(this.getEventsFragment());
+      this.loadFragment(this.getCategoryFragment());
   }
   
   private void handleBottomNavigationItemSelect(@IdRes int itemId) {
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
       this.currentSelectedSection = itemId;
       switch (itemId) {
         case R.id.action_events:
-          this.loadFragment(this.getEventsFragment());
+            this.loadFragment(this.getCategoryFragment());
           break;
         case R.id.action_photo:
           this.loadFragment(this.getPhotoFragment());
@@ -68,7 +68,10 @@ public class MainActivity extends AppCompatActivity {
           this.loadFragment(this.getAboutUdaanFragment());
           break;
         case R.id.action_team:
-          this.loadFragment(this.getTeamFragment());
+          /*this.dataBinding.tolMain.setVisibility(View.GONE);
+          this.dataBinding.tolCom.setVisibility(View.VISIBLE);*/
+            this.loadFragment(this.getContainedDetail());
+
           break;
         case R.id.action_newsFeed:
           this.loadFragment(this.getNewsFragment());
@@ -92,6 +95,13 @@ public class MainActivity extends AppCompatActivity {
     
     return this.photoFragment;
   }
+
+    private Fragment getCategoryFragment() {
+        if (this.category == null) {
+            this.category = MainCategory.newInstance();
+        }
+        return this.category;
+    }
   
   private Fragment getAboutUdaanFragment() {
     if (this.aboutUdaanFragment == null) {
@@ -100,13 +110,14 @@ public class MainActivity extends AppCompatActivity {
     
     return this.aboutUdaanFragment;
   }
-  
-  private Fragment getTeamFragment() {
-    if (this.teamFragment == null) {
-      this.teamFragment = TeamFragment.newInstance();
-    }
-    
-    return this.teamFragment;
+
+    private Fragment getContainedDetail() {
+
+
+        this.containedDetail = ContainedDetail.newInstance();
+
+
+        return this.containedDetail;
   }
   
   private Fragment getNewsFragment() {

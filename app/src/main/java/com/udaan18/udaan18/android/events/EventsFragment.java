@@ -48,26 +48,30 @@ public class EventsFragment extends Fragment {
   }
 
   public void fetchEvent(){
-    RestClient client=new RestClient();
-    Call<Container> call=client.getApiHelper().getEvents();
-    call.enqueue(new Callback<Container>() {
-      @Override
-      public void onResponse(Call<Container> call, Response<Container> response) {
-        Container container=response.body();
+    try {
+      RestClient client = new RestClient();
+      Call<Container> call = client.getApiHelper().getEvents();
+      call.enqueue(new Callback<Container>() {
+        @Override
+        public void onResponse(Call<Container> call, Response<Container> response) {
+          Container container = response.body();
           SharedPreferenceHelper.storeEventsData(EventsFragment.this.getContext(), container);
-        List<Tech> event=container.getTech();
-       //Toast.makeText(dataBinding.getRoot().getContext(),"Error1"+event.get(0).getEvents().size(),Toast.LENGTH_LONG).show();
-        RecyclerView view=dataBinding.getRoot().findViewById(R.id.event_recycleview);
-        EventAdapter adapter=new EventAdapter(event.get(0).getEvents(),getContext());
-        view.setAdapter(adapter);
-        view.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+          List<Tech> event = container.getTech();
+          //Toast.makeText(dataBinding.getRoot().getContext(),"Error1"+event.get(0).getEvents().size(),Toast.LENGTH_LONG).show();
+          RecyclerView view = dataBinding.getRoot().findViewById(R.id.event_recycleview);
+          EventAdapter adapter = new EventAdapter(event.get(0).getEvents(), getContext());
+          view.setAdapter(adapter);
+          view.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
-      }
+        }
 
-      @Override
-      public void onFailure(Call<Container> call, Throwable t) {
-       // Toast.makeText(dataBinding.getRoot().getContext(),"Error0"+t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
-      }
-    });
+        @Override
+        public void onFailure(Call<Container> call, Throwable t) {
+          // Toast.makeText(dataBinding.getRoot().getContext(),"Error0"+t.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+        }
+      });
+    } catch (Exception e) {
+      Toast.makeText(getContext(), "error in eventfrag: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+    }
   }
 }

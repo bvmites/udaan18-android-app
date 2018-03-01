@@ -4,10 +4,37 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorIcon">#ffffffff</color>
+    <color name="colorSeparator">#aaffffff</color>
 
     <color name="red">#FFF11010</color>
     <color name="yellow">#FFF4F004</color>
     <color name="green">#FF50D609</color>
     <color name="skyblue">#FF15F9C7</color>
     <color name="blue">#FF0F36E1</color>
+
+
+    <color name="colorDeepOrange">#ffff5722</color>
+    <color name="colorBlueGrey">#ff607d8b</color>
+    <color name="colorDeepPurple">#ff673ab7</color>
+    <color name="colorBlue">#ff2196f3</color>
+    <color name="colorTeal">#ff009688</color>
+    <color name="colorWhite">#FFFF</color>
+
+    <color name="color_android">#ff4caf50</color>
+    <color name="color_windows">#ff00b8d4</color>
+    <color name="color_web">#ffef5350</color>
+    <color name="color_graphics">#ffff7043</color>
+    <color name="color_backend">#fffbc02d</color>
+    <color name="color_analytics">#ff5c6bc0</color>
+
+    <color name="color_keycoders">#ffd33124</color>
+    <color name="color_skyscrapers">#ff189947</color>
+    <color name="color_embeddrones">#ffc1333f</color>
+    <color name="color_machinists">#ff0957a1</color>
+    <color name="color_fabfacturers">#ff511e3f</color>
+    <color name="color_rezonizers">#ffcc435a</color>
+    <color name="color_resonizers">#ffcc435a</color>
+    <color name="color_non_tech">#ff002d4a</color>
+    <color name="color_cultural">#ff000000</color>
+    <color name="color_team_udaan">#ff040121</color>
 </resources>

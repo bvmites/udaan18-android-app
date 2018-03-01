@@ -13,6 +13,6 @@
             android:layout_height="wrap_content"
             android:text="Team"
             android:textColor="#000"
-            android:textSize="50dp"/>
+            android:textSize="50dp" />
     </LinearLayout>
 </layout>
