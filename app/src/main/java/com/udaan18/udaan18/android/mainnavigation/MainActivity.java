@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
@@ -15,7 +16,7 @@ import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.about.AboutUdaanFragment;
 import com.udaan18.udaan18.android.databinding.ActivityMainBinding;
 import com.udaan18.udaan18.android.events.EventsFragment;
-import com.udaan18.udaan18.android.events.MainCategory;
+import com.udaan18.udaan18.android.events.MainCategoryFragment;
 import com.udaan18.udaan18.android.news.NewsFragment;
 import com.udaan18.udaan18.android.photo.PhotoFragment;
 import com.udaan18.udaan18.android.team.ContainedDetail;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
   private EventsFragment eventsFragment;
   private PhotoFragment photoFragment;
   private AboutUdaanFragment aboutUdaanFragment;
-    private MainCategory category;
+    private MainCategoryFragment category;
     private ContainedDetail containedDetail;
   private NewsFragment newsFragment;
     private CollapsingToolbarLayout.LayoutParams lp;
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Fragment getCategoryFragment() {
         if (this.category == null) {
-            this.category = MainCategory.newInstance();
+            this.category = MainCategoryFragment.newInstance();
         }
         return this.category;
     }
@@ -129,6 +130,11 @@ public class MainActivity extends AppCompatActivity {
   }
   
   private void loadFragment(Fragment fragment) {
+      FragmentManager manager = this.getSupportFragmentManager();
+      while (manager.getBackStackEntryCount() > 0) {
+          manager.popBackStackImmediate();
+      }
+
     this.getSupportFragmentManager()
         .beginTransaction()
         .replace(
@@ -136,4 +142,20 @@ public class MainActivity extends AppCompatActivity {
             fragment
         ).commit();
   }
+
+    private void loadFragmentWithBackstack(Fragment fragment) {
+        this.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(
+                        this.dataBinding.contentContainer.getId(),
+                        fragment
+                ).addToBackStack(null)
+                .commit();
+    }
+
+    public void loadTechEvents() {
+        EventsFragment fragment = EventsFragment.newInstance();
+
+        this.loadFragmentWithBackstack(fragment);
+    }
 }

@@ -10,16 +10,17 @@ import android.view.ViewGroup;
 
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.databinding.FragmentMainCategoryBinding;
+import com.udaan18.udaan18.android.mainnavigation.MainActivity;
 
 /**
  * Created by jack on 01-03-2018.
  */
 
-public class MainCategory extends Fragment {
+public class MainCategoryFragment extends Fragment {
     FragmentMainCategoryBinding dataBinding;
 
-    public static MainCategory newInstance() {
-        MainCategory fragment = new MainCategory();
+    public static MainCategoryFragment newInstance() {
+        MainCategoryFragment fragment = new MainCategoryFragment();
         return fragment;
     }
 
@@ -27,6 +28,16 @@ public class MainCategory extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main_category, container, false);
+
+        this.dataBinding
+                .categoriesFragmentCardView1
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ((MainActivity) getActivity()).loadTechEvents();
+                    }
+                });
+
         return this.dataBinding.getRoot();
     }
 }
