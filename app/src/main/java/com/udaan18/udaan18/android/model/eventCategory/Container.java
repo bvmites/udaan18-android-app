@@ -1,44 +1,55 @@
 
 package com.udaan18.udaan18.android.model.eventCategory;
 
-import java.util.List;
+import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class Container {
 
     @SerializedName("tech")
     @Expose
-    private List<Tech> tech = null;
+    private List<Department> departments = null;
     @SerializedName("nonTech")
     @Expose
-    private List<NonTech> nonTech = null;
+    private List<Event> nonTech = null;
     @SerializedName("cultural")
     @Expose
-    private List<Cultural> cultural = null;
+    private List<Event> cultural = null;
 
-    public List<Tech> getTech() {
-        return tech;
+    public static Container getInstance(String json) {
+        Gson gson = new Gson();
+        return gson.fromJson(json, Container.class);
     }
 
-    public void setTech(List<Tech> tech) {
-        this.tech = tech;
+    public List<Department> getDepartments() {
+        return departments;
     }
 
-    public List<NonTech> getNonTech() {
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
+
+    public List<Event> getNonTech() {
         return nonTech;
     }
 
-    public void setNonTech(List<NonTech> nonTech) {
+    public void setNonTech(List<Event> nonTech) {
         this.nonTech = nonTech;
     }
 
-    public List<Cultural> getCultural() {
+    public List<Event> getCultural() {
         return cultural;
     }
 
-    public void setCultural(List<Cultural> cultural) {
+    public void setCultural(List<Event> cultural) {
         this.cultural = cultural;
     }
 
+    @Override
+    public String toString() {
+        return (new Gson()).toJson(this);
+    }
 }

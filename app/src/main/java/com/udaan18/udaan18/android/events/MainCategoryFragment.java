@@ -16,7 +16,7 @@ import com.udaan18.udaan18.android.mainnavigation.MainActivity;
  * Created by jack on 01-03-2018.
  */
 
-public class MainCategoryFragment extends Fragment {
+public class MainCategoryFragment extends Fragment implements View.OnClickListener {
     FragmentMainCategoryBinding dataBinding;
 
     public static MainCategoryFragment newInstance() {
@@ -29,15 +29,29 @@ public class MainCategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main_category, container, false);
 
-        this.dataBinding
-                .categoriesFragmentCardView1
-                .setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ((MainActivity) getActivity()).loadTechEvents();
-                    }
-                });
+        this.dataBinding.categoriesFragmentCardView1.setOnClickListener(this);
+        this.dataBinding.categoriesFragmentCardView2.setOnClickListener(this);
+        this.dataBinding.categoriesFragmentCardView3.setOnClickListener(this);
 
         return this.dataBinding.getRoot();
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.categories_fragment_cardView1:
+                ((MainActivity) getActivity()).loadDepartments();
+                break;
+            case R.id.categories_fragment_cardView2:
+                ((MainActivity) getActivity()).loadNonTechEvents();
+                break;
+            case R.id.categories_fragment_cardView3:
+                ((MainActivity) getActivity()).loadCulturalEvents();
+                break;
+            default:
+                break;
+        }
+
     }
 }

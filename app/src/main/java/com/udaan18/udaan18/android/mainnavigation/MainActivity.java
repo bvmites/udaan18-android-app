@@ -6,7 +6,6 @@ import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -15,11 +14,16 @@ import android.view.MenuItem;
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.about.AboutUdaanFragment;
 import com.udaan18.udaan18.android.databinding.ActivityMainBinding;
+import com.udaan18.udaan18.android.events.DepartmentFragment;
 import com.udaan18.udaan18.android.events.EventsFragment;
 import com.udaan18.udaan18.android.events.MainCategoryFragment;
+import com.udaan18.udaan18.android.events.TechEventFragment;
 import com.udaan18.udaan18.android.news.NewsFragment;
 import com.udaan18.udaan18.android.photo.PhotoFragment;
 import com.udaan18.udaan18.android.team.ContainedDetail;
+import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
+
+import org.json.JSONException;
 
 /**
  * Created by abhishek on 2/25/2018.
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private MainCategoryFragment category;
     private ContainedDetail containedDetail;
   private NewsFragment newsFragment;
-    private CollapsingToolbarLayout.LayoutParams lp;
+
   
   @IdRes
   private int currentSelectedSection;
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
     this.dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
     this.dataBinding
         .bottomNavigation
@@ -83,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
   
   private Fragment getEventsFragment() {
     if (this.eventsFragment == null) {
-      this.eventsFragment = EventsFragment.newInstance();
+        // this.eventsFragment = EventsFragment.newInstance();
     }
     
     return this.eventsFragment;
@@ -153,9 +158,36 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    public void loadTechEvents() {
-        EventsFragment fragment = EventsFragment.newInstance();
+    public void loadTechEvents(int position) {
+        TechEventFragment fragment = TechEventFragment.newInstance(position);
 
         this.loadFragmentWithBackstack(fragment);
+    }
+
+    public void loadNonTechEvents() {
+        EventsFragment fragment = null;
+        try {
+            fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(MainActivity.this).getNonTechList());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        this.loadFragmentWithBackstack(fragment);
+    }
+
+    public void loadCulturalEvents() {
+        EventsFragment fragment = null;
+        try {
+            fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(MainActivity.this).getCulturalList());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        this.loadFragmentWithBackstack(fragment);
+    }
+
+    public void loadDepartments() {
+        DepartmentFragment departmentFragment = null;
+
+        departmentFragment = DepartmentFragment.newInstance();
+        this.loadFragmentWithBackstack(departmentFragment);
     }
 }

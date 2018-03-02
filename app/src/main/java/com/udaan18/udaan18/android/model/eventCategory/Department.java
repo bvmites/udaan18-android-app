@@ -1,11 +1,12 @@
 
 package com.udaan18.udaan18.android.model.eventCategory;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Tech {
+import java.util.List;
+
+public class Department {
 
     @SerializedName("name")
     @Expose
@@ -18,7 +19,7 @@ public class Tech {
     private List<Head> heads = null;
     @SerializedName("coHeads")
     @Expose
-    private List<CoHead> coHeads = null;
+    private List<Manager> coHeads = null;
     @SerializedName("events")
     @Expose
     private List<Event> events = null;
@@ -47,11 +48,11 @@ public class Tech {
         this.heads = heads;
     }
 
-    public List<CoHead> getCoHeads() {
+    public List<Manager> getCoHeads() {
         return coHeads;
     }
 
-    public void setCoHeads(List<CoHead> coHeads) {
+    public void setCoHeads(List<Manager> coHeads) {
         this.coHeads = coHeads;
     }
 

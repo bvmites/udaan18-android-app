@@ -4,7 +4,6 @@ package com.udaan18.udaan18.android.util;
 import com.udaan18.udaan18.android.model.eventCategory.Category;
 import com.udaan18.udaan18.android.model.eventCategory.Container;
 import com.udaan18.udaan18.android.model.eventCategory.Developer;
-import com.udaan18.udaan18.android.model.eventCategory.Tech;
 
 import java.util.List;
 

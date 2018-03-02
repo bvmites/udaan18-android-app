@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_events"
+        android:id="@+id/action_aboutUdaan"
         android:enabled="true"
         android:icon="@drawable/ic_camera"
-        android:title="@string/label_events"
+        android:title="@string/label_aboutUdaan"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_photo"
@@ -15,12 +15,14 @@
         android:icon="@drawable/ic_camera"
         android:title="@string/label_photo"
         app:showAsAction="ifRoom"/>
+
     <item
-        android:id="@+id/action_aboutUdaan"
+        android:id="@+id/action_events"
         android:enabled="true"
         android:icon="@drawable/ic_camera"
-        android:title="@string/label_aboutUdaan"
+        android:title="@string/label_events"
         app:showAsAction="ifRoom"/>
+
     <item
         android:id="@+id/action_team"
         android:enabled="true"

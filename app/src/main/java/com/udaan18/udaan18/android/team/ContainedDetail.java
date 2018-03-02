@@ -12,7 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.udaan18.udaan18.android.R;
-import com.udaan18.udaan18.android.databinding.ActivityCombinedDetailsBinding;
+import com.udaan18.udaan18.android.databinding.FragmentCombinedDetailsBinding;
+
 
 /**
  * Creator: Varun Barad
@@ -20,7 +21,7 @@ import com.udaan18.udaan18.android.databinding.ActivityCombinedDetailsBinding;
  * Project: udaan18-android-app
  */
 public class ContainedDetail extends Fragment {
-    private ActivityCombinedDetailsBinding dataBinding;
+    private FragmentCombinedDetailsBinding dataBinding;
     private CombinedDetailsAdapter adapter;
     private ViewPager pager;
     private Context context;
@@ -33,7 +34,7 @@ public class ContainedDetail extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        this.dataBinding = DataBindingUtil.inflate(inflater, R.layout.activity_combined_details, container, false);
+        this.dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_combined_details, container, false);
         adapter = new CombinedDetailsAdapter(getFragmentManager());
         pager = this.dataBinding.combinedDetailsViewPager;
         context = this.dataBinding.getRoot().getContext();

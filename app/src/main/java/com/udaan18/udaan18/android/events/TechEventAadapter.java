@@ -1,0 +1,61 @@
+package com.udaan18.udaan18.android.events;
+
+import android.app.Activity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+
+import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
+
+import org.json.JSONException;
+
+/**
+ * Created by jack on 03-03-2018.
+ */
+
+public class TechEventAadapter extends FragmentStatePagerAdapter {
+
+    private String title[] = {"Event", "Head"};
+    private Activity activity;
+    private int position;
+
+    public TechEventAadapter(FragmentManager fm, Activity activity, int position) {
+        super(fm);
+        this.activity = activity;
+        this.position = position;
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+
+        Fragment fragment = null;
+
+        switch (position) {
+            case 0:
+                try {
+                    fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(position).getEvents());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 1:
+                try {
+                    fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(position).getEvents());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
+        return fragment;
+    }
+
+    @Override
+    public int getCount() {
+        return 2;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return title[position];
+    }
+}

@@ -7,6 +7,13 @@
     <string name="label_team">Our Team</string>
     <string name="label_newsFeed">News</string>
 
-    <string name="PREFS_FILE_NAME">com.udaan18.android</string>
-    <string name="PREFS_EVENTS_DATA">events_data</string>
+    <!-- Shared Preference Keys -->
+
+    <string name="prefs_file_name" translatable="false">Udaan17Preferences</string>
+    <string name="prefs_version_code" translatable="false">version_code</string>
+    <string name="prefs_last_modified" translatable="false">last_modified</string>
+    <string name="prefs_event_data_json" translatable="false">data_json</string>
+    <string name="prefs_developer_data_json" translatable="false">developer_data_json</string>
+    <string name="prefs_team_udaan_data_json" translatable="false">team_udaan_data_json</string>
+
 </resources>
