@@ -10,6 +10,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.about.AboutUdaanFragment;
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+
     this.dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
     this.dataBinding
         .bottomNavigation
@@ -68,22 +71,67 @@ public class MainActivity extends AppCompatActivity {
       //  this.currentSelectedSection = itemId;
       switch (itemId) {
         case R.id.action_events:
+            this.dataBinding.toolbarTitle.setText("Events");
+            this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_events));
+            this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_events);
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                Window window = (MainActivity.this).getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(this.getResources().getColor(R.color.color_events));
+            }
             this.loadFragment(this.getCategoryFragment());
           break;
         case R.id.action_photo:
+            this.dataBinding.toolbarTitle.setText("Photo");
+            this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_photo));
+            this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_photo);
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                Window window = (MainActivity.this).getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(this.getResources().getColor(R.color.color_photo));
+            }
           this.loadFragment(this.getPhotoFragment());
           break;
         case R.id.action_aboutUdaan:
+            this.dataBinding.toolbarTitle.setText("About Udaan");
+            this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_about));
+            this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_about);
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                Window window = (MainActivity.this).getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(this.getResources().getColor(R.color.color_about));
+            }
           this.loadFragment(this.getAboutUdaanFragment());
           break;
         case R.id.action_team:
+            this.dataBinding.toolbarTitle.setText("Team");
+            this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_team));
+            this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_team);
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                Window window = (MainActivity.this).getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(this.getResources().getColor(R.color.color_team));
+            }
           /*this.dataBinding.tolMain.setVisibility(View.GONE);
           this.dataBinding.tolCom.setVisibility(View.VISIBLE);*/
             this.loadFragment(this.getContainedDetail());
 
           break;
         case R.id.action_newsFeed:
-          this.loadFragment(this.getNewsFragment());
+            this.dataBinding.toolbarTitle.setText("News");
+            this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_news));
+            this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_news);
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                Window window = (MainActivity.this).getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(this.getResources().getColor(R.color.color_news));
+            }
+            this.loadFragment(this.getNewsFragment());
           break;
       }
       // }
