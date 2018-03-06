@@ -53,5 +53,6 @@ public class DepartmentFragment extends Fragment implements ListItemClickCallBac
     @Override
     public void onItemClick(int position, int viewId) {
         ((MainActivity) getActivity()).loadTechEvents(position);
+
     }
 }

@@ -1,5 +1,6 @@
 package com.udaan18.udaan18.android.events;
 
+import android.annotation.SuppressLint;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,16 +18,22 @@ import com.udaan18.udaan18.android.databinding.FragmentTechEventBinding;
  * Created by jack on 03-03-2018.
  */
 
+@SuppressLint("ValidFragment")
 public class TechEventFragment extends Fragment {
-    private static int pos;
+    private int pos;
     private FragmentTechEventBinding binding;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private TechEventAadapter adapter;
 
-    public static TechEventFragment newInstance(int position) {
-        TechEventFragment fragment = new TechEventFragment();
+    @SuppressLint("ValidFragment")
+    public TechEventFragment(int position) {
         pos = position;
+    }
+
+    public static TechEventFragment newInstance(int position) {
+        TechEventFragment fragment = new TechEventFragment(position);
+        // pos = position;
         return fragment;
     }
 
@@ -37,7 +44,6 @@ public class TechEventFragment extends Fragment {
         adapter = new TechEventAadapter(getFragmentManager(), getActivity(), pos);
         tabLayout = this.binding.techEventTablayout;
         viewPager = this.binding.techEventViewPager;
-
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         this.binding.techEventNestScrollView.setFillViewport(true);

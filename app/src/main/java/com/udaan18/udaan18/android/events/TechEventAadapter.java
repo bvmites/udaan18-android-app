@@ -17,12 +17,13 @@ public class TechEventAadapter extends FragmentStatePagerAdapter {
 
     private String title[] = {"Event", "Head"};
     private Activity activity;
-    private int position;
+    private int pos;
 
     public TechEventAadapter(FragmentManager fm, Activity activity, int position) {
         super(fm);
         this.activity = activity;
-        this.position = position;
+        this.pos = position;
+
     }
 
     @Override
@@ -33,14 +34,15 @@ public class TechEventAadapter extends FragmentStatePagerAdapter {
         switch (position) {
             case 0:
                 try {
-                    fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(position).getEvents());
+                    // Toast.makeText(activity.getApplicationContext(),"position="+SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(this.position).getEvents(),Toast.LENGTH_LONG).show();
+                    fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(this.pos).getEvents());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 break;
             case 1:
                 try {
-                    fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(position).getEvents());
+                    fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(pos).getEvents());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".events/EventDetailFragment">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_description_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:lineSpacingExtra="5dp"
+                android:paddingEnd="0dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="0dp"
+                android:paddingStart="15dp"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="20sp"
+                tools:text="Conquer the iron throne" />
+
+            <android.support.v4.widget.Space
+                android:id="@+id/space_event_details_description_participants"
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_participants_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Participants"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_participants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:lineSpacingExtra="5dp"
+                android:paddingEnd="0dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="0dp"
+                android:paddingStart="15dp"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="20sp"
+                tools:text="2" />
+
+            <android.support.v4.widget.Space
+                android:id="@+id/space_event_details_participants_rounds"
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_rounds_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rounds"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_rounds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:lineSpacingExtra="5dp"
+                android:paddingEnd="0dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="0dp"
+                android:paddingStart="15dp"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="20sp"
+                tools:text="2" />
+
+            <android.support.v4.widget.Space
+                android:id="@+id/space_event_details_rounds_fees"
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_fees_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fees"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_fees"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:lineSpacingExtra="5dp"
+                android:paddingEnd="0dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="0dp"
+                android:paddingStart="15dp"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="20sp"
+                tools:text="\u20b9 20" />
+
+            <android.support.v4.widget.Space
+                android:id="@+id/space_event_details_fees_contact"
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_prize_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prizes"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_prize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:lineSpacingExtra="5dp"
+                android:paddingEnd="0dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="0dp"
+                android:paddingStart="15dp"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="20sp"
+                tools:text="\u20b9 20" />
+
+            <android.support.v4.widget.Space
+                android:id="@+id/space_event_details_fees_contact1"
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/button_event_details_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact Event Managers"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+        </android.support.v7.widget.LinearLayoutCompat>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

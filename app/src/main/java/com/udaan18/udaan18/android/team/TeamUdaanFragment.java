@@ -46,6 +46,7 @@ public class TeamUdaanFragment extends Fragment {
 
         try {
             this.initializeElements(rootView);
+            afterT();
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -4,9 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.udaan18.udaan18.android.about.AboutUdaanFragment;
-import com.udaan18.udaan18.android.news.NewsFragment;
-
 
 /**
  * Created by pranshu on 15/3/17.
@@ -14,7 +11,7 @@ import com.udaan18.udaan18.android.news.NewsFragment;
 
 public class CombinedDetailsAdapter extends FragmentStatePagerAdapter {
 
-    private String title[] = {"Developers", "About us"};
+    private String title[] = {"DEVELOPERS", "TEAM UDAAN"};
 
     public CombinedDetailsAdapter(FragmentManager fm) {
         super(fm);

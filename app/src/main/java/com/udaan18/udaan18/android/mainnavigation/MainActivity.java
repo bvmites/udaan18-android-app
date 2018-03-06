@@ -58,11 +58,14 @@ public class MainActivity extends AppCompatActivity {
           }
         });
       this.loadFragment(this.getCategoryFragment());
+      this.dataBinding.bottomNavigation.setSelectedItemId(R.id.action_events);
+      //setSupportActionBar(this.dataBinding.toolbar);
+      // this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
   }
   
   private void handleBottomNavigationItemSelect(@IdRes int itemId) {
-    if (itemId != this.currentSelectedSection) {
-      this.currentSelectedSection = itemId;
+      // if (itemId != this.currentSelectedSection) {
+      //  this.currentSelectedSection = itemId;
       switch (itemId) {
         case R.id.action_events:
             this.loadFragment(this.getCategoryFragment());
@@ -83,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
           this.loadFragment(this.getNewsFragment());
           break;
       }
-    }
+      // }
   }
   
   private Fragment getEventsFragment() {
