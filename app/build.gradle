@@ -46,6 +46,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}"
 
     // Android data-binding annotation processor for Kotlin
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     kapt "com.android.databinding:compiler:${androidPluginVersion}"
 
     // Google Design Support libraries

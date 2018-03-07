@@ -136,6 +136,16 @@
                     android:layout_weight="1" />
             </android.support.v7.widget.LinearLayoutCompat>
 
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/available_on"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Available on"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
             <android.support.v7.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -212,6 +222,17 @@
                     android:layout_weight="1" />
             </android.support.v7.widget.LinearLayoutCompat>
 
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/our_ar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Our AR"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+
             <android.support.v7.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -261,6 +282,34 @@
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/color_cultural" />
+
+
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/our_sponsors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Our Sponsors"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/color_cultural" />
 
             <View
                 android:layout_width="match_parent"

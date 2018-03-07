@@ -39,6 +39,8 @@
     <color name="color_team_udaan">#ff040121</color>
     <color name="colorTextPrimary">#ff212121</color>
     <color name="colorTextSecondary">#ff727272</color>
+    <color name="colorTextSecondary1">#212121</color>
+    <color name="colorTextPrimary1">#ff212110</color>
 
     <color name="color_events">#ffd33124</color>
     <color name="color_photo">#ff189947</color>
