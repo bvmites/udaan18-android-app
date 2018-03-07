@@ -1,6 +1,7 @@
 package com.udaan18.udaan18.android.mainnavigation;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
@@ -17,9 +18,11 @@ import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.about.AboutUdaanFragment;
 import com.udaan18.udaan18.android.databinding.ActivityMainBinding;
 import com.udaan18.udaan18.android.events.DepartmentFragment;
+import com.udaan18.udaan18.android.events.EventDetailFragment;
 import com.udaan18.udaan18.android.events.EventsFragment;
 import com.udaan18.udaan18.android.events.MainCategoryFragment;
 import com.udaan18.udaan18.android.events.TechEventFragment;
+import com.udaan18.udaan18.android.model.eventCategory.Event;
 import com.udaan18.udaan18.android.news.NewsFragment;
 import com.udaan18.udaan18.android.photo.PhotoFragment;
 import com.udaan18.udaan18.android.team.ContainedDetail;
@@ -62,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
         });
       this.loadFragment(this.getCategoryFragment());
       this.dataBinding.bottomNavigation.setSelectedItemId(R.id.action_events);
-      //setSupportActionBar(this.dataBinding.toolbar);
-      // this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
+
   }
   
   private void handleBottomNavigationItemSelect(@IdRes int itemId) {
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             this.dataBinding.toolbarTitle.setText("Events");
             this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_events));
             this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_events);
+            //removeBack(MainActivity.this);
             if (android.os.Build.VERSION.SDK_INT >= 21) {
                 Window window = (MainActivity.this).getWindow();
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -136,14 +140,29 @@ public class MainActivity extends AppCompatActivity {
       }
       // }
   }
-  
-  private Fragment getEventsFragment() {
-    if (this.eventsFragment == null) {
-        // this.eventsFragment = EventsFragment.newInstance();
+
+    public void setBack() {
+        setSupportActionBar(this.dataBinding.toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_events)));
     }
-    
-    return this.eventsFragment;
-  }
+
+    public void removeBack() {
+        this.setSupportActionBar(this.dataBinding.toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
   
   private Fragment getPhotoFragment() {
     if (this.photoFragment == null) {
@@ -154,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
     private Fragment getCategoryFragment() {
+        removeBack();
         if (this.category == null) {
             this.category = MainCategoryFragment.newInstance();
         }
@@ -207,6 +227,9 @@ public class MainActivity extends AppCompatActivity {
                         fragment
                 ).addToBackStack(null)
                 .commit();
+        if (this.getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            removeBack();
+        }
     }
 
     public void loadTechEvents(int position) {
@@ -240,5 +263,13 @@ public class MainActivity extends AppCompatActivity {
 
         departmentFragment = DepartmentFragment.newInstance();
         this.loadFragmentWithBackstack(departmentFragment);
+    }
+
+    public void getEventDetailFragment(Event event) {
+        EventDetailFragment eventDetailFragment = null;
+        eventDetailFragment = EventDetailFragment.newInstence(event);
+
+
+        this.loadFragmentWithBackstack(eventDetailFragment);
     }
 }

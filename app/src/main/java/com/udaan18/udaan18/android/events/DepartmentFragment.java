@@ -34,7 +34,9 @@ public class DepartmentFragment extends Fragment implements ListItemClickCallBac
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = DataBindingUtil.inflate(inflater, R.layout.fragment_department, container, false);
+
         try {
+            ((MainActivity) getActivity()).setBack();
             RecyclerView view = binding.departmentRecycleview;
             DepartmentAdapter adapter = null;
 

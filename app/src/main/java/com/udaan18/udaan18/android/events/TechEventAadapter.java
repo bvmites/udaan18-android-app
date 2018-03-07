@@ -42,7 +42,7 @@ public class TechEventAadapter extends FragmentStatePagerAdapter {
                 break;
             case 1:
                 try {
-                    fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(pos).getEvents());
+                    fragment = ManagerFragment.getInstance(SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(pos));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

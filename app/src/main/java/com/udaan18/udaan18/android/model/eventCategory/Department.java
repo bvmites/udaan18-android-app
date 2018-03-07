@@ -16,7 +16,7 @@ public class Department {
     private String alias;
     @SerializedName("heads")
     @Expose
-    private List<Head> heads = null;
+    private List<Manager> heads = null;
     @SerializedName("coHeads")
     @Expose
     private List<Manager> coHeads = null;
@@ -40,11 +40,11 @@ public class Department {
         this.alias = alias;
     }
 
-    public List<Head> getHeads() {
+    public List<Manager> getHeads() {
         return heads;
     }
 
-    public void setHeads(List<Head> heads) {
+    public void setHeads(List<Manager> heads) {
         this.heads = heads;
     }
 

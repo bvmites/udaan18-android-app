@@ -9,19 +9,19 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.model.eventCategory.Developer;
 import com.udaan18.udaan18.android.util.Helper;
 import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
+import com.udaan18.udaan18.android.util.listeners.ListItemClickCallBack;
 
 import org.json.JSONException;
 
 import java.util.List;
 
 
-public class DeveloperFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class DeveloperFragment extends Fragment implements ListItemClickCallBack {
 
     private View rootView;
     private RecyclerView developerRecyclerView;
@@ -50,12 +50,14 @@ public class DeveloperFragment extends Fragment implements AdapterView.OnItemCli
 
         this.developerRecyclerView.setLayoutManager(new GridLayoutManager(this.getContext(), 1, LinearLayoutManager.VERTICAL, false));
         this.developerRecyclerView.setAdapter(developerAdapter);
+        developerAdapter.setItemClickCallBack(this);
 
     }
 
+
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        switch (view.getId()) {
+    public void onItemClick(int position, int viewId) {
+        switch (viewId) {
             case R.id.developer_mobile:
                 Helper.makeCall(this.developersArrayList.get(position).getMobile(), this.getContext());
                 break;

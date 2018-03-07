@@ -1,6 +1,7 @@
 package com.udaan18.udaan18.android.team;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
@@ -9,23 +10,50 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.model.eventCategory.Developer;
+import com.udaan18.udaan18.android.util.Helper;
+import com.udaan18.udaan18.android.util.listeners.ListItemClickCallBack;
 
 import java.util.List;
 
 
 public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.ViewHolder> {
 
+    ListItemClickCallBack itemClickCallBack;
     private List<Developer> developers;
     private Context context;
-
     private int lastPosition = -1;
 
     public DeveloperAdapter(List<Developer> developers, Context context) {
         this.developers = developers;
         this.context = context;
+    }
+
+    private static int getColorId(String category, Context context) {
+        int id = context
+                .getResources()
+                .getIdentifier("color_" + Helper.getResourceNameFromTitle(category), "color", context.getPackageName());
+
+        if (id == 0) {
+            id = R.color.colorTeal;
+        }
+        return id;
+    }
+
+    private static int getIconId(String category, Context context) {
+        int id = context
+                .getResources()
+                .getIdentifier(Helper.getResourceNameFromTitle(category), "drawable", context.getPackageName());
+
+        if (id == 0) {
+            id = R.drawable.github;
+        }
+        return id;
+    }
+
+    public void setItemClickCallBack(ListItemClickCallBack itemClickCallBack) {
+        this.itemClickCallBack = itemClickCallBack;
     }
 
     @Override
@@ -36,11 +64,11 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        // int colorId = DeveloperAdapter.getColorId(developers.get(position).getCategory(), this.context);
-        // int iconId = DeveloperAdapter.getIconId(developers.get(position).getCategory(), this.context);
+        int colorId = DeveloperAdapter.getColorId(developers.get(position).getCategory(), this.context);
+        int iconId = DeveloperAdapter.getIconId(developers.get(position).getCategory(), this.context);
 
-        // holder.categoryIcon.setImageResource(iconId);
-        // holder.categoryIcon.setBackgroundColor(ContextCompat.getColor(this.context, colorId));
+        holder.categoryIcon.setImageResource(iconId);
+        holder.categoryIcon.setBackgroundColor(ContextCompat.getColor(this.context, colorId));
         holder.title.setText(developers.get(position).getTitle());
         holder.name.setText(developers.get(position).getName());
 
@@ -51,11 +79,6 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
     @Override
     public int getItemCount() {
         return this.developers.size();
-    }
-
-    @Override
-    public void onViewDetachedFromWindow(ViewHolder holder) {
-        holder.clearAnimation();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -83,13 +106,11 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
             this.mobile.setOnClickListener(this);
         }
 
+
         @Override
         public void onClick(View view) {
-            //itemClickCallBack.onItemClick(getAdapterPosition(), view.getId());
+            itemClickCallBack.onItemClick(getAdapterPosition(), view.getId());
         }
 
-        public void clearAnimation() {
-            container.clearAnimation();
-        }
     }
 }
