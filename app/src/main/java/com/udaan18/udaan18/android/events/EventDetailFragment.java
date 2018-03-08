@@ -30,10 +30,10 @@ public class EventDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = DataBindingUtil.inflate(inflater, R.layout.fargment_event_detail, container, false);
-        this.binding.textViewEventDetailsDescription.setText(event.getDescription());
-        this.binding.textViewEventDetailsParticipants.setText(event.getParticipants());
+        this.binding.textViewEventDetailsDescription.setText(event.getTag());
+        this.binding.textViewEventDetailsParticipants.setText("" + event.getParticipants());
         this.binding.textViewEventDetailsRounds.setText("" + event.getRounds());
-        this.binding.textViewEventDetailsFees.setText(event.getFees());
+        this.binding.textViewEventDetailsFees.setText("" + event.getFees());
         this.binding.textViewEventDetailsPrize.setText(event.getPrizes() + "");
         return this.binding.getRoot();
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.udaan18.udaan18.android.R;
+import com.udaan18.udaan18.android.mainnavigation.MainActivity;
 
 /**
  * Creator: Varun Barad
@@ -16,16 +17,22 @@ import com.udaan18.udaan18.android.R;
  */
 public class AboutUdaanFragment extends Fragment {
     View rootView;
-  
-  public static AboutUdaanFragment newInstance() {
-    AboutUdaanFragment fragment = new AboutUdaanFragment();
-    return fragment;
-  }
-  
-  @Nullable
-  @Override
-  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-      rootView = inflater.inflate(R.layout.fragment_about_udaan, container, false);
-      return rootView;
-  }
+
+    public static AboutUdaanFragment newInstance() {
+        AboutUdaanFragment fragment = new AboutUdaanFragment();
+        return fragment;
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.fragment_about_udaan, container, false);
+        return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) this.getActivity()).removeBack();
+    }
 }

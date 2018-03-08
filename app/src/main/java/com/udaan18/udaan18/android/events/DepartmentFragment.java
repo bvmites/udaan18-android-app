@@ -24,7 +24,7 @@ import org.json.JSONException;
 
 public class DepartmentFragment extends Fragment implements ListItemClickCallBack {
     FragmentDepartmentBinding binding;
-
+    DepartmentAdapter adapter;
     public static DepartmentFragment newInstance() {
         DepartmentFragment fragment = new DepartmentFragment();
         return fragment;
@@ -38,10 +38,10 @@ public class DepartmentFragment extends Fragment implements ListItemClickCallBac
         try {
             ((MainActivity) getActivity()).setBack();
             RecyclerView view = binding.departmentRecycleview;
-            DepartmentAdapter adapter = null;
+            if (adapter == null) {
 
-            adapter = new DepartmentAdapter(SharedPreferenceHelper.getInstance(getActivity()).getDepartmentsList(), getContext());
-
+                adapter = new DepartmentAdapter(SharedPreferenceHelper.getInstance(getActivity()).getDepartmentsList(), getContext());
+            }
             view.setAdapter(adapter);
             view.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
             adapter.setItemClickCallBack(this);

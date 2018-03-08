@@ -1,9 +1,10 @@
 
 package com.udaan18.udaan18.android.model.eventCategory;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class Event {
 
@@ -12,16 +13,19 @@ public class Event {
     private String name;
     @SerializedName("participants")
     @Expose
-    private String participants;
+    private Integer participants;
     @SerializedName("fees")
     @Expose
-    private String fees;
-    @SerializedName("description")
+    private Integer fees;
+    @SerializedName("tagline")
     @Expose
-    private String description;
+    private String tag;
+    @SerializedName("notes")
+    @Expose
+    private String notes;
     @SerializedName("prizes")
     @Expose
-    private List<String> prizes = null;
+    private List<Integer> prizes = null;
     @SerializedName("rounds")
     @Expose
     private List<String> rounds = null;
@@ -37,35 +41,44 @@ public class Event {
         this.name = name;
     }
 
-    public String getParticipants() {
+    public Integer getParticipants() {
         return participants;
     }
 
-    public void setParticipants(String participants) {
+    public void setParticipants(Integer participants) {
         this.participants = participants;
     }
 
-    public String getFees() {
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+
+    public Integer getFees() {
         return fees;
     }
 
-    public void setFees(String fees) {
+    public void setFees(Integer fees) {
         this.fees = fees;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTag() {
+        return tag;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTag(String description) {
+        this.tag = description;
     }
 
-    public List<String> getPrizes() {
+    public List<Integer> getPrizes() {
         return prizes;
     }
 
-    public void setPrizes(List<String> prizes) {
+    public void setPrizes(List<Integer> prizes) {
         this.prizes = prizes;
     }
 

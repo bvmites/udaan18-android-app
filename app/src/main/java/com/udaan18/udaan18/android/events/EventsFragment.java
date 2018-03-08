@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.adapters.EventAdapter;
@@ -39,6 +38,7 @@ public class EventsFragment extends Fragment implements ListItemClickCallBack {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_events, container, false);
+        ((MainActivity) getActivity()).setBack();
         fetchEvent();
         return this.dataBinding.getRoot();
     }
@@ -55,10 +55,9 @@ public class EventsFragment extends Fragment implements ListItemClickCallBack {
 
     }
 
-
     @Override
     public void onItemClick(int position, int viewId) {
         ((MainActivity) getActivity()).getEventDetailFragment(events.get(position));
-        Toast.makeText(getContext(), "here" + position, Toast.LENGTH_LONG).show();
+        // Toast.makeText(getContext(), "here" + position, Toast.LENGTH_LONG).show();
     }
 }

@@ -9,7 +9,7 @@ public class Manager {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("mobile")
+    @SerializedName("phone")
     @Expose
     private String mobile;
 

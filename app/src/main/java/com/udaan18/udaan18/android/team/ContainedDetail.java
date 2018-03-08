@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.databinding.FragmentCombinedDetailsBinding;
+import com.udaan18.udaan18.android.mainnavigation.MainActivity;
 
 
 /**
@@ -31,15 +32,29 @@ public class ContainedDetail extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        ((MainActivity) getActivity()).getSupportActionBar().hide();
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_combined_details, container, false);
+
+
         adapter = new CombinedDetailsAdapter(getFragmentManager());
         pager = this.dataBinding.combinedDetailsViewPager;
         context = this.dataBinding.getRoot().getContext();
         helpTab();
         return this.dataBinding.getRoot();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((MainActivity) getActivity()).getSupportActionBar().show();
     }
 
     void helpTab() {

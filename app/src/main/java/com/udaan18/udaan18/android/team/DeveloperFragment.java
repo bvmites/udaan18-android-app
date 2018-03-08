@@ -34,7 +34,6 @@ public class DeveloperFragment extends Fragment implements ListItemClickCallBack
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_developer, container, false);
-
         try {
             afterIn();
         } catch (JSONException e) {
@@ -45,6 +44,7 @@ public class DeveloperFragment extends Fragment implements ListItemClickCallBack
 
     void afterIn() throws JSONException {
         developersArrayList = SharedPreferenceHelper.getInstance(getActivity()).getDevelopersList();
+        // Toast.makeText(getActivity(), ""+developersArrayList, Toast.LENGTH_SHORT).show();
         this.developerRecyclerView = (RecyclerView) rootView.findViewById(R.id.developer_recyclerView);
         developerAdapter = new DeveloperAdapter(developersArrayList, this.getContext());
 

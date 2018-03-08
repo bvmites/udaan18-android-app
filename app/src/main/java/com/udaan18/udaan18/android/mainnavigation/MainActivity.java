@@ -36,8 +36,8 @@ import org.json.JSONException;
 
 public class MainActivity extends AppCompatActivity {
   private ActivityMainBinding dataBinding;
-  
-  private EventsFragment eventsFragment;
+
+    /// private EventsFragment eventsFragment;
   private PhotoFragment photoFragment;
   private AboutUdaanFragment aboutUdaanFragment;
     private MainCategoryFragment category;
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             this.loadFragment(this.getCategoryFragment());
           break;
         case R.id.action_photo:
-            this.dataBinding.toolbarTitle.setText("Photo");
+            this.dataBinding.toolbarTitle.setText("Photo Filter");
             this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_photo));
             this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_photo);
             if (android.os.Build.VERSION.SDK_INT >= 21) {
@@ -111,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
           this.loadFragment(this.getAboutUdaanFragment());
           break;
         case R.id.action_team:
-            this.dataBinding.toolbarTitle.setText("Team");
-            this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_team));
+//            this.dataBinding.toolbarTitle.setText("Team");
+//            this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_team));
             this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_team);
             if (android.os.Build.VERSION.SDK_INT >= 21) {
                 Window window = (MainActivity.this).getWindow();
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
           break;
         case R.id.action_newsFeed:
-            this.dataBinding.toolbarTitle.setText("News");
+            this.dataBinding.toolbarTitle.setText("Notifications");
             this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_news));
             this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_news);
             if (android.os.Build.VERSION.SDK_INT >= 21) {
@@ -184,16 +184,11 @@ public class MainActivity extends AppCompatActivity {
     if (this.aboutUdaanFragment == null) {
       this.aboutUdaanFragment = AboutUdaanFragment.newInstance();
     }
-    
     return this.aboutUdaanFragment;
   }
 
     private Fragment getContainedDetail() {
-
-
         this.containedDetail = ContainedDetail.newInstance();
-
-
         return this.containedDetail;
   }
   
@@ -252,6 +247,16 @@ public class MainActivity extends AppCompatActivity {
         EventsFragment fragment = null;
         try {
             fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(MainActivity.this).getCulturalList());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        this.loadFragmentWithBackstack(fragment);
+    }
+
+    public void loadAdventure() {
+        EventsFragment fragment = null;
+        try {
+            fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(MainActivity.this).getAdventure());
         } catch (JSONException e) {
             e.printStackTrace();
         }

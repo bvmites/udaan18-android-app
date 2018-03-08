@@ -9,21 +9,53 @@ import java.util.List;
 
 public class Container {
 
-    @SerializedName("tech")
+    @SerializedName("technical")
     @Expose
     private List<Department> departments = null;
-    @SerializedName("nonTech")
+    @SerializedName("adventure")
+    @Expose
+    private List<Event> adventure = null;
+    @SerializedName("nonTechnical")
     @Expose
     private List<Event> nonTech = null;
     @SerializedName("cultural")
     @Expose
     private List<Event> cultural = null;
+    @SerializedName("girls")
+    @Expose
+    private List<Event> girls = null;
+    @SerializedName("treasureHunt")
+    @Expose
+    private List<Event> treasureHunt = null;
 
     public static Container getInstance(String json) {
         Gson gson = new Gson();
         return gson.fromJson(json, Container.class);
     }
 
+    public List<Event> getAdventure() {
+        return adventure;
+    }
+
+    public void setAdventure(List<Event> adventure) {
+        this.adventure = adventure;
+    }
+
+    public List<Event> getGirls() {
+        return girls;
+    }
+
+    public void setGirls(List<Event> girls) {
+        this.girls = girls;
+    }
+
+    public List<Event> getTreasureHunt() {
+        return treasureHunt;
+    }
+
+    public void setTreasureHunt(List<Event> treasureHunt) {
+        this.treasureHunt = treasureHunt;
+    }
     public List<Department> getDepartments() {
         return departments;
     }
