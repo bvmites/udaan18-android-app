@@ -31,9 +31,9 @@ import com.udaan18.udaan18.android.util.Helper;
 public class AboutUdaanFragment extends Fragment {
     private final String EMAIL_ADDRESS = "developer.team.udaan@gmail.com";
     private final String YOUTUBE_LINK = "UCnqRgS6O0MGF8sTYb_fHjWA";
-    private final String FACEBOOK_LINK = "https://www.facebook.com/teamudaan17/";
+    private final String FACEBOOK_LINK = "https://www.facebook.com/teamudaan18/";
     private final String PLAY_STORE = "";
-    private final String WEB_LINK = "https://www.udaan17.in";
+    private final String WEB_LINK = "https://www.udaan18.com";
     private final String INSTAGRAM_LINK = "";
     private final String lat = "22.5525703";
     private final String lon = "72.9240181";
