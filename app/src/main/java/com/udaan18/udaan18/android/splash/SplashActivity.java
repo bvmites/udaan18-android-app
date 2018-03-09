@@ -36,6 +36,7 @@ import retrofit2.Response;
 
 public class SplashActivity extends Activity {
 
+
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 3000;
     VideoView videoView;
@@ -44,6 +45,7 @@ public class SplashActivity extends Activity {
     private SharedPreferences.Editor editor;
     private Context context;
     private RestClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +77,6 @@ public class SplashActivity extends Activity {
         });
 
         videoView.start();
-
-
         if (Helper.hasNetworkConnection(this)) {
             try {
                 getEventData();
@@ -89,6 +89,7 @@ public class SplashActivity extends Activity {
         } else if (!this.getSharedPreferences(this.getString(R.string.prefs_file_name), Context.MODE_PRIVATE).contains(this.getString(R.string.prefs_event_data_json))) {
             Helper.showNetworkAlertPopup(this);
         } else {
+
 
         }
     }
@@ -146,6 +147,7 @@ public class SplashActivity extends Activity {
         });
         // performTask();
     }
+
 
     /* void performTask() {
          new Handler().postDelayed(new Runnable() {
