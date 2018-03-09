@@ -47,4 +47,7 @@
     <color name="color_about">#ffc1333f</color>
     <color name="color_team">#ff0957a1</color>
     <color name="color_news">#ff511e3f</color>
+
+    <color name="colorDivider">#ffb6b6b6</color>
+    <color name="colorCardBackground">#88000000</color>
 </resources>

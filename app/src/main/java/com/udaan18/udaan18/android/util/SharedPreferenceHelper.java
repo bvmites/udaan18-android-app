@@ -1,6 +1,5 @@
 package com.udaan18.udaan18.android.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -30,6 +29,7 @@ public class SharedPreferenceHelper {
 
     private List<Department> departments;
     private List<Developer> developers;
+    private List<Event> adventure;
     private List<Event> nonTechList;
     private List<Event> culturalList;
     private List<Category> teamUdaan;
@@ -47,10 +47,10 @@ public class SharedPreferenceHelper {
         parseAndLoadData(data, developers, teamUdaan);
     }
 
-    public static SharedPreferenceHelper getInstance(Activity activity) throws JSONException {
+    public static SharedPreferenceHelper getInstance(Context context) throws JSONException {
 
         if (SharedPreferenceHelper.helper == null) {
-            SharedPreferenceHelper.helper = new SharedPreferenceHelper(activity);
+            SharedPreferenceHelper.helper = new SharedPreferenceHelper(context);
         }
         return SharedPreferenceHelper.helper;
 
@@ -59,9 +59,10 @@ public class SharedPreferenceHelper {
     private void parseAndLoadData(JSONObject data, JSONArray developers, JSONArray teamUdaan) throws JSONException {
         Gson gson = new Gson();
 
-        this.departments = new ArrayList<>(Arrays.asList(gson.fromJson(data.getJSONArray("tech").toString(), Department[].class)));
-        this.nonTechList = new ArrayList<>(Arrays.asList(gson.fromJson(data.getJSONArray("nonTech").toString(), Event[].class)));
+        this.departments = new ArrayList<>(Arrays.asList(gson.fromJson(data.getJSONArray("technical").toString(), Department[].class)));
+        this.nonTechList = new ArrayList<>(Arrays.asList(gson.fromJson(data.getJSONArray("nonTechnical").toString(), Event[].class)));
         this.culturalList = new ArrayList<>(Arrays.asList(gson.fromJson(data.getJSONArray("cultural").toString(), Event[].class)));
+        this.adventure = new ArrayList<>(Arrays.asList(gson.fromJson(data.getJSONArray("adventure").toString(), Event[].class)));
         this.developers = new ArrayList<>(Arrays.asList(gson.fromJson(developers.toString(), Developer[].class)));
         this.teamUdaan = new ArrayList<>(Arrays.asList(gson.fromJson(teamUdaan.toString(), Category[].class)));
     }
@@ -84,6 +85,10 @@ public class SharedPreferenceHelper {
 
     public List<Category> getTeamUdaan() {
         return teamUdaan;
+    }
+
+    public List<Event> getAdventure() {
+        return adventure;
     }
 
 

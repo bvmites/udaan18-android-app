@@ -1,13 +1,10 @@
 package com.udaan18.udaan18.android.events;
 
-import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
-
-import org.json.JSONException;
+import com.udaan18.udaan18.android.model.eventCategory.Department;
 
 /**
  * Created by jack on 03-03-2018.
@@ -16,13 +13,11 @@ import org.json.JSONException;
 public class TechEventAadapter extends FragmentStatePagerAdapter {
 
     private String title[] = {"Event", "Head"};
-    private Activity activity;
-    private int pos;
+    private Department department;
 
-    public TechEventAadapter(FragmentManager fm, Activity activity, int position) {
+    public TechEventAadapter(FragmentManager fm, Department department) {
         super(fm);
-        this.activity = activity;
-        this.pos = position;
+        this.department = department;
 
     }
 
@@ -33,19 +28,10 @@ public class TechEventAadapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                try {
-                    // Toast.makeText(activity.getApplicationContext(),"position="+SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(this.position).getEvents(),Toast.LENGTH_LONG).show();
-                    fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(this.pos).getEvents());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                fragment = EventsFragment.newInstance(department.getEvents());
                 break;
             case 1:
-                try {
-                    fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(activity).getDepartmentsList().get(pos).getEvents());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                fragment = ManagerFragment.getInstance(department);
                 break;
         }
         return fragment;

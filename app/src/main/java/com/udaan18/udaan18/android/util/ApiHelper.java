@@ -15,9 +15,9 @@ import retrofit2.http.GET;
  */
 
 public interface ApiHelper {
-    String BASE_URL = "https://raw.githubusercontent.com/bvmites/udaan17-android-app/master/mock-api/";
+    String BASE_URL = "https://raw.githubusercontent.com/bvmites/udaan18-website/master/";
 
-    @GET("event-data.json")
+    @GET("data.json")
     Call<Container> getEvents();
 
     @GET("developers.json")

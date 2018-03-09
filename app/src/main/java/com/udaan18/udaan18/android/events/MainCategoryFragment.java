@@ -32,8 +32,15 @@ public class MainCategoryFragment extends Fragment implements View.OnClickListen
         this.dataBinding.categoriesFragmentCardView1.setOnClickListener(this);
         this.dataBinding.categoriesFragmentCardView2.setOnClickListener(this);
         this.dataBinding.categoriesFragmentCardView3.setOnClickListener(this);
+        this.dataBinding.categoriesFragmentCardView4.setOnClickListener(this);
 
         return this.dataBinding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) this.getActivity()).removeBack();
     }
 
     @Override
@@ -41,14 +48,20 @@ public class MainCategoryFragment extends Fragment implements View.OnClickListen
 
         switch (v.getId()) {
             case R.id.categories_fragment_cardView1:
+
                 ((MainActivity) getActivity()).loadDepartments();
                 break;
             case R.id.categories_fragment_cardView2:
+
                 ((MainActivity) getActivity()).loadNonTechEvents();
                 break;
             case R.id.categories_fragment_cardView3:
+
                 ((MainActivity) getActivity()).loadCulturalEvents();
                 break;
+            case R.id.categories_fragment_cardView4:
+
+                ((MainActivity) getActivity()).loadAdventure();
             default:
                 break;
         }

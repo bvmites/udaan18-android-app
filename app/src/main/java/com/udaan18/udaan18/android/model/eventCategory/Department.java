@@ -11,12 +11,9 @@ public class Department {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("alias")
-    @Expose
-    private String alias;
     @SerializedName("heads")
     @Expose
-    private List<Head> heads = null;
+    private List<Manager> heads = null;
     @SerializedName("coHeads")
     @Expose
     private List<Manager> coHeads = null;
@@ -32,19 +29,11 @@ public class Department {
         this.name = name;
     }
 
-    public String getAlias() {
-        return alias;
-    }
-
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
-
-    public List<Head> getHeads() {
+    public List<Manager> getHeads() {
         return heads;
     }
 
-    public void setHeads(List<Head> heads) {
+    public void setHeads(List<Manager> heads) {
         this.heads = heads;
     }
 
