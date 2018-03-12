@@ -157,6 +157,27 @@
                     android:layout_weight="1" />
 
                 <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/website"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:scaleType="fitCenter"
+                    app:backgroundTint="@color/color_embeddrones"
+                    app:srcCompat="@drawable/web_site" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent" />
+
+
+                <android.support.v7.widget.AppCompatImageButton
                     android:id="@+id/playstore"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -193,7 +214,7 @@
                     android:layout_height="match_parent" />
 
                 <android.support.v7.widget.AppCompatImageButton
-                    android:id="@+id/phone"
+                    android:id="@+id/windows"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginBottom="8dp"
@@ -271,33 +292,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/color_cultural" />
-
-
-            <android.support.v4.widget.Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/our_sponsors"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Our Sponsors"
-                android:textAlignment="center"
-                android:textColor="@color/colorWhite"
-                android:textSize="20sp" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/color_cultural" />
 
             <View
                 android:layout_width="match_parent"
@@ -358,70 +352,19 @@
                 android:layout_height="10dp" />
 
             <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/our_sponsors"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Pop Heads"
+                android:text="Our Sponsors"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp" />
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/contact_us_attribution"
+            <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingBottom="24dp"
-                android:paddingTop="8dp"
-                android:text="Attribution to Kode Logic"
-                android:textAlignment="center"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
+                android:layout_height="10dp" />
 
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Icons"
-                android:textAlignment="center"
-                android:textColor="@color/colorWhite"
-                android:textSize="20sp" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/contact_us_icons_attribution"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingBottom="0dp"
-                android:paddingTop="8dp"
-                android:text="Attribution to Freepik"
-                android:textAlignment="center"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/contact_us_icons_attribution1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingBottom="24dp"
-                android:paddingTop="8dp"
-                android:text="from FlatIcon"
-                android:textAlignment="center"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
         </android.support.v7.widget.LinearLayoutCompat>
-
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/website"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-            app:backgroundTint="@color/color_embeddrones"
-            app:srcCompat="@drawable/web" />
     </android.support.v4.widget.NestedScrollView>
 </android.support.v7.widget.LinearLayoutCompat>

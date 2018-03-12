@@ -12,7 +12,7 @@ public class SponsorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sponsor);
+        setContentView(R.layout.fragment_sponsor);
 
         Window window = (SponsorActivity.this).getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);

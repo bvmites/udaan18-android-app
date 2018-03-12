@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".events/EventDetailFragment">
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -19,15 +16,7 @@
             android:paddingTop="5dp">
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/text_view_event_details_description_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Description"
-                android:textColor="@color/colorTextSecondary"
-                android:textSize="20sp" />
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/text_view_event_details_description"
+                android:id="@+id/text_view_event_details_tagline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
@@ -54,7 +43,7 @@
                 android:textSize="20sp" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/text_view_event_details_participants"
+                android:id="@+id/text_view_event_participants"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
@@ -73,15 +62,15 @@
                 android:layout_height="5dp" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/text_view_event_details_rounds_label"
+                android:id="@+id/text_view_event_details_level_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rounds"
+                android:text="Levels"
                 android:textColor="@color/colorTextSecondary"
                 android:textSize="20sp" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/text_view_event_details_rounds"
+                android:id="@+id/level_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="casual"
@@ -92,7 +81,21 @@
                 android:paddingStart="15dp"
                 android:textColor="@color/colorTextPrimary"
                 android:textSize="20sp"
-                tools:text="2" />
+                tools:text="Level 1:" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_event_details_level1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:lineSpacingExtra="5dp"
+                android:paddingEnd="0dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="0dp"
+                android:paddingStart="15dp"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="20sp"
+                tools:text="text1" />
 
             <android.support.v4.widget.Space
                 android:id="@+id/space_event_details_rounds_fees"
@@ -162,4 +165,3 @@
                 android:textColor="@color/colorWhite" />
         </android.support.v7.widget.LinearLayoutCompat>
     </android.support.v4.widget.NestedScrollView>
-</layout>

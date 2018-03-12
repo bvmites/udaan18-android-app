@@ -19,5 +19,5 @@
     <string name="activity_key_position">position</string>
     <string name="activity_key_title_name">title-name</string>
     <string name="activity_key_event_data">event-data</string>
-
+    <string name="symbol_rupee">\u20b9</string>
 </resources>

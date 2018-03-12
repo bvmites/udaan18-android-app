@@ -13,18 +13,24 @@ import android.view.ViewGroup;
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.databinding.FragmentDepartmentBinding;
 import com.udaan18.udaan18.android.mainnavigation.MainActivity;
+import com.udaan18.udaan18.android.model.eventCategory.Department;
 import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
 import com.udaan18.udaan18.android.util.listeners.ListItemClickCallBack;
 
 import org.json.JSONException;
+
+import java.util.List;
 
 /**
  * Created by jack on 03-03-2018.
  */
 
 public class DepartmentFragment extends Fragment implements ListItemClickCallBack {
+    static int lastPos;
     FragmentDepartmentBinding binding;
     DepartmentAdapter adapter;
+    List<Department> department;
+
     public static DepartmentFragment newInstance() {
         DepartmentFragment fragment = new DepartmentFragment();
         return fragment;
@@ -38,6 +44,7 @@ public class DepartmentFragment extends Fragment implements ListItemClickCallBac
         try {
             ((MainActivity) getActivity()).setBack();
             RecyclerView view = binding.departmentRecycleview;
+            department = SharedPreferenceHelper.getInstance(getActivity()).getDepartmentsList();
             if (adapter == null) {
 
                 adapter = new DepartmentAdapter(SharedPreferenceHelper.getInstance(getActivity()).getDepartmentsList(), getContext());
@@ -48,13 +55,14 @@ public class DepartmentFragment extends Fragment implements ListItemClickCallBac
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         return this.binding.getRoot();
     }
 
     @Override
     public void onItemClick(int position, int viewId) {
         ((MainActivity) getActivity()).loadTechEvents(position);
+        lastPos = position;
+        ((MainActivity) getActivity()).setToolTitle(department.get(position).getName());
 
     }
 }

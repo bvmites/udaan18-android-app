@@ -1,7 +1,6 @@
 package com.udaan18.udaan18.android.events;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
@@ -52,7 +51,7 @@ public class ManagerAdapter extends RecyclerView.Adapter<ManagerAdapter.ViewHold
                         .context
                         .getResources()
                         .getIdentifier("color_" + this.resourceName, "color", this.context.getPackageName());
-        holder.managerIcon.setColorFilter(ContextCompat.getColor(this.context, colorId));
+//        holder.managerIcon.setColorFilter(ContextCompat.getColor(this.context, colorId));
         holder.managerName.setText(managers.get(position).getName());
         holder.managerMobile.setText(managers.get(position).getMobile());
     }

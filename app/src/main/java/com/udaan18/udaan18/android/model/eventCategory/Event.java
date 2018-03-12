@@ -5,6 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+import java.util.Locale;
 
 public class Event {
 
@@ -97,5 +98,53 @@ public class Event {
     public void setManagers(List<Manager> managers) {
         this.managers = managers;
     }
+
+    public String getRoundsDescription() {
+        String roundsDescription = "";
+
+        if (this.rounds != null) {
+            for (int i = 0; i < this.rounds.size(); i++) {
+                String roundInfo = this.rounds.get(i);
+                if (roundInfo != null && roundInfo.trim().length() > 0) {
+                    if (i > 0) {
+                        roundsDescription += "\n\n";
+                    }
+                    roundsDescription += String.format(Locale.getDefault(), "Round %d:\n%s", (i + 1), roundInfo);
+                }
+            }
+        }
+
+        return roundsDescription;
+    }
+
+    public String getPrizeDescription(String rupee) {
+
+        String prizeDescription = "";
+
+        if (this.prizes != null) {
+
+            for (int i = 0; i < this.prizes.size(); i++) {
+
+                String positionInfo = "";
+                int prizeInfo = this.prizes.get(i);
+                if (prizeInfo > 0) {
+                    if (i > 0) {
+                        prizeDescription += "\n\n";
+                    }
+                    if (i == 0) {
+                        positionInfo = "Winner";
+                    } else if (i == 1) {
+                        positionInfo = "Runner's Up";
+                    } else if (i == 2) {
+                        positionInfo = "Second Runner's Up";
+                    }
+                    prizeDescription += String.format(Locale.getDefault(), "%s: " + rupee + "%s", positionInfo, prizeInfo);
+
+                }
+            }
+        }
+        return prizeDescription;
+    }
+
 
 }

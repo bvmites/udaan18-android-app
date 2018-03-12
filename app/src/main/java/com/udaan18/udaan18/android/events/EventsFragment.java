@@ -57,7 +57,9 @@ public class EventsFragment extends Fragment implements ListItemClickCallBack {
 
     @Override
     public void onItemClick(int position, int viewId) {
-        ((MainActivity) getActivity()).getEventDetailFragment(events.get(position));
+        //((MainActivity) getActivity()).getEventDetailFragment(events.get(position));
         // Toast.makeText(getContext(), "here" + position, Toast.LENGTH_LONG).show();
+        ((MainActivity) getActivity()).getEventDescription(events.get(position));
+        ((MainActivity) getActivity()).setToolTitle(events.get(position).getName());
     }
 }

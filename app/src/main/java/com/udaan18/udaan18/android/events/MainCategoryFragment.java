@@ -41,6 +41,7 @@ public class MainCategoryFragment extends Fragment implements View.OnClickListen
     public void onResume() {
         super.onResume();
         ((MainActivity) this.getActivity()).removeBack();
+        ((MainActivity) getActivity()).removeTitle("Events");
     }
 
     @Override
@@ -50,17 +51,18 @@ public class MainCategoryFragment extends Fragment implements View.OnClickListen
             case R.id.categories_fragment_cardView1:
 
                 ((MainActivity) getActivity()).loadDepartments();
+                ((MainActivity) getActivity()).setToolTitle("Tech");
                 break;
             case R.id.categories_fragment_cardView2:
-
                 ((MainActivity) getActivity()).loadNonTechEvents();
+                ((MainActivity) getActivity()).setToolTitle("Non Tech");
                 break;
             case R.id.categories_fragment_cardView3:
-
+                ((MainActivity) getActivity()).setToolTitle("Cultural");
                 ((MainActivity) getActivity()).loadCulturalEvents();
                 break;
             case R.id.categories_fragment_cardView4:
-
+                ((MainActivity) getActivity()).setToolTitle("Advanture");
                 ((MainActivity) getActivity()).loadAdventure();
             default:
                 break;

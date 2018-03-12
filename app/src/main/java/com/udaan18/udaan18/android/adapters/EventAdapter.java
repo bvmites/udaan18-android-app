@@ -82,6 +82,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                     .eventListViewTitle
                     .setText(event.getName());
             itemBinding.eventListViewIcon.setImageResource(drawableId != 0 ? drawableId : R.drawable.github);
+            itemBinding
+                    .eventListViewShortDescription
+                    .setText(event.getTag());
         }
 
         @Override

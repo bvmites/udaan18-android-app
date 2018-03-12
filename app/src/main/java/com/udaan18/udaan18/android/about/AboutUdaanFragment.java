@@ -1,22 +1,49 @@
 package com.udaan18.udaan18.android.about;
 
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.AppCompatImageButton;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.android.youtube.player.YouTubeIntents;
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.mainnavigation.MainActivity;
+import com.udaan18.udaan18.android.util.Helper;
 
 /**
  * Creator: Varun Barad
  * Date: 26-02-2018
  * Project: udaan18-android-app
  */
-public class AboutUdaanFragment extends Fragment {
-    View rootView;
+public class AboutUdaanFragment extends Fragment implements View.OnClickListener {
+
+    private final String EMAIL_ADDRESS = "developer.team.udaan@gmail.com";
+    private final String YOUTUBE_LINK = "UCnqRgS6O0MGF8sTYb_fHjWA";
+    private final String FACEBOOK_LINK = "https://www.facebook.com/teamudaan17/";
+    private final String PLAY_STORE = "";
+    private final String WEB_LINK = "https://www.udaan17.in";
+    private final String lat = "22.5525703";
+    private final String lon = "72.9240181";
+    private final String mapTitle = "BVM Engineering College";
+
+    private View rootView;
+    private AppCompatImageButton mail;
+    private AppCompatImageButton youtube;
+    private AppCompatImageButton facebook;
+    private AppCompatImageButton playStore;
+    private AppCompatImageButton weblink;
+    private AppCompatImageButton maps;
+    private AppCompatImageButton windows;
+    private AppCompatTextView sponcers;
 
     public static AboutUdaanFragment newInstance() {
         AboutUdaanFragment fragment = new AboutUdaanFragment();
@@ -27,12 +54,96 @@ public class AboutUdaanFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_about_udaan, container, false);
+        intializeObjects();
         return rootView;
+    }
+
+    public void intializeObjects() {
+
+        mail = (AppCompatImageButton) rootView.findViewById(R.id.mail);
+        youtube = (AppCompatImageButton) rootView.findViewById(R.id.youtube);
+        facebook = (AppCompatImageButton) rootView.findViewById(R.id.facebook);
+        playStore = (AppCompatImageButton) rootView.findViewById(R.id.playstore);
+        weblink = (AppCompatImageButton) rootView.findViewById(R.id.website);
+        maps = (AppCompatImageButton) rootView.findViewById(R.id.map_view);
+        windows = (AppCompatImageButton) rootView.findViewById(R.id.windows);
+        sponcers = (AppCompatTextView) rootView.findViewById(R.id.our_sponsors);
+
+        mail.setOnClickListener(this);
+        youtube.setOnClickListener(this);
+        facebook.setOnClickListener(this);
+        playStore.setOnClickListener(this);
+        weblink.setOnClickListener(this);
+        maps.setOnClickListener(this);
+        windows.setOnClickListener(this);
+        sponcers.setOnClickListener(this);
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
         ((MainActivity) this.getActivity()).removeBack();
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        switch (v.getId()) {
+            case R.id.mail:
+                Helper.sendEmail(EMAIL_ADDRESS, this.getContext());
+                Toast.makeText(this.getContext(), "here i clicked mail", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.youtube:
+                intent = YouTubeIntents.createChannelIntent(getContext(), YOUTUBE_LINK);
+                startActivity(intent);
+                break;
+            case R.id.facebook:
+                intent = getFacebookIntent(this.getActivity().getPackageManager(), FACEBOOK_LINK);
+                startActivity(intent);
+                break;
+            case R.id.playstore:
+                String appPackageName = this.getActivity().getPackageName();
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                } catch (android.content.ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                }
+                break;
+            case R.id.website:
+                Helper.openUrlInBrowser(WEB_LINK, this.getContext());
+                break;
+            case R.id.map_view:
+                String geoUri = "http://maps.google.com/maps?q=loc:" + lat + "," + lon + " (" + mapTitle + ")";
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
+                startActivity(intent);
+                break;
+            case R.id.windows:
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.microsoft.com/en-us/store/p/udaan-17/9p55q9j2bkq7"));
+                startActivity(intent);
+                break;
+            case R.id.our_sponsors:
+                ((MainActivity) getActivity()).loadSponsor();
+                break;
+
+
+        }
+
+    }
+
+    private Intent getFacebookIntent(PackageManager pm, String url) {
+        Uri uri = Uri.parse(url);
+        try {
+            ApplicationInfo applicationInfo = pm.getApplicationInfo("com.facebook.katana", 0);
+
+            if (applicationInfo.enabled) {
+                uri = Uri.parse("fb://facewebmodal/f?href=" + url);
+            }
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return new Intent(Intent.ACTION_VIEW, uri);
     }
 }
