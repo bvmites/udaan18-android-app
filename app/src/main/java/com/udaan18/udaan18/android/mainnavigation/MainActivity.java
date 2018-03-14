@@ -236,45 +236,47 @@ public class MainActivity extends AppCompatActivity {
                         fragment
                 ).addToBackStack(null)
                 .commit();
-        if (this.getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            removeBack();
-        }
+
     }
 
     public void loadTechEvents(int position) {
         TechEventFragment fragment = TechEventFragment.newInstance(position);
 
         this.loadFragmentWithBackstack(fragment);
+        setBack();
     }
 
     public void loadNonTechEvents() {
         EventsFragment fragment = null;
         try {
-            fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(MainActivity.this).getNonTechList());
+            fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(MainActivity.this).getNonTechList(), "NON TECH");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         this.loadFragmentWithBackstack(fragment);
+        setBack();
     }
 
     public void loadCulturalEvents() {
         EventsFragment fragment = null;
         try {
-            fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(MainActivity.this).getCulturalList());
+            fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(MainActivity.this).getCulturalList(), "CULTURAL");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         this.loadFragmentWithBackstack(fragment);
+        setBack();
     }
 
     public void loadAdventure() {
         EventsFragment fragment = null;
         try {
-            fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(MainActivity.this).getAdventure());
+            fragment = EventsFragment.newInstance(SharedPreferenceHelper.getInstance(MainActivity.this).getAdventure(), "ADVENTURE");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         this.loadFragmentWithBackstack(fragment);
+        setBack();
     }
 
     public void loadDepartments() {
@@ -282,6 +284,7 @@ public class MainActivity extends AppCompatActivity {
 
         departmentFragment = DepartmentFragment.newInstance();
         this.loadFragmentWithBackstack(departmentFragment);
+        setBack();
     }
 
     public void loadSponsor() {

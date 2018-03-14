@@ -23,12 +23,18 @@
                 <android.support.v7.widget.CardView
                     android:id="@+id/categories_fragment_cardView1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/card_category_hight"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/color_events"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="6dp"
+                    app:cardUseCompatPadding="false">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -50,13 +56,18 @@
                 <android.support.v7.widget.CardView
                     android:id="@+id/categories_fragment_cardView2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/card_category_hight"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/color_events"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="false">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -84,12 +95,18 @@
                 <android.support.v7.widget.CardView
                     android:id="@+id/categories_fragment_cardView3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/card_category_hight"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/color_events"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="false">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -117,12 +134,18 @@
                 <android.support.v7.widget.CardView
                     android:id="@+id/categories_fragment_cardView4"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/card_category_hight"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/color_events"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="false">
 
                     <RelativeLayout
                         android:layout_width="match_parent"

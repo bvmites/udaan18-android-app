@@ -22,6 +22,12 @@ public class SponsorFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) getActivity()).setToolTitle("Sponsors".toUpperCase());
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

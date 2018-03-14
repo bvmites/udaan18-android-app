@@ -26,19 +26,32 @@ import java.util.List;
  */
 public class EventsFragment extends Fragment implements ListItemClickCallBack {
     private static List<Event> events;
+    private static String FETCHNAME = "headername";
     private FragmentEventsBinding dataBinding;
+    private String name;
 
-    public static EventsFragment newInstance(List<Event> ev) {
+    public static EventsFragment newInstance(List<Event> ev, String nm) {
         EventsFragment fragment = new EventsFragment();
         events = ev;
+        Bundle bundle = new Bundle();
+        bundle.putString(FETCHNAME, nm);
+        fragment.setArguments(bundle);
         return fragment;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) getActivity()).setToolTitle(name.toUpperCase());
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_events, container, false);
-        ((MainActivity) getActivity()).setBack();
+        //((MainActivity) getActivity()).setBack();
+        this.name = this.getArguments().getString(FETCHNAME, "");
         fetchEvent();
         return this.dataBinding.getRoot();
     }
@@ -60,6 +73,6 @@ public class EventsFragment extends Fragment implements ListItemClickCallBack {
         //((MainActivity) getActivity()).getEventDetailFragment(events.get(position));
         // Toast.makeText(getContext(), "here" + position, Toast.LENGTH_LONG).show();
         ((MainActivity) getActivity()).getEventDescription(events.get(position));
-        ((MainActivity) getActivity()).setToolTitle(events.get(position).getName());
+        ((MainActivity) getActivity()).setToolTitle(events.get(position).getName().toUpperCase());
     }
 }

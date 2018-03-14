@@ -36,13 +36,20 @@ public class DepartmentFragment extends Fragment implements ListItemClickCallBac
         return fragment;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) getActivity()).setToolTitle("TECH");
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = DataBindingUtil.inflate(inflater, R.layout.fragment_department, container, false);
 
         try {
-            ((MainActivity) getActivity()).setBack();
+            //((MainActivity) getActivity()).setBack();
             RecyclerView view = binding.departmentRecycleview;
             department = SharedPreferenceHelper.getInstance(getActivity()).getDepartmentsList();
             if (adapter == null) {
@@ -62,7 +69,7 @@ public class DepartmentFragment extends Fragment implements ListItemClickCallBac
     public void onItemClick(int position, int viewId) {
         ((MainActivity) getActivity()).loadTechEvents(position);
         lastPos = position;
-        ((MainActivity) getActivity()).setToolTitle(department.get(position).getName());
+        //((MainActivity) getActivity()).setToolTitle(department.get(position).getName());
 
     }
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.databinding.FragmentTechEventBinding;
+import com.udaan18.udaan18.android.mainnavigation.MainActivity;
 import com.udaan18.udaan18.android.model.eventCategory.Department;
 import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
 
@@ -22,8 +23,10 @@ import org.json.JSONException;
 public class TechEventFragment extends Fragment {
     private static final String KEY_POSITION = "position";
     private int pos;
+
     private FragmentTechEventBinding binding;
     private TechEventAadapter adapter;
+    private Department department;
 
     public static TechEventFragment newInstance(int position) {
         TechEventFragment fragment = new TechEventFragment();
@@ -39,7 +42,7 @@ public class TechEventFragment extends Fragment {
         this.binding = DataBindingUtil.inflate(inflater, R.layout.fragment_tech_event, container, false);
         this.pos = this.getArguments().getInt(KEY_POSITION, 0);
 
-        Department department = null;
+        department = null;
         try {
             department = SharedPreferenceHelper.getInstance(getContext()).getDepartmentsList().get(pos);
         } catch (JSONException e) {
@@ -58,7 +61,7 @@ public class TechEventFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
+        ((MainActivity) getActivity()).setToolTitle(department.getName().toUpperCase());
         //this.dataBinding.combinedDetailsTabLayout.setBackground(context,R.color.colorPrimary);
 //        binding.techEventViewPager.setCurrentItem(0);
 

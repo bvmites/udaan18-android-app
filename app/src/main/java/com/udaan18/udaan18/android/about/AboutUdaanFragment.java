@@ -26,11 +26,11 @@ import com.udaan18.udaan18.android.util.Helper;
  */
 public class AboutUdaanFragment extends Fragment implements View.OnClickListener {
 
-    private final String EMAIL_ADDRESS = "developer.team.udaan@gmail.com";
+    private final String EMAIL_ADDRESS = "udaan.th@gmail.com";
     private final String YOUTUBE_LINK = "UCnqRgS6O0MGF8sTYb_fHjWA";
-    private final String FACEBOOK_LINK = "https://www.facebook.com/teamudaan17/";
+    private final String FACEBOOK_LINK = "https://www.facebook.com/teamudaan18";
     private final String PLAY_STORE = "";
-    private final String WEB_LINK = "https://www.udaan17.in";
+    private final String WEB_LINK = "https://udaan18.com/";
     private final String lat = "22.5525703";
     private final String lon = "72.9240181";
     private final String mapTitle = "BVM Engineering College";
@@ -84,6 +84,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     public void onResume() {
         super.onResume();
         ((MainActivity) this.getActivity()).removeBack();
+        ((MainActivity) getActivity()).removeTitle("About Us");
     }
 
     @Override
@@ -92,7 +93,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         switch (v.getId()) {
             case R.id.mail:
                 Helper.sendEmail(EMAIL_ADDRESS, this.getContext());
-                Toast.makeText(this.getContext(), "here i clicked mail", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(this.getContext(), "here i clicked mail", Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.youtube:
@@ -120,8 +121,9 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
                 startActivity(intent);
                 break;
             case R.id.windows:
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.microsoft.com/en-us/store/p/udaan-17/9p55q9j2bkq7"));
-                startActivity(intent);
+                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+                // intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.microsoft.com/en-us/store/p/udaan-17/9p55q9j2bkq7"));
+                // startActivity(intent);
                 break;
             case R.id.our_sponsors:
                 ((MainActivity) getActivity()).loadSponsor();
