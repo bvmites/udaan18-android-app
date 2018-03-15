@@ -20,6 +20,7 @@ import com.udaan18.udaan18.android.about.AboutUdaanFragment;
 import com.udaan18.udaan18.android.about.SponsorFragment;
 import com.udaan18.udaan18.android.databinding.ActivityMainBinding;
 import com.udaan18.udaan18.android.events.DepartmentFragment;
+import com.udaan18.udaan18.android.events.DetailEventFragment;
 import com.udaan18.udaan18.android.events.EventDescriptionFragment;
 import com.udaan18.udaan18.android.events.EventsFragment;
 import com.udaan18.udaan18.android.events.MainCategoryFragment;
@@ -285,6 +286,12 @@ public class MainActivity extends AppCompatActivity {
         departmentFragment = DepartmentFragment.newInstance();
         this.loadFragmentWithBackstack(departmentFragment);
         setBack();
+    }
+
+    public void loadExpension() {
+        DetailEventFragment fragment = null;
+        fragment = DetailEventFragment.newInstance();
+        this.loadFragmentWithBackstack(fragment);
     }
 
     public void loadSponsor() {

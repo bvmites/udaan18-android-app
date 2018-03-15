@@ -60,12 +60,18 @@ dependencies {
     // Gson for parsing Json
     implementation "com.google.code.gson:gson:${gsonVersion}"
 
+    // Expension list libraries
+    implementation 'com.github.florent37:expansionpanel:1.1.1'
+
     // Retrofit for network connections and its converter
     implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
     implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
 
     // Sectioned Recycler-view for Team-Udaan
     implementation "io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:${sectionedRecyclerViewVersion}"
+
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     // JUnit Test Runner
     testImplementation "junit:junit:${jUnitVersion}"
@@ -75,4 +81,6 @@ dependencies {
 
     // Core espresso library for UI tests
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+
+
 }
