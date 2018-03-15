@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    dataBinding.enabled = true
+
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.udaan18.udaan18.android"
@@ -12,6 +12,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -22,12 +23,64 @@ android {
     }
 }
 
+kapt {
+    generateStubs = true
+}
+
+ext {
+    supportLibraryVersion = '26.1.0'
+    constraintLayoutVersion = '1.0.2'
+    gsonVersion = '2.8.2'
+    retrofitVersion = '2.3.0'
+    sectionedRecyclerViewVersion = '1.0.4'
+
+    jUnitVersion = '4.12'
+    androidTestRunnerVersion = '1.0.1'
+    espressoVersion = '3.0.1'
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}"
+
+    // Android data-binding annotation processor for Kotlin
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    kapt "com.android.databinding:compiler:${androidPluginVersion}"
+
+    // Google Design Support libraries
+    implementation "com.android.support:appcompat-v7:${supportLibraryVersion}"
+    implementation "com.android.support:design:${supportLibraryVersion}"
+    implementation "com.android.support:cardview-v7:${supportLibraryVersion}"
+    implementation "com.android.support:recyclerview-v7:${supportLibraryVersion}"
+    implementation "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
+    implementation "com.afollestad.material-dialogs:core:0.9.3.0"
+    // Gson for parsing Json
+    implementation "com.google.code.gson:gson:${gsonVersion}"
+
+    // Expension list libraries
+    implementation 'com.github.florent37:expansionpanel:1.1.1'
+
+    // Retrofit for network connections and its converter
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+
+    // Sectioned Recycler-view for Team-Udaan
+    implementation "io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:${sectionedRecyclerViewVersion}"
+
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // JUnit Test Runner
+    testImplementation "junit:junit:${jUnitVersion}"
+
+    // Android specific test runner
+    androidTestImplementation "com.android.support.test:runner:${androidTestRunnerVersion}"
+
+    // Core espresso library for UI tests
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+
+
 }

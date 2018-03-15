@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Udaan-18</string>
+
+    <string name="label_events">Events</string>
+    <string name="label_photo">Photo</string>
+    <string name="label_aboutUdaan">About Udaan</string>
+    <string name="label_team">Our Team</string>
+    <string name="label_newsFeed">News</string>
+
+    <!-- Shared Preference Keys -->
+
+    <string name="prefs_file_name" translatable="false">Udaan17Preferences</string>
+    <string name="prefs_version_code" translatable="false">version_code</string>
+    <string name="prefs_last_modified" translatable="false">last_modified</string>
+    <string name="prefs_event_data_json" translatable="false">data_json</string>
+    <string name="prefs_developer_data_json" translatable="false">developer_data_json</string>
+    <string name="prefs_team_udaan_data_json" translatable="false">team_udaan_data_json</string>
+
+    <string name="activity_key_position">position</string>
+    <string name="activity_key_title_name">title-name</string>
+    <string name="activity_key_event_data">event-data</string>
+    <string name="symbol_rupee">\u20b9</string>
 </resources>
