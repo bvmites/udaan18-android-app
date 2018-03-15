@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -22,7 +23,10 @@
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/text_view_detail_event_level_label"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:gravity="center_vertical"
+                android:padding="5dp"
                 android:text="Level 1"
                 android:textColor="@color/colorTextSecondary"
                 android:textSize="20sp" />
@@ -53,12 +57,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/text_view_detail_event_level_description"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="#EEE"
-                android:gravity="center"
-                android:text="content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:lineSpacingExtra="5dp"
+                android:paddingEnd="0dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="0dp"
+                android:paddingStart="15dp"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="20sp"
+                tools:text="text1" />
 
         </LinearLayout>
 

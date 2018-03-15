@@ -21,7 +21,6 @@ import com.udaan18.udaan18.android.about.SponsorFragment;
 import com.udaan18.udaan18.android.databinding.ActivityMainBinding;
 import com.udaan18.udaan18.android.events.DepartmentFragment;
 import com.udaan18.udaan18.android.events.DetailEventFragment;
-import com.udaan18.udaan18.android.events.EventDescriptionFragment;
 import com.udaan18.udaan18.android.events.EventsFragment;
 import com.udaan18.udaan18.android.events.MainCategoryFragment;
 import com.udaan18.udaan18.android.events.TechEventFragment;
@@ -288,21 +287,15 @@ public class MainActivity extends AppCompatActivity {
         setBack();
     }
 
-    public void loadExpension() {
+    public void loadExpension(Event event) {
         DetailEventFragment fragment = null;
-        fragment = DetailEventFragment.newInstance();
+        fragment = DetailEventFragment.newInstance(event);
         this.loadFragmentWithBackstack(fragment);
     }
 
     public void loadSponsor() {
         SponsorFragment fragment = null;
         fragment = SponsorFragment.newInstance();
-        this.loadFragmentWithBackstack(fragment);
-    }
-
-    public void getEventDescription(Event event) {
-        EventDescriptionFragment fragment = null;
-        fragment = EventDescriptionFragment.newInstence(event);
         this.loadFragmentWithBackstack(fragment);
     }
 }

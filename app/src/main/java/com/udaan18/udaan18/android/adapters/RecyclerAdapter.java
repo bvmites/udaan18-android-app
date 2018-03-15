@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerHolder> {
-    private final List<Object> list = new ArrayList<>();
+    private final List<String> list = new ArrayList<>();
 
     private final ExpansionLayoutCollection expansionsCollection = new ExpansionLayoutCollection();
     private Context context;
@@ -39,6 +39,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     public void onBindViewHolder(RecyclerHolder holder, int position) {
         holder.bind(list.get(position));
         holder.level.setText("Level " + (position + 1));
+        holder.description.setText(list.get(position).toString());
         expansionsCollection.add(holder.getExpansionLayout());
     }
 
@@ -47,7 +48,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         return list.size();
     }
 
-    public void setItems(List<Object> items) {
+    public void setItems(List<String> items) {
         this.list.addAll(items);
         notifyDataSetChanged();
     }
@@ -59,12 +60,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         // @BindView(R.id.expansionLayout)
         ExpansionLayout expansionLayout;
         TextView level;
+        TextView description;
 
         public RecyclerHolder(View itemView) {
             super(itemView);
             //ButterKnife.bind(this, itemView);
             level = itemView.findViewById(R.id.text_view_detail_event_level_label);
             expansionLayout = itemView.findViewById(R.id.expansionLayout);
+            description = itemView.findViewById(R.id.text_view_detail_event_level_description);
         }
 
         public static RecyclerHolder buildFor(ViewGroup viewGroup) {
