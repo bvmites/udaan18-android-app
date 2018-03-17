@@ -48,7 +48,7 @@ public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentAdapter.Vi
         int colorPosition = position % Helper.colors.length;
 
         holder.container.setCardBackgroundColor(ContextCompat.getColor(context, Helper.colors[colorPosition]));
-        holder.departmentTitle.setText(departmentList.get(position).getName().toUpperCase());
+        holder.departmentTitle.setText(departmentList.get(position).getAlis().toUpperCase());
 
         String resName = Helper.getResourceNameFromTitle(departmentList.get(position).getName());
         Log.d(TAG, "onBindViewHolder: " + resName);

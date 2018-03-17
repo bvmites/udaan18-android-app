@@ -10,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestClient {
     private ApiHelper api;
-    private String url;
 
     public RestClient() {
         Retrofit retrofit = new Retrofit.Builder()

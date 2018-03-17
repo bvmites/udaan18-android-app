@@ -41,7 +41,7 @@ public class MainCategoryFragment extends Fragment implements View.OnClickListen
     public void onResume() {
         super.onResume();
         ((MainActivity) this.getActivity()).removeBack();
-        ((MainActivity) getActivity()).removeTitle("Events");
+        ((MainActivity) getActivity()).removeTitle("Udaan-18");
     }
 
     @Override
