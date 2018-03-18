@@ -1,5 +1,32 @@
 [
   {
+    "title": "Android Developer",
+    "color": "",
+    "category": "android",
+    "name": "Bhagyesh Radiya",
+    "mobile": "+918141435149",
+    "email": "bhagyesh_8141435149@hotmail.com",
+    "github": "https://github.com/BhagyeshRadiya2796"
+  },
+  {
+    "title": "Android Developer",
+    "color": "",
+    "category": "android",
+    "name": "Abhi Akbari",
+    "mobile": "+919909214688",
+    "email": "abhiakbari023@gmail.com",
+    "github": "https://github.com/abhi055"
+  },
+  {
+    "title": "Android Developer",
+    "color": "",
+    "category": "android",
+    "name": "Pranav Gajera",
+    "mobile": "+91",
+    "email": "",
+    "github": "https://github.com/prnv28"
+  },
+  {
     "title": "Web Developer",
     "color": "",
     "category": "web",
@@ -90,24 +117,6 @@
     "github": "https://github.com/jaymovaliya"
   },
   {
-    "title": "Android Developer",
-    "color": "",
-    "category": "android",
-    "name": "Bhagyesh Radiya",
-    "mobile": "+918141435149",
-    "email": "bhagyesh_8141435149@hotmail.com",
-    "github": "https://github.com/BhagyeshRadiya2796"
-  },
-  {
-    "title": "Android Developer",
-    "color": "",
-    "category": "android",
-    "name": "Abhi Akbari",
-    "mobile": "+919909214688",
-    "email": "abhiakbari023@gmail.com",
-    "github": "https://github.com/abhi055"
-  },
-  {
     "title": "Back-End Developer",
     "color": "",
     "category": "backend",
@@ -124,14 +133,5 @@
     "mobile": "+919909834387",
     "email": "jvaghani971@gmail.com",
     "github": "https://github.com/jayvaghani"
-  },
-  {
-    "title": "Android Developer",
-    "color": "",
-    "category": "android",
-    "name": "Pranav Gajera",
-    "mobile": "+91",
-    "email": "",
-    "github": "https://github.com/prnv28"
   }
 ]

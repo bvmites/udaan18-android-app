@@ -20,7 +20,6 @@ import com.udaan18.udaan18.android.mainnavigation.MainActivity;
 import com.udaan18.udaan18.android.model.eventCategory.Category;
 import com.udaan18.udaan18.android.model.eventCategory.Container;
 import com.udaan18.udaan18.android.model.eventCategory.Developer;
-import com.udaan18.udaan18.android.util.ApiHelper;
 import com.udaan18.udaan18.android.util.Helper;
 import com.udaan18.udaan18.android.util.RestClient;
 
@@ -29,8 +28,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class SplashActivity extends Activity {
@@ -59,6 +56,7 @@ public class SplashActivity extends Activity {
                 getEventData();
                 getDeveloperData();
                 getTeamUdaanData();
+                performTask();
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "error in" + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
@@ -78,6 +76,7 @@ public class SplashActivity extends Activity {
                 Container container = response.body();
                 editor.putString(context.getString(R.string.prefs_event_data_json), container.toString());
                 editor.apply();
+                // Toast.makeText(SplashActivity.this, "error in event:"+container.getDepartments().size(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -89,19 +88,14 @@ public class SplashActivity extends Activity {
     }
 
     void getDeveloperData() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com/bvmites/udaan17-android-app/master/mock-api/")
-                .addConverterFactory(GsonConverterFactory.create()) //Here we are using the GsonConverterFactory to directly convert json data to object
-                .build();
-        ApiHelper api = retrofit.create(ApiHelper.class);
-        Call<List<Developer>> call = api.getDevelopers();
+        Call<List<Developer>> call = client.getApiHelper().getDevelopers();
         call.enqueue(new Callback<List<Developer>>() {
             @Override
             public void onResponse(Call<List<Developer>> call, Response<List<Developer>> response) {
                 List<Developer> container = response.body();
                 editor.putString(context.getString(R.string.prefs_developer_data_json), (new Gson()).toJson(container));
                 editor.apply();
-                // Toast.makeText(SplashActivity.this, "Done "+(new Gson()).toJson(container), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(SplashActivity.this, "Done "+(new Gson()).toJson(container), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -113,12 +107,7 @@ public class SplashActivity extends Activity {
     }
 
     void getTeamUdaanData() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com/bvmites/udaan17-android-app/master/mock-api/")
-                .addConverterFactory(GsonConverterFactory.create()) //Here we are using the GsonConverterFactory to directly convert json data to object
-                .build();
-        ApiHelper api = retrofit.create(ApiHelper.class);
-        Call<List<Category>> call = api.getCategory();
+        Call<List<Category>> call = client.getApiHelper().getCategory();
         call.enqueue(new Callback<List<Category>>() {
             @Override
             public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
@@ -133,7 +122,7 @@ public class SplashActivity extends Activity {
                 Toast.makeText(SplashActivity.this, "error in team:" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        performTask();
+
     }
 
     void performTask() {

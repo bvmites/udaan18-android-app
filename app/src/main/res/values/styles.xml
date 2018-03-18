@@ -13,6 +13,11 @@
         <item name="android:windowActionBarOverlay">false</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:actionButtonStyle">@style/MenuButton</item>
+    </style>
+
+    <style name="MenuButton" parent="@android:style/Widget.ActionButton">
+        <item name="android:drawablePadding">@dimen/action_button_padding</item>
     </style>
 
     <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

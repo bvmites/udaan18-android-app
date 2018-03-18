@@ -43,10 +43,12 @@
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/categories_fragment_textView1"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp"
-                            android:gravity="center"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:padding="10dp"
                             android:text="Tech"
                             android:textColor="@color/colorWhite"
                             android:textSize="48sp" />
@@ -78,14 +80,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:adjustViewBounds="true"
-                            android:scaleType="fitXY" />
+                            android:scaleType="fitXY"
+                            android:src="@drawable/non_techland" />
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/categories_fragment_textView2"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp"
-                            android:gravity="center"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:padding="10dp"
                             android:text="Non-Tech"
                             android:textColor="@color/colorWhite"
                             android:textSize="48sp" />

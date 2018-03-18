@@ -50,4 +50,13 @@
 
     <color name="colorDivider">#ffb6b6b6</color>
     <color name="colorCardBackground">#88000000</color>
+
+    <color name="pacman">#9DC6D8</color>
+    <color name="duckhunt">#00b3ca</color>
+    <color name="alladin">#1d4e89</color>
+    <color name="bomber">#C6CCCC</color>
+    <color name="fighter">#d2b29b</color>
+    <color name="mario">#e9d989</color>
+    <color name="sonic">#f59259</color>
+    <color name="mega">#80ceb6</color>
 </resources>

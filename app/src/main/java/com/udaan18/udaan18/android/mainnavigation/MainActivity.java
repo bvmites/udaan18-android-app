@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         this.dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         this.dataBinding
                 .bottomNavigation
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         //  this.currentSelectedSection = itemId;
         switch (itemId) {
             case R.id.action_events:
-                this.dataBinding.toolbarTitle.setText("Events");
+                this.dataBinding.toolbarTitle.setText("Uddan 18");
                 this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_events));
                 this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_events);
                 //removeBack(MainActivity.this);
@@ -173,10 +172,8 @@ public class MainActivity extends AppCompatActivity {
                 this.onBackPressed();
                 return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
 
     private Fragment getPhotoFragment() {
         if (this.photoFragment == null) {
@@ -210,7 +207,6 @@ public class MainActivity extends AppCompatActivity {
         if (this.newsFragment == null) {
             this.newsFragment = NewsFragment.newInstance();
         }
-
         return this.newsFragment;
     }
 
@@ -222,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.getSupportFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
                 .replace(
                         this.dataBinding.contentContainer.getId(),
                         fragment
@@ -231,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
     private void loadFragmentWithBackstack(Fragment fragment) {
         this.getSupportFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
                 .replace(
                         this.dataBinding.contentContainer.getId(),
                         fragment

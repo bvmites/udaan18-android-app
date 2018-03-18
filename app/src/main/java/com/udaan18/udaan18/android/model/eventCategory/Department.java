@@ -20,6 +20,9 @@ public class Department {
     @SerializedName("events")
     @Expose
     private List<Event> events = null;
+    @SerializedName("alis")
+    @Expose
+    private String alis = null;
 
     public String getName() {
         return name;
@@ -51,6 +54,14 @@ public class Department {
 
     public void setEvents(List<Event> events) {
         this.events = events;
+    }
+
+    public String getAlis() {
+        return alis;
+    }
+
+    public void setAlis(String alis) {
+        this.alis = alis;
     }
 
 }

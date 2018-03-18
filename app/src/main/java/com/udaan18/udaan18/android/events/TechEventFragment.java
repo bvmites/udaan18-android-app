@@ -61,7 +61,7 @@ public class TechEventFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((MainActivity) getActivity()).setToolTitle(department.getName().toUpperCase());
+        ((MainActivity) getActivity()).setToolTitle(department.getAlis().toUpperCase());
         //this.dataBinding.combinedDetailsTabLayout.setBackground(context,R.color.colorPrimary);
 //        binding.techEventViewPager.setCurrentItem(0);
 

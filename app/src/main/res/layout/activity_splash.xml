@@ -20,12 +20,7 @@
         android:background="@color/colorTextSecondary1"
         android:gravity="center"
         android:orientation="vertical">
-
-        <pl.droidsonroids.gif.GifImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/coin" />
+      
     </LinearLayout>
 
     <LinearLayout

@@ -65,7 +65,7 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         int colorId = DeveloperAdapter.getColorId(developers.get(position).getCategory(), this.context);
-        int iconId = 0;//DeveloperAdapter.getIconId(developers.get(position).getCategory(), this.context);
+        int iconId = DeveloperAdapter.getIconId(developers.get(position).getCategory(), this.context);
 
         holder.categoryIcon.setImageResource(iconId);
         holder.categoryIcon.setBackgroundColor(ContextCompat.getColor(this.context, colorId));

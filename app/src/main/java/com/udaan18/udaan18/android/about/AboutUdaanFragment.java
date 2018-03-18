@@ -107,10 +107,11 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
             case R.id.playstore:
                 String appPackageName = this.getActivity().getPackageName();
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                    //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
                 } catch (android.content.ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                    //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
                 }
+                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.website:
                 Helper.openUrlInBrowser(WEB_LINK, this.getContext());
@@ -126,7 +127,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
                 // startActivity(intent);
                 break;
             case R.id.our_sponsors:
-                ((MainActivity) getActivity()).loadSponsor();
+                //((MainActivity) getActivity()).loadSponsor();
+                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
                 break;
 
 
