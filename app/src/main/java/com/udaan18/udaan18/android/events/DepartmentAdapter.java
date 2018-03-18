@@ -76,7 +76,6 @@ public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentAdapter.Vi
             departmentTitle = (AppCompatTextView) itemView.findViewById(R.id.department_list_view_title);
             departmentImage = (AppCompatImageView) itemView.findViewById(R.id.department_list_view_image);
             container.setOnClickListener(this);
-
         }
 
         @Override

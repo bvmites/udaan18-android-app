@@ -17,7 +17,7 @@ public class Helper {
     /**
      * Used for displaying colors
      */
-    public static final int[] colors = new int[]{R.color.colorDeepOrange, R.color.colorBlueGrey, R.color.colorDeepPurple, R.color.colorBlue, R.color.colorTeal};
+    public static final int[] colors = new int[]{R.color.pacman, R.color.duckhunt, R.color.alladin, R.color.bomber, R.color.fighter};
 
     public static boolean hasNetworkConnection(Context context) {
 
