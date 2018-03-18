@@ -22,17 +22,18 @@ import org.json.JSONException;
 
 public class TechEventFragment extends Fragment {
     private static final String KEY_POSITION = "position";
+    private static int id;
     private int pos;
-
     private FragmentTechEventBinding binding;
     private TechEventAadapter adapter;
     private Department department;
 
-    public static TechEventFragment newInstance(int position) {
+    public static TechEventFragment newInstance(int position, int i) {
         TechEventFragment fragment = new TechEventFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(KEY_POSITION, position);
         fragment.setArguments(bundle);
+        id = i;
         return fragment;
     }
 
@@ -41,7 +42,7 @@ public class TechEventFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = DataBindingUtil.inflate(inflater, R.layout.fragment_tech_event, container, false);
         this.pos = this.getArguments().getInt(KEY_POSITION, 0);
-
+        this.binding.techEventTablayout.setBackgroundColor(id);
         department = null;
         try {
             department = SharedPreferenceHelper.getInstance(getContext()).getDepartmentsList().get(pos);

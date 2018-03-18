@@ -28,7 +28,7 @@ public class TechEventAadapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                fragment = EventsFragment.newInstance(department.getEvents(), department.getName().toUpperCase());
+                fragment = EventsFragment.newInstance(department.getEvents(), department.getAlis().toUpperCase());
                 break;
             case 1:
                 fragment = ManagerFragment.getInstance(department);

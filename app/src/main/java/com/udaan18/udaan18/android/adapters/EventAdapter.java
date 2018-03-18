@@ -1,6 +1,7 @@
 package com.udaan18.udaan18.android.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -78,6 +79,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         }
 
         private void bind(Event event) {
+            Typeface custom_font_tagline = Typeface.createFromAsset(context.getAssets(), "fonts/BungeeRegular.ttf");
+            itemBinding.eventListViewTitle.setTypeface(custom_font_tagline);
+            Typeface custom_font_dec = Typeface.createFromAsset(context.getAssets(), "fonts/ProzaLibreItalic.ttf");
+            itemBinding.eventListViewShortDescription.setTypeface(custom_font_dec);
+            itemBinding.eventListViewTitle.setTypeface(custom_font_tagline);
             itemBinding
                     .eventListViewTitle
                     .setText(event.getName());

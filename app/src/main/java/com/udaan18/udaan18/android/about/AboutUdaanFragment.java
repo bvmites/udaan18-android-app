@@ -26,6 +26,7 @@ import com.udaan18.udaan18.android.util.Helper;
  */
 public class AboutUdaanFragment extends Fragment implements View.OnClickListener {
 
+    public static int location = 1;
     private final String EMAIL_ADDRESS = "udaan.th@gmail.com";
     private final String YOUTUBE_LINK = "UCnqRgS6O0MGF8sTYb_fHjWA";
     private final String FACEBOOK_LINK = "https://www.facebook.com/teamudaan18";
@@ -34,7 +35,6 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     private final String lat = "22.5525703";
     private final String lon = "72.9240181";
     private final String mapTitle = "BVM Engineering College";
-
     private View rootView;
     private AppCompatImageButton mail;
     private AppCompatImageButton youtube;

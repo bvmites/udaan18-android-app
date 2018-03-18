@@ -17,6 +17,7 @@ import com.udaan18.udaan18.android.databinding.FragmentPhotoBinding;
  * Project: udaan18-android-app
  */
 public class PhotoFragment extends Fragment {
+  public static int location = 2;
   private FragmentPhotoBinding dataBinding;
   
   public static PhotoFragment newInstance() {

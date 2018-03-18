@@ -17,7 +17,7 @@ public class Helper {
     /**
      * Used for displaying colors
      */
-    public static final int[] colors = new int[]{R.color.pacman, R.color.duckhunt, R.color.alladin, R.color.bomber, R.color.fighter};
+    public static final int[] colors = new int[]{R.color.pacman, R.color.mario, R.color.bomber, R.color.mega, R.color.sonic};
 
     public static boolean hasNetworkConnection(Context context) {
 
@@ -84,5 +84,13 @@ public class Helper {
                 title.toLowerCase()
                         .replaceAll("[\\s-]+", "_")
                         .replaceAll("[^a-zA-Z0-9_]", "");
+    }
+
+    public static String getTitleFromRresource(String title) {
+        title = (title != null) ? title : "";
+        return
+                title.toLowerCase()
+                        .replaceAll("[\\s-]+", "\n")
+                        .replaceAll("[^a-zA-Z0-9_]", "\n");
     }
 }

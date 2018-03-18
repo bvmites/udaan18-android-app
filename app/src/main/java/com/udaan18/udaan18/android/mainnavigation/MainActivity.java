@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private MainCategoryFragment category;
     private ContainedDetail containedDetail;
     private NewsFragment newsFragment;
+    private int location;
 
 
     @IdRes
@@ -142,10 +143,22 @@ public class MainActivity extends AppCompatActivity {
         // }
     }
 
+    public void setAllColorChanage(int id) {
+        this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(id));
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(id)));
+        this.dataBinding.bottomNavigation.setItemBackgroundResource(id);
+        if (android.os.Build.VERSION.SDK_INT >= 21) {
+            Window window = (MainActivity.this).getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(id));
+        }
+    }
+
     public void setBack() {
         setSupportActionBar(this.dataBinding.toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_events)));
+        // this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_events)));
     }
 
     public void setToolTitle(String title) {
@@ -237,8 +250,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void loadTechEvents(int position) {
-        TechEventFragment fragment = TechEventFragment.newInstance(position);
+    public void loadTechEvents(int position, int id) {
+        TechEventFragment fragment = TechEventFragment.newInstance(position, id);
 
         this.loadFragmentWithBackstack(fragment);
         setBack();

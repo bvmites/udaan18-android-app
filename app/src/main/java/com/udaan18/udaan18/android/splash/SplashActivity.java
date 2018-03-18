@@ -20,6 +20,7 @@ import com.udaan18.udaan18.android.mainnavigation.MainActivity;
 import com.udaan18.udaan18.android.model.eventCategory.Category;
 import com.udaan18.udaan18.android.model.eventCategory.Container;
 import com.udaan18.udaan18.android.model.eventCategory.Developer;
+import com.udaan18.udaan18.android.model.eventCategory.VersionCheck;
 import com.udaan18.udaan18.android.util.Helper;
 import com.udaan18.udaan18.android.util.RestClient;
 
@@ -53,6 +54,7 @@ public class SplashActivity extends Activity {
 
         if (Helper.hasNetworkConnection(this)) {
             try {
+                getVersionData();
                 getEventData();
                 getDeveloperData();
                 getTeamUdaanData();
@@ -120,6 +122,23 @@ public class SplashActivity extends Activity {
             public void onFailure(Call<List<Category>> call, Throwable t) {
                 Log.d("NETWORK", "Error in response");
                 Toast.makeText(SplashActivity.this, "error in team:" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    void getVersionData() {
+        Call<VersionCheck> call = client.getApiHelper().getVersion();
+        call.enqueue(new Callback<VersionCheck>() {
+            @Override
+            public void onResponse(Call<VersionCheck> call, Response<VersionCheck> response) {
+                VersionCheck check = response.body();
+                Toast.makeText(SplashActivity.this, "App Version" + check.getAppVersion() + "\n data version" + check.getDataVersion(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<VersionCheck> call, Throwable t) {
+
             }
         });
 

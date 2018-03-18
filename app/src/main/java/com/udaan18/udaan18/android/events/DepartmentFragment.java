@@ -14,6 +14,7 @@ import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.databinding.FragmentDepartmentBinding;
 import com.udaan18.udaan18.android.mainnavigation.MainActivity;
 import com.udaan18.udaan18.android.model.eventCategory.Department;
+import com.udaan18.udaan18.android.util.Helper;
 import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
 import com.udaan18.udaan18.android.util.listeners.ListItemClickCallBack;
 
@@ -26,7 +27,6 @@ import java.util.List;
  */
 
 public class DepartmentFragment extends Fragment implements ListItemClickCallBack {
-    static int lastPos;
     FragmentDepartmentBinding binding;
     DepartmentAdapter adapter;
     List<Department> department;
@@ -40,6 +40,7 @@ public class DepartmentFragment extends Fragment implements ListItemClickCallBac
     public void onResume() {
         super.onResume();
         ((MainActivity) getActivity()).setToolTitle("TECH");
+        ((MainActivity) getActivity()).setAllColorChanage(R.color.color_events);
 
     }
 
@@ -67,9 +68,8 @@ public class DepartmentFragment extends Fragment implements ListItemClickCallBac
 
     @Override
     public void onItemClick(int position, int viewId) {
-        ((MainActivity) getActivity()).loadTechEvents(position);
-        lastPos = position;
-        //((MainActivity) getActivity()).setToolTitle(department.get(position).getName());
+        ((MainActivity) getActivity()).loadTechEvents(position, Helper.colors[position]);
+        ((MainActivity) getActivity()).setAllColorChanage(Helper.colors[position]);
 
     }
 }

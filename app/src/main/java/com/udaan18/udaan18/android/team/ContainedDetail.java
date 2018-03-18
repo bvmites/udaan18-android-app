@@ -22,6 +22,7 @@ import com.udaan18.udaan18.android.mainnavigation.MainActivity;
  * Project: udaan18-android-app
  */
 public class ContainedDetail extends Fragment {
+    public static int location = 4;
     private FragmentCombinedDetailsBinding dataBinding;
     private CombinedDetailsAdapter adapter;
     private ViewPager pager;

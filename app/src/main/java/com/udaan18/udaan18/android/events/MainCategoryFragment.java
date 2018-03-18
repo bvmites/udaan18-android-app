@@ -17,6 +17,7 @@ import com.udaan18.udaan18.android.mainnavigation.MainActivity;
  */
 
 public class MainCategoryFragment extends Fragment implements View.OnClickListener {
+    public static int location = 3;
     FragmentMainCategoryBinding dataBinding;
 
     public static MainCategoryFragment newInstance() {
@@ -42,6 +43,7 @@ public class MainCategoryFragment extends Fragment implements View.OnClickListen
         super.onResume();
         ((MainActivity) this.getActivity()).removeBack();
         ((MainActivity) getActivity()).removeTitle("Udaan-18");
+        ((MainActivity) getActivity()).setAllColorChanage(R.color.color_events);
     }
 
     @Override
@@ -55,15 +57,18 @@ public class MainCategoryFragment extends Fragment implements View.OnClickListen
                 break;
             case R.id.categories_fragment_cardView2:
                 ((MainActivity) getActivity()).loadNonTechEvents();
+                ((MainActivity) getActivity()).setAllColorChanage(R.color.fighter);
                 //((MainActivity) getActivity()).setToolTitle("Non Tech");
                 break;
             case R.id.categories_fragment_cardView3:
                 //((MainActivity) getActivity()).setToolTitle("Cultural");
                 ((MainActivity) getActivity()).loadCulturalEvents();
+                ((MainActivity) getActivity()).setAllColorChanage(R.color.alladin);
                 break;
             case R.id.categories_fragment_cardView4:
                 //((MainActivity) getActivity()).setToolTitle("Advanture");
                 ((MainActivity) getActivity()).loadAdventure();
+                ((MainActivity) getActivity()).setAllColorChanage(R.color.duckhunt);
             default:
                 break;
         }

@@ -1,19 +1,14 @@
 [
   {
-    "category": "General Secretary",
+    "category": "Student Representatives",
     "members": [
       {
         "name": "Jatan Patel",
-        "title": ""
-      }
-    ]
-  },
-  {
-    "category": "Ladies Representative",
-    "members": [
+        "title": "General Secretary"
+      },
       {
         "name": "Megha Patel",
-        "title": ""
+        "title": "Ladies Representative"
       }
     ]
   },

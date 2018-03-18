@@ -1,8 +1,8 @@
 package com.udaan18.udaan18.android.events;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.model.eventCategory.Department;
@@ -46,13 +47,15 @@ public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         int colorPosition = position % Helper.colors.length;
-
+        String name = Helper.getTitleFromRresource(departmentList.get(position).getAlis());
         holder.container.setCardBackgroundColor(ContextCompat.getColor(context, Helper.colors[colorPosition]));
-        holder.departmentTitle.setText(departmentList.get(position).getAlis().toUpperCase());
+        holder.departmentTitle.setText(name);
 
         String resName = Helper.getResourceNameFromTitle(departmentList.get(position).getName());
         Log.d(TAG, "onBindViewHolder: " + resName);
-        int resourceId = context.getResources().getIdentifier(resName + "land", "drawable", context.getPackageName());
+        // Toast.makeText(context, ""+resName, Toast.LENGTH_SHORT).show();
+        int resourceId = context.getResources().getIdentifier(resName, "drawable", context.getPackageName());
+        holder.departmentImage.setImageResource(resourceId);
     }
 
     public void setItemClickCallBack(ListItemClickCallBack itemClickCallBack) {
@@ -68,13 +71,15 @@ public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentAdapter.Vi
 
         private CardView container;
         private AppCompatTextView departmentTitle;
-        private AppCompatImageView departmentImage;
+        private ImageView departmentImage;
 
         public ViewHolder(View itemView) {
             super(itemView);
             container = (CardView) itemView.findViewById(R.id.department_list_item_card);
             departmentTitle = (AppCompatTextView) itemView.findViewById(R.id.department_list_view_title);
-            departmentImage = (AppCompatImageView) itemView.findViewById(R.id.department_list_view_image);
+            departmentImage = itemView.findViewById(R.id.department_list_view_image);
+            Typeface custom_font = Typeface.createFromAsset(context.getAssets(), "fonts/BungeeRegular.ttf");
+            departmentTitle.setTypeface(custom_font);
             container.setOnClickListener(this);
         }
 

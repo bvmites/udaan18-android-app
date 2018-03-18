@@ -28,5 +28,5 @@ public interface ApiHelper {
     Call<List<Category>> getCategory();
 
     @GET("version_check.json")
-    Call<List<VersionCheck>> getVersion();
+    Call<VersionCheck> getVersion();
 }

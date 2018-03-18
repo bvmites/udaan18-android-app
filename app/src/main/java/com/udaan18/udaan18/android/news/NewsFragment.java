@@ -17,6 +17,7 @@ import com.udaan18.udaan18.android.databinding.FragmentNewsBinding;
  * Project: udaan18-android-app
  */
 public class NewsFragment extends Fragment {
+    public static int location = 5;
   private FragmentNewsBinding dataBinding;
   
   public static NewsFragment newInstance() {

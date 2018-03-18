@@ -81,7 +81,7 @@
                             android:layout_height="match_parent"
                             android:adjustViewBounds="true"
                             android:scaleType="fitXY"
-                            android:src="@drawable/non_techland" />
+                            android:src="@drawable/street_fighter" />
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/categories_fragment_textView2"
@@ -122,14 +122,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:adjustViewBounds="true"
-                            android:scaleType="fitXY" />
+                            android:scaleType="fitXY"
+                            android:src="@drawable/alladin_1" />
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/categories_fragment_textView3"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp"
-                            android:gravity="center"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:padding="10dp"
                             android:text="Cultural"
                             android:textColor="@color/colorWhite"
                             android:textSize="48sp" />
@@ -161,14 +164,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:adjustViewBounds="true"
-                            android:scaleType="fitXY" />
+                            android:scaleType="fitXY"
+                            android:src="@drawable/duckhunt" />
 
                         <android.support.v7.widget.AppCompatTextView
                             android:id="@+id/categories_fragment_textView4"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp"
-                            android:gravity="center"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:padding="10dp"
                             android:text="Advanture"
                             android:textColor="@color/colorWhite"
                             android:textSize="48sp" />

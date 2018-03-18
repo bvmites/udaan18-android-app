@@ -1,5 +1,6 @@
 package com.udaan18.udaan18.android.events;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -80,12 +81,14 @@ public class DetailEventFragment extends Fragment {
     }
 
     public void initComponent() {
+        Typeface custom_font_dec = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreItalic.ttf");
+
         textViewDetailEventParticipant = rootView.findViewById(R.id.text_view_detail_event_participants);
         textViewDetailEventFees = rootView.findViewById(R.id.text_view_detail_event_fees);
         textViewDetailEventPrize = rootView.findViewById(R.id.text_view_detail_event_prize);
         textViewDetailEventTagline = rootView.findViewById(R.id.event_tagline);
         eventPrizeCard = rootView.findViewById(R.id.event_prize_card);
-
+        textViewDetailEventTagline.setTypeface(custom_font_dec);
         resourceName = Helper.getResourceNameFromTitle(getActivity().getIntent().getStringExtra(this.getString(R.string.activity_key_title_name)));
     }
 

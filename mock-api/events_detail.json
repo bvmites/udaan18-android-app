@@ -1,4 +1,4 @@
-{
+﻿{
   "adventure": [
     {
       "name": "Paint ball",
@@ -384,7 +384,7 @@
           "tagline": "It`s not Falcon 9 but it will make you feel like one."
         }
       ],
-      "alis": "Mechnophiles",
+      "alis": "Mechno philes",
       "name": "mechanical/production",
       "heads": [
         {
@@ -743,7 +743,7 @@
           "tagline": "No civilians beyond this point !"
         }
       ],
-      "alis": "Coder's Squad",
+      "alis": "Coders Squad",
       "name": "computer/it",
       "heads": [
         {
