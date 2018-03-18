@@ -81,6 +81,7 @@ dependencies {
 
     // Core espresso library for UI tests
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.10'
 
 
 }

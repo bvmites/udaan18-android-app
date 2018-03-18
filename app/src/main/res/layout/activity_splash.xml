@@ -20,7 +20,7 @@
         android:background="@color/colorTextSecondary1"
         android:gravity="center"
         android:orientation="vertical">
-
+      
     </LinearLayout>
 
     <LinearLayout
