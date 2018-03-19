@@ -76,5 +76,7 @@ public class EventsFragment extends Fragment implements ListItemClickCallBack {
 
         ((MainActivity) getActivity()).setToolTitle(events.get(position).getName().toUpperCase());
         ((MainActivity) getActivity()).loadExpension(events.get(position));
+        //String name=Helper.getResourceNameFromTitle(events.get(position).getName());
+        //Toast.makeText(getContext(), ""+name, Toast.LENGTH_SHORT).show();
     }
 }

@@ -43,6 +43,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     private AppCompatImageButton weblink;
     private AppCompatImageButton maps;
     private AppCompatImageButton windows;
+    private AppCompatImageButton arIos;
+    private AppCompatImageButton arAndroid;
     private AppCompatTextView sponcers;
 
     public static AboutUdaanFragment newInstance() {
@@ -67,6 +69,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         weblink = (AppCompatImageButton) rootView.findViewById(R.id.website);
         maps = (AppCompatImageButton) rootView.findViewById(R.id.map_view);
         windows = (AppCompatImageButton) rootView.findViewById(R.id.windows);
+        arIos = (AppCompatImageButton) rootView.findViewById(R.id.arios);
+        arAndroid = (AppCompatImageButton) rootView.findViewById(R.id.arandroid);
         sponcers = (AppCompatTextView) rootView.findViewById(R.id.our_sponsors);
 
         mail.setOnClickListener(this);
@@ -77,6 +81,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         maps.setOnClickListener(this);
         windows.setOnClickListener(this);
         sponcers.setOnClickListener(this);
+        arAndroid.setOnClickListener(this);
+        arIos.setOnClickListener(this);
 
     }
 
@@ -130,8 +136,12 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
                 //((MainActivity) getActivity()).loadSponsor();
                 Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
                 break;
-
-
+            case R.id.arandroid:
+                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.arios:
+                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+                break;
         }
 
     }

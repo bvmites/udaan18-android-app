@@ -1,11 +1,12 @@
 package com.udaan18.udaan18.android.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.github.florent37.expansionpanel.ExpansionLayout;
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection;
@@ -26,13 +27,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
     public RecyclerAdapter(Context context) {
         this.context = context;
-        expansionsCollection.openOnlyOne(true);
+        expansionsCollection.openOnlyOne(false);
+
+
     }
 
     @Override
     public RecyclerHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.level_expension_list, parent, false);
-        return new RecyclerHolder(view);
+        Typeface custom_font_data = Typeface.createFromAsset(context.getAssets(), "fonts/ProzaLibreRegular.ttf");
+        Typeface custom_font_level = Typeface.createFromAsset(context.getAssets(), "fonts/ProzaLibreSemiBold.ttf");
+        return new RecyclerHolder(view, custom_font_data, custom_font_level);
     }
 
     @Override
@@ -59,20 +64,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
         // @BindView(R.id.expansionLayout)
         ExpansionLayout expansionLayout;
-        TextView level;
-        TextView description;
+        AppCompatTextView level;
+        AppCompatTextView description;
 
-        public RecyclerHolder(View itemView) {
+        public RecyclerHolder(View itemView, Typeface face, Typeface level_face) {
             super(itemView);
             //ButterKnife.bind(this, itemView);
+
             level = itemView.findViewById(R.id.text_view_detail_event_level_label);
             expansionLayout = itemView.findViewById(R.id.expansionLayout);
             description = itemView.findViewById(R.id.text_view_detail_event_level_description);
+            description.setTypeface(face);
+            level.setTypeface(level_face);
         }
 
-        public static RecyclerHolder buildFor(ViewGroup viewGroup) {
-            return new RecyclerHolder(LayoutInflater.from(viewGroup.getContext()).inflate(LAYOUT, viewGroup, false));
-        }
 
         public void bind(Object object) {
             expansionLayout.collapse(false);

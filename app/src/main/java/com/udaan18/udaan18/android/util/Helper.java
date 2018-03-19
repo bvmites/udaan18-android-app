@@ -83,7 +83,11 @@ public class Helper {
         return
                 title.toLowerCase()
                         .replaceAll("[\\s-]+", "_")
-                        .replaceAll("[^a-zA-Z0-9_]", "");
+                        .replaceAll("[^a-zA-Z0-9_]", "_")
+                        .replace("?", "")
+                        .replace("!", "")
+                        .replace("'", "");
+
     }
 
     public static String getTitleFromRresource(String title) {
@@ -93,4 +97,5 @@ public class Helper {
                         .replaceAll("[\\s-]+", "\n")
                         .replaceAll("[^a-zA-Z0-9_]", "\n");
     }
+
 }

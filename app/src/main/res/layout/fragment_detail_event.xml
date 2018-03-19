@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="5dp"
-                    android:padding="5dp"
+                    android:padding="10dp"
                     android:text="Tag line that can inspire with the motivation"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="24sp" />
@@ -72,10 +72,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:text="Participants"
                         android:textColor="@color/colorTextSecondary"
-                        android:textSize="20sp" />
+                        android:textSize="22sp" />
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/text_view_detail_event_participants"
@@ -117,10 +117,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:text="Fees"
                         android:textColor="@color/colorTextSecondary"
-                        android:textSize="20sp" />
+                        android:textSize="22sp" />
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/text_view_detail_event_fees"
@@ -185,10 +185,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:padding="5dp"
+                    android:padding="10dp"
                     android:text="Prizes"
                     android:textColor="@color/colorTextSecondary"
-                    android:textSize="20sp" />
+                    android:textSize="22sp" />
 
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/text_view_detail_event_prize"

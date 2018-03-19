@@ -63,6 +63,8 @@ dependencies {
     // Expension list libraries
     implementation 'com.github.florent37:expansionpanel:1.1.1'
 
+    implementation 'com.airbnb.android:lottie:2.2.0'
+
     // Retrofit for network connections and its converter
     implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
     implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"

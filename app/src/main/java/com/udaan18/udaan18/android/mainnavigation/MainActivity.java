@@ -1,6 +1,7 @@
 package com.udaan18.udaan18.android.mainnavigation;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -67,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 });
         this.loadFragment(this.getCategoryFragment());
         this.dataBinding.bottomNavigation.setSelectedItemId(R.id.action_events);
-
+        Typeface custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/BungeeRegular.ttf");
+        this.dataBinding.toolbarTitle.setTypeface(custom_font);
+        setAllColorChanage(R.color.colorWhite);
 
     }
 
@@ -79,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
                 this.dataBinding.toolbarTitle.setText("Uddan 18");
                 this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_events));
                 this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_events);
-                //removeBack(MainActivity.this);
+
                 if (android.os.Build.VERSION.SDK_INT >= 21) {
+
                 Window window = (MainActivity.this).getWindow();
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                 window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -158,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
     public void setBack() {
         setSupportActionBar(this.dataBinding.toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_events)));
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_events)));
     }
 
     public void setToolTitle(String title) {
@@ -169,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void removeTitle(String title) {
         this.dataBinding.toolbarTitle.setGravity(Gravity.CENTER);
+
         this.dataBinding.toolbarTitle.setPadding(0, 0, 0, 0);
         this.dataBinding.toolbarTitle.setText(title);
     }
@@ -212,7 +217,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Fragment getContainedDetail() {
-        this.containedDetail = ContainedDetail.newInstance();
+        if (this.containedDetail == null) {
+            this.containedDetail = ContainedDetail.newInstance();
+        }
         return this.containedDetail;
     }
 

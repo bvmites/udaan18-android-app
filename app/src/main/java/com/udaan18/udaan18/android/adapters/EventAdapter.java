@@ -19,11 +19,11 @@ import java.util.List;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
 
-    int drawableId;
+    private int drawableId;
     private Context context;
     private ListItemClickCallBack itemClickCallBack;
     private List<Event> eventList;
-    private int lastPosition = -1;
+//    private int lastPosition = -1;
 
     public EventAdapter(List<Event> eventList, Context context) {
         this.context = context;
@@ -41,7 +41,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        int colorPosition = position % Helper.colors.length;
+        // int colorPosition = position % Helper.colors.length;
 
         Event event = eventList.get(position);
         drawableId = this
@@ -50,7 +50,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                 .getIdentifier(Helper.getResourceNameFromTitle(event.getName()), "drawable", context.getPackageName());
 
 
-        // holder.eventIcon.setImageResource(drawableId != 0 ? drawableId : R.drawable.github);
+        //holder.eventIcon.setImageResource(drawableId != 0 ? drawableId : R.drawable.github);
         holder.bind(event);
         // holder.eventShortDescription.setText(event.getDescription());
         //setAnimation(holder.container, position);

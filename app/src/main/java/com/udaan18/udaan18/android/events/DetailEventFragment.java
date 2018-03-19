@@ -36,6 +36,9 @@ public class DetailEventFragment extends Fragment {
     private AppCompatTextView textViewDetailEventFees;
     private AppCompatTextView textViewDetailEventPrize;
     private AppCompatTextView textViewDetailEventTagline;
+    private AppCompatTextView textViewDetailEventParticipantLabel;
+    private AppCompatTextView textViewDetailEventFeesLabel;
+    private AppCompatTextView textViewDetailEventPrizeLabel;
     private String resourceName;
     public static DetailEventFragment newInstance(Event evnt) {
         DetailEventFragment fragment = new DetailEventFragment();
@@ -81,14 +84,28 @@ public class DetailEventFragment extends Fragment {
     }
 
     public void initComponent() {
-        Typeface custom_font_dec = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreItalic.ttf");
+        Typeface custom_font_dec = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreBold.ttf");
+        Typeface custom_font_label = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreSemiBold.ttf");
+        Typeface custom_font_reg = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreRegular.ttf");
 
         textViewDetailEventParticipant = rootView.findViewById(R.id.text_view_detail_event_participants);
         textViewDetailEventFees = rootView.findViewById(R.id.text_view_detail_event_fees);
         textViewDetailEventPrize = rootView.findViewById(R.id.text_view_detail_event_prize);
         textViewDetailEventTagline = rootView.findViewById(R.id.event_tagline);
         eventPrizeCard = rootView.findViewById(R.id.event_prize_card);
+        textViewDetailEventFeesLabel = rootView.findViewById(R.id.text_view_detail_event_fees_label);
+        textViewDetailEventParticipantLabel = rootView.findViewById(R.id.text_view_details_event_participants_label);
+        textViewDetailEventPrizeLabel = rootView.findViewById(R.id.text_view_event_details_prize_label);
+
         textViewDetailEventTagline.setTypeface(custom_font_dec);
+        textViewDetailEventFeesLabel.setTypeface(custom_font_label);
+        textViewDetailEventPrizeLabel.setTypeface(custom_font_label);
+        textViewDetailEventParticipantLabel.setTypeface(custom_font_label);
+        textViewDetailEventFees.setTypeface(custom_font_reg);
+        textViewDetailEventParticipant.setTypeface(custom_font_reg);
+        textViewDetailEventPrize.setTypeface(custom_font_reg);
+
+
         resourceName = Helper.getResourceNameFromTitle(getActivity().getIntent().getStringExtra(this.getString(R.string.activity_key_title_name)));
     }
 

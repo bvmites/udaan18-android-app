@@ -1,6 +1,7 @@
 package com.udaan18.udaan18.android.events;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -29,12 +30,16 @@ public class MainCategoryFragment extends Fragment implements View.OnClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main_category, container, false);
-
+        Typeface custom_font_tagline = Typeface.createFromAsset(getContext().getAssets(), "fonts/BungeeRegular.ttf");
         this.dataBinding.categoriesFragmentCardView1.setOnClickListener(this);
         this.dataBinding.categoriesFragmentCardView2.setOnClickListener(this);
         this.dataBinding.categoriesFragmentCardView3.setOnClickListener(this);
         this.dataBinding.categoriesFragmentCardView4.setOnClickListener(this);
 
+        this.dataBinding.categoriesFragmentTextView1.setTypeface(custom_font_tagline);
+        this.dataBinding.categoriesFragmentTextView2.setTypeface(custom_font_tagline);
+        this.dataBinding.categoriesFragmentTextView3.setTypeface(custom_font_tagline);
+        this.dataBinding.categoriesFragmentTextView4.setTypeface(custom_font_tagline);
         return this.dataBinding.getRoot();
     }
 

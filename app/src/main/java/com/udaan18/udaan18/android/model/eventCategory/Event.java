@@ -129,7 +129,7 @@ public class Event {
                 int prizeInfo = this.prizes.get(i);
                 if (prizeInfo > 0) {
                     if (i > 0) {
-                        prizeDescription += "\n\n";
+                        prizeDescription += "\n";
                     }
                     if (i == 0) {
                         positionInfo = "Winner";

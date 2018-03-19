@@ -133,7 +133,7 @@ public class SplashActivity extends Activity {
             @Override
             public void onResponse(Call<VersionCheck> call, Response<VersionCheck> response) {
                 VersionCheck check = response.body();
-                Toast.makeText(SplashActivity.this, "App Version" + check.getAppVersion() + "\n data version" + check.getDataVersion(), Toast.LENGTH_SHORT).show();
+                // Toast.makeText(SplashActivity.this, "App Version" + check.getAppVersion() + "\n data version" + check.getDataVersion(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
