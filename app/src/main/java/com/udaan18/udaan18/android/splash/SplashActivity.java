@@ -73,7 +73,7 @@ public class SplashActivity extends Activity {
         } else if (!this.getSharedPreferences(this.getString(R.string.prefs_file_name), Context.MODE_PRIVATE).contains(this.getString(R.string.prefs_event_data_json))) {
             Helper.showNetworkAlertPopup(this);
         } else {
-            goNext();
+            setDelay();
         }
     }
 
@@ -83,6 +83,8 @@ public class SplashActivity extends Activity {
             @Override
             public void onResponse(Call<Container> call, Response<Container> response) {
                 Container container = response.body();
+                container.getNonTech().add(container.getTreasureHunt().get(0));
+                container.getNonTech().add(container.getGirls().get(0));
                 editor.putString(context.getString(R.string.prefs_event_data_json), container.toString());
                 editor.apply();
                 // Toast.makeText(SplashActivity.this, "error in event:"+container.getDepartments().size(), Toast.LENGTH_SHORT).show();
@@ -147,13 +149,14 @@ public class SplashActivity extends Activity {
                     if (!activity.getSharedPreferences(activity.getString(R.string.prefs_file_name), Context.MODE_PRIVATE).contains("version")) {
                         editor.putString("version", (new Gson()).toJson(check));
                         editor.apply();
-                    }
-
-                    if (SharedPreferenceHelper.getInstance(getApplicationContext()).getVersion().getAppVersion() < check.getAppVersion()) {
+                        setDelay();
+                    } else if (SharedPreferenceHelper.getInstance(getApplicationContext()).getVersion().getAppVersion() < check.getAppVersion()) {
                         Helper.showUpdatePopup(activity);
                     } else {
-                        goNext();
+                        setDelay();
                     }
+
+
                 } catch (JSONException e) {
                     Toast.makeText(SplashActivity.this, "error", Toast.LENGTH_SHORT).show();
                 }
@@ -167,9 +170,15 @@ public class SplashActivity extends Activity {
 
     }
 
-    void goNext() {
+
+    void setDelay() {
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
         Intent i = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(i);
+        SplashActivity.this.finish();
+//            }
+//        }, 3000);
     }
-
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.databinding.FragmentNewsBinding;
+import com.udaan18.udaan18.android.mainnavigation.MainActivity;
 
 /**
  * Creator: Varun Barad
@@ -29,6 +30,8 @@ public class NewsFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
     this.dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_news, container, false);
+      ((MainActivity) getActivity()).removeTitle("Notifications");
+      ((MainActivity) getActivity()).setAllColorChanage(R.color.color_news);
     return this.dataBinding.getRoot();
   }
 }

@@ -28,7 +28,7 @@ import com.udaan18.udaan18.android.util.Helper;
 public class AboutUdaanFragment extends Fragment implements View.OnClickListener {
 
     public static int location = 1;
-    private final String EMAIL_ADDRESS = "udaan.th@gmail.com";
+    private final String EMAIL_ADDRESS = "developer.team.udaan@gmail.com";
     private final String YOUTUBE_LINK = "UCnqRgS6O0MGF8sTYb_fHjWA";
     private final String FACEBOOK_LINK = "https://www.facebook.com/teamudaan18";
     private final String INSTAGRAM_LINK = "https://www.instagram.com/teamudaan";
@@ -49,6 +49,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     private AppCompatImageButton arAndroid;
     private AppCompatImageButton instagram;
     private AppCompatTextView sponcers;
+    private AppCompatImageButton appStore;
+
 
     private AppCompatTextView contactUs;
     private AppCompatTextView available_on;
@@ -72,6 +74,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_about_udaan, container, false);
         intializeObjects();
+        ((MainActivity) getActivity()).removeTitle("About Udaan");
+        ((MainActivity) getActivity()).setAllColorChanage(R.color.color_about);
         custom_font_dec = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreBold.ttf");
         custom_font_label = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreSemiBold.ttf");
         custom_font_reg = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreRegular.ttf");
@@ -92,6 +96,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         arAndroid = (AppCompatImageButton) rootView.findViewById(R.id.arandroid);
         sponcers = (AppCompatTextView) rootView.findViewById(R.id.our_sponsors);
         instagram = rootView.findViewById(R.id.instagram);
+        appStore = rootView.findViewById(R.id.appstore);
 
         about_us_ar = rootView.findViewById(R.id.our_ar);
         about_us_reach = rootView.findViewById(R.id.about_us_reach);
@@ -120,6 +125,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         sponcers.setOnClickListener(this);
         arAndroid.setOnClickListener(this);
         arIos.setOnClickListener(this);
+        appStore.setOnClickListener(this);
 
     }
 
@@ -151,14 +157,17 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
                 intent = newInstagramIntent(this.getActivity().getPackageManager(), INSTAGRAM_LINK);
                 startActivity(intent);
                 break;
+            case R.id.appstore:
+                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.playstore:
                 String appPackageName = this.getActivity().getPackageName();
                 try {
-                    //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
                 } catch (android.content.ActivityNotFoundException e) {
-                    //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
                 }
-                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.website:
                 Helper.openUrlInBrowser(WEB_LINK, this.getContext());

@@ -38,7 +38,7 @@ public class ContainedDetail extends Fragment {
         this.dataBinding.combinedDetailsViewPager.setAdapter(adapter);
         this.dataBinding.combinedDetailsTabLayout.setupWithViewPager(this.dataBinding.combinedDetailsViewPager);
         // this.dataBinding.combinedDetailsTabLayout.setBackgroundColor(ContextCompat.getColor(this.getContext(), ));
-        this.dataBinding.combinedDetailsViewPager.setCurrentItem(1);
+        this.dataBinding.combinedDetailsViewPager.setCurrentItem(0);
         return this.dataBinding.getRoot();
     }
 }

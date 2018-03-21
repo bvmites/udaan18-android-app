@@ -63,10 +63,10 @@ public class Helper {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.AlertTheme);
 
-        builder.setMessage("The New Version is available")
+        builder.setMessage("A New Version is available")
                 .setTitle("Please update application for new features")
                 .setCancelable(false)
-                .setPositiveButton("PlayStore", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Update", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 String appPackageName = activity.getPackageName();
@@ -98,7 +98,7 @@ public class Helper {
         Uri emailUri = Uri.parse("mailto:" + emailAddress);
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, emailUri);
         emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailAddress});
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Review regarding work done in Udaan17");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Review regarding work done in Udaan18");
         context.startActivity(Intent.createChooser(emailIntent, "Send mail"));
     }
 

@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.udaan18.udaan18.android.R;
@@ -166,7 +167,9 @@ public class DetailEventFragment extends Fragment {
                         .adapter(adapter, new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false))
                         .cancelable(true)
                         .build();
-
-        dialog.show();
+        if (!(event.getManagers().size() == 0))
+            dialog.show();
+        else
+            Toast.makeText(getContext(), "No Event Manager", Toast.LENGTH_SHORT).show();
     }
 }
