@@ -22,9 +22,27 @@
     "color": "",
     "category": "android",
     "name": "Pranav Gajera",
-    "mobile": "+91",
-    "email": "",
+    "mobile": "+919624653606",
+    "email": "pranavgajera1998@gmail.com",
     "github": "https://github.com/prnv28"
+  },
+  {
+    "title": "Android Developer",
+    "color": "",
+    "category": "android",
+    "name": "Jay Patel",
+    "mobile": "+919374883988",
+    "email": "jp9573@gmail.com",
+    "github": "https://github.com/jp9573"
+  },
+  {
+    "title": "iOS Developer",
+    "color": "",
+    "category": "apple",
+    "name": "Jay Vaghani",
+    "mobile": "+919909834387",
+    "email": "jvaghani971@gmail.com",
+    "github": "https://github.com/jayvaghani"
   },
   {
     "title": "Web Developer",
@@ -54,13 +72,13 @@
     "github": "https://github.com/sidx1024"
   },
   {
-    "title": "Back-End Developer",
+    "title": "Web Developer",
     "color": "",
-    "category": "backend",
-    "name": "Chintan Acharya",
-    "mobile": "+918140474055",
-    "email": "acharya.chintan96@gmail.com",
-    "github": "https://github.com/chintanacharya"
+    "category": "web",
+    "name": "Megharth Lakhataria",
+    "mobile": "+919429000091",
+    "email": "m.c.lakhataria@gmail.com",
+    "github": "https://github.com/megharth"
   },
   {
     "title": "UWP Developer",
@@ -72,31 +90,22 @@
     "github": "https://github.com/darshan010"
   },
   {
-    "title": "Android Developer",
+    "title": "Python Developer",
     "color": "",
-    "category": "unity",
-    "name": "Jay Patel",
-    "mobile": "+919374883988",
-    "email": "jp9573@gmail.com",
-    "github": "https://github.com/jp9573"
-  },
-  {
-    "title": "Web Developer",
-    "color": "",
-    "category": "web",
-    "name": "Megharth Lakhataria",
-    "mobile": "+919429000091",
-    "email": "m.c.lakhataria@gmail.com",
-    "github": "https://github.com/megharth"
-  },
-  {
-    "title": "Data Analyst",
-    "color": "",
-    "category": "analytics",
+    "category": "python",
     "name": "Pranshu Dave",
     "mobile": "+918238330100",
     "email": "pranshudave@gmail.com",
     "github": "https://github.com/pranshu0210"
+  },
+  {
+    "title": "Back-End Developer",
+    "color": "",
+    "category": "backend",
+    "name": "Chintan Acharya",
+    "mobile": "+918140474055",
+    "email": "acharya.chintan96@gmail.com",
+    "github": "https://github.com/chintanacharya"
   },
   {
     "title": "Back-End Developer",
@@ -115,14 +124,5 @@
     "mobile": "+918160762644",
     "email": "jaymovaliya786@gmail.com",
     "github": "https://github.com/jaymovaliya"
-  },
-  {
-    "title": "iOS Developer",
-    "color": "",
-    "category": "ios",
-    "name": "Jay Vaghani",
-    "mobile": "+919909834387",
-    "email": "jvaghani971@gmail.com",
-    "github": "https://github.com/jayvaghani"
   }
 ]
