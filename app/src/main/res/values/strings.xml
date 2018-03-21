@@ -3,7 +3,7 @@
 
     <string name="label_events">Events</string>
     <string name="label_photo">Photo</string>
-    <string name="label_aboutUdaan">About Udaan</string>
+    <string name="label_aboutUdaan">About</string>
     <string name="label_team">Our Team</string>
     <string name="label_newsFeed">News</string>
 
@@ -20,4 +20,12 @@
     <string name="activity_key_title_name">title-name</string>
     <string name="activity_key_event_data">event-data</string>
     <string name="symbol_rupee">\u20b9</string>
+
+    <string name="udaan_title">Udaan-18</string>
+    <string name="about_us_title">About Udaan</string>
+    <string name="notification_title">Notifications</string>
+    <string name="photo_title">Udaan Filter</string>
+    <string name="team_title">Team</string>
+
+
 </resources>

@@ -29,7 +29,7 @@
                 android:padding="5dp"
                 android:text="Level 1"
                 android:textColor="@color/colorTextSecondary"
-                android:textSize="20sp" />
+                android:textSize="22sp" />
 
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/headerIndicator"
@@ -70,6 +70,10 @@
                 android:textColor="@color/colorTextPrimary"
                 android:textSize="20sp"
                 tools:text="text1" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
 
         </LinearLayout>
 

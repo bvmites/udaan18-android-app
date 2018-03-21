@@ -12,14 +12,14 @@
     <item
         android:id="@+id/action_photo"
         android:enabled="true"
-        android:icon="@drawable/ic_camera"
+        android:icon="@drawable/camera"
         android:title="@string/label_photo"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_events"
         android:enabled="true"
-        android:icon="@drawable/ic_camera"
+        android:icon="@drawable/puzzle"
         android:title="@string/label_events"
         app:showAsAction="ifRoom"/>
 
@@ -32,7 +32,7 @@
     <item
         android:id="@+id/action_newsFeed"
         android:enabled="true"
-        android:icon="@drawable/ic_noti"
+        android:icon="@drawable/bell"
         android:title="@string/label_newsFeed"
         app:showAsAction="ifRoom"/>
 </menu>

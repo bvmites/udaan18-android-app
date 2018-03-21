@@ -40,6 +40,9 @@ public class DetailEventFragment extends Fragment {
     private AppCompatTextView textViewDetailEventFeesLabel;
     private AppCompatTextView textViewDetailEventPrizeLabel;
     private String resourceName;
+    private Typeface custom_font_dec;
+    private Typeface custom_font_label;
+    private Typeface custom_font_reg;
     public static DetailEventFragment newInstance(Event evnt) {
         DetailEventFragment fragment = new DetailEventFragment();
         event = evnt;
@@ -84,9 +87,9 @@ public class DetailEventFragment extends Fragment {
     }
 
     public void initComponent() {
-        Typeface custom_font_dec = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreBold.ttf");
-        Typeface custom_font_label = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreSemiBold.ttf");
-        Typeface custom_font_reg = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreRegular.ttf");
+        custom_font_dec = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreBold.ttf");
+        custom_font_label = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreSemiBold.ttf");
+        custom_font_reg = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreRegular.ttf");
 
         textViewDetailEventParticipant = rootView.findViewById(R.id.text_view_detail_event_participants);
         textViewDetailEventFees = rootView.findViewById(R.id.text_view_detail_event_fees);
@@ -142,6 +145,7 @@ public class DetailEventFragment extends Fragment {
     }
 
     private void showManagersDialog() {
+
         ManagerAdapter adapter = new ManagerAdapter(this.event.getManagers(),
                 this.resourceName,
                 getContext(),
@@ -158,7 +162,7 @@ public class DetailEventFragment extends Fragment {
 
         MaterialDialog dialog =
                 new MaterialDialog.Builder(getContext())
-                        .title("Event Managers")
+                        .title("Event Managers").typeface(custom_font_dec, custom_font_reg)
                         .adapter(adapter, new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false))
                         .cancelable(true)
                         .build();

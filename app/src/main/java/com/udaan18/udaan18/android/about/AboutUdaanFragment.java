@@ -3,6 +3,7 @@ package com.udaan18.udaan18.android.about;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -30,6 +31,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     private final String EMAIL_ADDRESS = "udaan.th@gmail.com";
     private final String YOUTUBE_LINK = "UCnqRgS6O0MGF8sTYb_fHjWA";
     private final String FACEBOOK_LINK = "https://www.facebook.com/teamudaan18";
+    private final String INSTAGRAM_LINK = "https://www.instagram.com/teamudaan";
     private final String PLAY_STORE = "";
     private final String WEB_LINK = "https://udaan18.com/";
     private final String lat = "22.5525703";
@@ -45,7 +47,20 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     private AppCompatImageButton windows;
     private AppCompatImageButton arIos;
     private AppCompatImageButton arAndroid;
+    private AppCompatImageButton instagram;
     private AppCompatTextView sponcers;
+
+    private AppCompatTextView contactUs;
+    private AppCompatTextView available_on;
+    private AppCompatTextView about_us_title;
+    private AppCompatTextView about_us_ar;
+    private AppCompatTextView about_us_reach;
+    private AppCompatTextView about_us_address;
+
+    private Typeface custom_font_dec;
+    private Typeface custom_font_label;
+    private Typeface custom_font_reg;
+    private Typeface custom_font_tagline;
 
     public static AboutUdaanFragment newInstance() {
         AboutUdaanFragment fragment = new AboutUdaanFragment();
@@ -57,6 +72,10 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_about_udaan, container, false);
         intializeObjects();
+        custom_font_dec = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreBold.ttf");
+        custom_font_label = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreSemiBold.ttf");
+        custom_font_reg = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreRegular.ttf");
+        custom_font_tagline = Typeface.createFromAsset(getContext().getAssets(), "fonts/BungeeRegular.ttf");
         return rootView;
     }
 
@@ -72,6 +91,23 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         arIos = (AppCompatImageButton) rootView.findViewById(R.id.arios);
         arAndroid = (AppCompatImageButton) rootView.findViewById(R.id.arandroid);
         sponcers = (AppCompatTextView) rootView.findViewById(R.id.our_sponsors);
+        instagram = rootView.findViewById(R.id.instagram);
+
+        about_us_ar = rootView.findViewById(R.id.our_ar);
+        about_us_reach = rootView.findViewById(R.id.about_us_reach);
+        about_us_title = rootView.findViewById(R.id.about_us_title);
+        available_on = rootView.findViewById(R.id.available_on);
+        contactUs = rootView.findViewById(R.id.about_us_connect);
+        about_us_address = rootView.findViewById(R.id.about_us_address);
+
+        about_us_title.setTypeface(custom_font_tagline);
+        about_us_ar.setTypeface(custom_font_label);
+        about_us_reach.setTypeface(custom_font_label);
+        available_on.setTypeface(custom_font_label);
+        contactUs.setTypeface(custom_font_label);
+
+        about_us_address.setTypeface(custom_font_reg);
+        sponcers.setTypeface(custom_font_label);
 
         mail.setOnClickListener(this);
         youtube.setOnClickListener(this);
@@ -80,6 +116,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         weblink.setOnClickListener(this);
         maps.setOnClickListener(this);
         windows.setOnClickListener(this);
+        instagram.setOnClickListener(this);
         sponcers.setOnClickListener(this);
         arAndroid.setOnClickListener(this);
         arIos.setOnClickListener(this);
@@ -90,7 +127,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     public void onResume() {
         super.onResume();
         ((MainActivity) this.getActivity()).removeBack();
-        ((MainActivity) getActivity()).removeTitle("About Us");
+        ((MainActivity) getActivity()).removeTitle("About Udaan");
     }
 
     @Override
@@ -108,6 +145,10 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.facebook:
                 intent = getFacebookIntent(this.getActivity().getPackageManager(), FACEBOOK_LINK);
+                startActivity(intent);
+                break;
+            case R.id.instagram:
+                intent = newInstagramIntent(this.getActivity().getPackageManager(), INSTAGRAM_LINK);
                 startActivity(intent);
                 break;
             case R.id.playstore:
@@ -159,5 +200,21 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
             e.printStackTrace();
         }
         return new Intent(Intent.ACTION_VIEW, uri);
+    }
+
+    public Intent newInstagramIntent(PackageManager pm, String url) {
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+        try {
+            ApplicationInfo applicationInfo = pm.getApplicationInfo("com.instagram.android", 0);
+            if (applicationInfo.enabled) {
+                intent.setPackage("com.instagram.android");
+            }
+        } catch (PackageManager.NameNotFoundException ignored) {
+
+        }
+
+        return intent;
     }
 }

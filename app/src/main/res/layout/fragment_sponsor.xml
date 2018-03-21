@@ -46,7 +46,7 @@
             android:layout_marginTop="8dp"
             android:scaleType="fitCenter"
 
-            app:srcCompat="@drawable/envelope" />
+            app:srcCompat="@drawable/mail_icon_gray" />
 
         <android.support.v4.widget.Space
             android:layout_width="5dp"
@@ -61,7 +61,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/facebook" />
+            app:srcCompat="@drawable/ic_facebook" />
 
         <android.support.v4.widget.Space
             android:layout_width="5dp"
@@ -91,7 +91,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/youtube" />
+            app:srcCompat="@drawable/ic_youtube" />
 
         <android.support.v4.widget.Space
             android:layout_width="0dp"
@@ -119,7 +119,7 @@
             android:layout_marginTop="8dp"
             android:scaleType="fitCenter"
 
-            app:srcCompat="@drawable/playstore" />
+            app:srcCompat="@drawable/apple" />
 
         <android.support.v4.widget.Space
             android:layout_width="5dp"
@@ -150,7 +150,7 @@
             android:layout_marginTop="8dp"
             android:scaleType="fitCenter"
 
-            app:srcCompat="@drawable/appstore" />
+            app:srcCompat="@drawable/ic_windows" />
 
         <android.support.v4.widget.Space
             android:layout_width="5dp"
@@ -195,7 +195,7 @@
             android:layout_marginTop="8dp"
             android:scaleType="fitCenter"
 
-            app:srcCompat="@drawable/appstore" />
+            app:srcCompat="@drawable/account" />
 
         <android.support.v4.widget.Space
             android:layout_width="5dp"
@@ -210,7 +210,6 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:scaleType="fitCenter"
-
             app:srcCompat="@drawable/windows" />
 
         <android.support.v4.widget.Space

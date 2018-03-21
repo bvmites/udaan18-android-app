@@ -45,7 +45,7 @@ public class ManagerFragment extends Fragment implements ManagerSection.ManagerC
             this.managerRecyclerView = (RecyclerView) rootView.findViewById(R.id.new_manager_recycler_view);
             this.managerAdapter = new SectionedRecyclerViewAdapter();
             for (int index = 1; index <= 2; index++) {
-                this.managerAdapter.addSection(new ManagerSection(department, index, this));
+                this.managerAdapter.addSection(new ManagerSection(department, index, this, getContext()));
             }
             this.managerRecyclerView.setAdapter(managerAdapter);
             this.managerRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));

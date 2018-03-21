@@ -42,11 +42,11 @@
     <color name="colorTextSecondary1">#212121</color>
     <color name="colorTextPrimary1">#ff212110</color>
 
-    <color name="color_events">#ffd33124</color>
-    <color name="color_photo">#ff189947</color>
-    <color name="color_about">#ffc1333f</color>
-    <color name="color_team">#ff0957a1</color>
-    <color name="color_news">#ff511e3f</color>
+    <color name="color_events">#46494c</color>
+    <color name="color_photo">#59c9a5</color>
+    <color name="color_about">#730046</color>
+    <color name="color_team">#1985a1</color>
+    <color name="color_news">#c93c00</color>
 
     <color name="colorDivider">#ffb6b6b6</color>
     <color name="colorCardBackground">#88000000</color>
@@ -59,4 +59,12 @@
     <color name="mario">#e9d989</color>
     <color name="sonic">#f59259</color>
     <color name="mega">#80ceb6</color>
+
+    <color name="black">#000</color>
+
+    <color name="about_fragment">#730046</color>
+    <color name="photos_fragament">#bfbb11</color>
+    <color name="event_fragment">#ffc200</color>
+    <color name="team_fragment">#e88801</color>
+    <color name="notification_fragment">#c93c00</color>
 </resources>

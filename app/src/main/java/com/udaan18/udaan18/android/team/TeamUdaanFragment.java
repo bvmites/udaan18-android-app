@@ -1,12 +1,11 @@
 package com.udaan18.udaan18.android.team;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,18 +24,13 @@ import java.util.List;
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 
 
-public class TeamUdaanFragment extends Fragment {
+public class TeamUdaanFragment extends Fragment implements TeamSection.ManagerCallItemClick {
 
     private View rootView;
     private List<Category> teamUdaan;
 
     private RecyclerView recyclerView;
     private SectionedRecyclerViewAdapter teamUdaanAdapter;
-
-    public static void startActivity(Context context) {
-        Intent intent = new Intent(context, TeamUdaanFragment.class);
-        context.startActivity(intent);
-    }
 
     @Nullable
     @Override
@@ -57,7 +51,7 @@ public class TeamUdaanFragment extends Fragment {
         teamUdaan = SharedPreferenceHelper.getInstance(getActivity()).getTeamUdaan();
         if (teamUdaan == null) {
             teamUdaan = new ArrayList<>();
-            Toast.makeText(getContext(), "the about is empty", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getContext(), "the about is empty", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -65,9 +59,19 @@ public class TeamUdaanFragment extends Fragment {
         this.recyclerView = (RecyclerView) this.rootView.findViewById(R.id.team_recycler_view);
         this.teamUdaanAdapter = new SectionedRecyclerViewAdapter();
         for (int index = 0; index < this.teamUdaan.size(); index++) {
-            this.teamUdaanAdapter.addSection(String.valueOf(index), new TeamSection(this.teamUdaan.get(index)));
+            this.teamUdaanAdapter.addSection(String.valueOf(index), new TeamSection(this.teamUdaan.get(index), index, this, getContext()));
         }
         this.recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
         this.recyclerView.setAdapter(this.teamUdaanAdapter);
+    }
+
+    @Override
+    public void onItemClick(int position, int sectionId) {
+        Log.d("ManagerFragment", "onItemClick: " + position);
+        if (sectionId == 1) {
+            Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), "hello again", Toast.LENGTH_SHORT).show();
+        }
     }
 }

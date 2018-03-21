@@ -34,6 +34,7 @@ public class DeveloperFragment extends Fragment implements ListItemClickCallBack
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_developer, container, false);
+
         try {
             afterIn();
         } catch (JSONException e) {

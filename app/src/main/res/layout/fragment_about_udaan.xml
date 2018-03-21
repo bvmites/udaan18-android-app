@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/contact_us_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_embeddrones"
+    android:background="@color/color_about"
     android:orientation="vertical"
     android:scrollbars="vertical">
 
@@ -23,8 +22,7 @@
                 android:id="@+id/about_us_image"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                app:srcCompat="@drawable/udaan_wing"
-                tools:background="@color/color_embeddrones" />
+                app:srcCompat="@drawable/udaan_wing" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/about_us_title"
@@ -79,8 +77,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
-                    app:srcCompat="@drawable/envelope" />
+                    app:backgroundTint="@color/color_about"
+                    app:srcCompat="@drawable/ic_mail" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="5dp"
@@ -95,8 +93,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
-                    app:srcCompat="@drawable/facebook" />
+                    app:backgroundTint="@color/color_about"
+                    app:srcCompat="@drawable/ic_facebook" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="5dp"
@@ -111,7 +109,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
+                    app:backgroundTint="@color/color_about"
                     app:srcCompat="@drawable/instagram" />
 
                 <android.support.v4.widget.Space
@@ -127,8 +125,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
-                    app:srcCompat="@drawable/youtube" />
+                    app:backgroundTint="@color/color_about"
+                    app:srcCompat="@drawable/ic_youtube" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="0dp"
@@ -165,8 +163,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
-                    app:srcCompat="@drawable/youtube" />
+                    app:backgroundTint="@color/color_about"
+                    app:srcCompat="@drawable/ic_web" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="5dp"
@@ -186,8 +184,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
-                    app:srcCompat="@drawable/playstore" />
+                    app:backgroundTint="@color/color_about"
+                    app:srcCompat="@drawable/ic_play" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="5dp"
@@ -206,8 +204,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
-                    app:srcCompat="@drawable/appstore" />
+                    app:backgroundTint="@color/color_about"
+                    app:srcCompat="@drawable/apple" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="5dp"
@@ -222,8 +220,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
-                    app:srcCompat="@drawable/windows" />
+                    app:backgroundTint="@color/color_about"
+                    app:srcCompat="@drawable/ic_windows" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="0dp"
@@ -262,8 +260,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
-                    app:srcCompat="@drawable/appstore" />
+                    app:backgroundTint="@color/color_about"
+                    app:srcCompat="@drawable/ic_play" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="5dp"
@@ -278,8 +276,8 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
-                    app:srcCompat="@drawable/playstore" />
+                    app:backgroundTint="@color/color_about"
+                    app:srcCompat="@drawable/apple" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="0dp"
@@ -328,10 +326,11 @@
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:scaleType="fitCenter"
-                    app:backgroundTint="@color/color_embeddrones"
-                    app:srcCompat="@drawable/location" />
+                    app:backgroundTint="@color/color_about"
+                    app:srcCompat="@drawable/map_marker" />
 
                 <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/about_us_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -375,26 +374,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
 
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Pop Heads"
-                android:textAlignment="center"
-                android:textColor="@color/colorWhite"
-                android:textSize="20sp" />
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/contact_us_attribution"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingBottom="24dp"
-                android:paddingTop="8dp"
-                android:text="Attribution to Kode Logic"
-                android:textAlignment="center"
-                android:textColor="@color/colorWhite"
-                android:textSize="16sp" />
 
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="match_parent"

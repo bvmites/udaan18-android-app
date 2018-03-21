@@ -10,7 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -23,6 +22,9 @@ import com.udaan18.udaan18.android.model.eventCategory.Developer;
 import com.udaan18.udaan18.android.model.eventCategory.VersionCheck;
 import com.udaan18.udaan18.android.util.Helper;
 import com.udaan18.udaan18.android.util.RestClient;
+import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
+
+import org.json.JSONException;
 
 import java.util.List;
 
@@ -34,12 +36,14 @@ import retrofit2.Response;
 public class SplashActivity extends Activity {
 
     // Splash screen timer
-    private static int SPLASH_TIME_OUT = 3000;
+
     private volatile boolean dataFetched = false;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
     private Context context;
     private RestClient client;
+    private Activity activity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +54,18 @@ public class SplashActivity extends Activity {
         preferences = this.getSharedPreferences(this.getString(R.string.prefs_file_name), Context.MODE_PRIVATE);
         editor = preferences.edit();
         context = this;
+        activity = this;
         client = new RestClient();
 
         if (Helper.hasNetworkConnection(this)) {
             try {
-                getVersionData();
                 getEventData();
                 getDeveloperData();
                 getTeamUdaanData();
-                performTask();
+                getVersionData();
+                // Toast.makeText(SplashActivity.this, "App Version" + Helper.check.getAppVersion() + "\n data version" + Helper.check.getDataVersion(), Toast.LENGTH_SHORT).show();
+
+
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "error in" + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
@@ -66,7 +73,7 @@ public class SplashActivity extends Activity {
         } else if (!this.getSharedPreferences(this.getString(R.string.prefs_file_name), Context.MODE_PRIVATE).contains(this.getString(R.string.prefs_event_data_json))) {
             Helper.showNetworkAlertPopup(this);
         } else {
-            performTask();
+            goNext();
         }
     }
 
@@ -116,6 +123,7 @@ public class SplashActivity extends Activity {
                 List<Category> container = response.body();
                 editor.putString(context.getString(R.string.prefs_team_udaan_data_json), (new Gson()).toJson(container));
                 editor.apply();
+                // goNext();
             }
 
             @Override
@@ -134,6 +142,21 @@ public class SplashActivity extends Activity {
             public void onResponse(Call<VersionCheck> call, Response<VersionCheck> response) {
                 VersionCheck check = response.body();
                 // Toast.makeText(SplashActivity.this, "App Version" + check.getAppVersion() + "\n data version" + check.getDataVersion(), Toast.LENGTH_SHORT).show();
+
+                try {
+                    if (!activity.getSharedPreferences(activity.getString(R.string.prefs_file_name), Context.MODE_PRIVATE).contains("version")) {
+                        editor.putString("version", (new Gson()).toJson(check));
+                        editor.apply();
+                    }
+
+                    if (SharedPreferenceHelper.getInstance(getApplicationContext()).getVersion().getAppVersion() < check.getAppVersion()) {
+                        Helper.showUpdatePopup(activity);
+                    } else {
+                        goNext();
+                    }
+                } catch (JSONException e) {
+                    Toast.makeText(SplashActivity.this, "error", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -144,25 +167,9 @@ public class SplashActivity extends Activity {
 
     }
 
-    void performTask() {
-        new Handler().postDelayed(new Runnable() {
-
-            /*
-             * Showing splash screen with a timer. This will be useful when you
-             * want to show case your app logo / company
-             */
-
-            @Override
-            public void run() {
-                // This method will be executed once the timer is over
-                // Start your app main activity
-                Intent i = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(i);
-
-                // close this activity
-                finish();
-            }
-        }, SPLASH_TIME_OUT);
+    void goNext() {
+        Intent i = new Intent(SplashActivity.this, MainActivity.class);
+        startActivity(i);
     }
 
 }

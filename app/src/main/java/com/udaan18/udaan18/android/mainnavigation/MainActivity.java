@@ -29,6 +29,7 @@ import com.udaan18.udaan18.android.model.eventCategory.Event;
 import com.udaan18.udaan18.android.news.NewsFragment;
 import com.udaan18.udaan18.android.photo.PhotoFragment;
 import com.udaan18.udaan18.android.team.ContainedDetail;
+import com.udaan18.udaan18.android.util.Helper;
 import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
 
 import org.json.JSONException;
@@ -70,81 +71,81 @@ public class MainActivity extends AppCompatActivity {
         this.dataBinding.bottomNavigation.setSelectedItemId(R.id.action_events);
         Typeface custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/BungeeRegular.ttf");
         this.dataBinding.toolbarTitle.setTypeface(custom_font);
-        setAllColorChanage(R.color.colorWhite);
 
     }
 
     private void handleBottomNavigationItemSelect(@IdRes int itemId) {
         // if (itemId != this.currentSelectedSection) {
         //  this.currentSelectedSection = itemId;
+        if ((itemId == this.dataBinding.bottomNavigation.getSelectedItemId()) && (itemId != R.id.action_events)) {
+            return;
+        }
         switch (itemId) {
             case R.id.action_events:
-                this.dataBinding.toolbarTitle.setText("Uddan 18");
+                this.dataBinding.toolbarTitle.setText(R.string.udaan_title);
                 this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_events));
                 this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_events);
 
                 if (android.os.Build.VERSION.SDK_INT >= 21) {
 
-                Window window = (MainActivity.this).getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(this.getResources().getColor(R.color.color_events));
+                    Window window = (MainActivity.this).getWindow();
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    window.setStatusBarColor(this.getResources().getColor(R.color.color_events));
                 }
                 this.loadFragment(this.getCategoryFragment());
                 break;
             case R.id.action_photo:
-                this.dataBinding.toolbarTitle.setText("Photo Filter");
+                this.dataBinding.toolbarTitle.setText(R.string.photo_title);
                 this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_photo));
                 this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_photo);
                 if (android.os.Build.VERSION.SDK_INT >= 21) {
                     Window window = (MainActivity.this).getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(this.getResources().getColor(R.color.color_photo));
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    window.setStatusBarColor(this.getResources().getColor(R.color.color_photo));
                 }
                 this.loadFragment(this.getPhotoFragment());
                 break;
             case R.id.action_aboutUdaan:
-                this.dataBinding.toolbarTitle.setText("About Udaan");
+                this.dataBinding.toolbarTitle.setText(R.string.about_us_title);
                 this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_about));
                 this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_about);
                 if (android.os.Build.VERSION.SDK_INT >= 21) {
                     Window window = (MainActivity.this).getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(this.getResources().getColor(R.color.color_about));
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    window.setStatusBarColor(this.getResources().getColor(R.color.color_about));
                 }
                 this.loadFragment(this.getAboutUdaanFragment());
                 break;
             case R.id.action_team:
-//            this.dataBinding.toolbarTitle.setText("Team");
-//            this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_team));
+                this.dataBinding.toolbarTitle.setText(R.string.team_title);
+                this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_team));
                 this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_team);
                 if (android.os.Build.VERSION.SDK_INT >= 21) {
                     Window window = (MainActivity.this).getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(this.getResources().getColor(R.color.color_team));
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    window.setStatusBarColor(this.getResources().getColor(R.color.color_team));
                 }
-          /*this.dataBinding.tolMain.setVisibility(View.GONE);
-          this.dataBinding.tolCom.setVisibility(View.VISIBLE);*/
                 this.loadFragment(this.getContainedDetail());
 
                 break;
             case R.id.action_newsFeed:
-                this.dataBinding.toolbarTitle.setText("Notifications");
+                this.dataBinding.toolbarTitle.setText(R.string.notification_title);
                 this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_news));
                 this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_news);
                 if (android.os.Build.VERSION.SDK_INT >= 21) {
                     Window window = (MainActivity.this).getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(this.getResources().getColor(R.color.color_news));
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    window.setStatusBarColor(this.getResources().getColor(R.color.color_news));
                 }
                 this.loadFragment(this.getNewsFragment());
                 break;
         }
-        // }
+
     }
 
     public void setAllColorChanage(int id) {
@@ -217,9 +218,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Fragment getContainedDetail() {
-        if (this.containedDetail == null) {
-            this.containedDetail = ContainedDetail.newInstance();
-        }
+        this.containedDetail = ContainedDetail.newInstance();
+
         return this.containedDetail;
     }
 
@@ -238,7 +238,6 @@ public class MainActivity extends AppCompatActivity {
 
         this.getSupportFragmentManager()
                 .beginTransaction()
-                .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
                 .replace(
                         this.dataBinding.contentContainer.getId(),
                         fragment
@@ -259,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadTechEvents(int position, int id) {
         TechEventFragment fragment = TechEventFragment.newInstance(position, id);
-
+        Helper.color_id = id;
         this.loadFragmentWithBackstack(fragment);
         setBack();
     }

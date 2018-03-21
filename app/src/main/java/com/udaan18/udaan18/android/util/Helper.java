@@ -14,10 +14,11 @@ import com.udaan18.udaan18.android.R;
 
 public class Helper {
 
+    public static final int[] colors = new int[]{R.color.pacman, R.color.mario, R.color.bomber, R.color.mega, R.color.sonic};
     /**
      * Used for displaying colors
      */
-    public static final int[] colors = new int[]{R.color.pacman, R.color.mario, R.color.bomber, R.color.mega, R.color.sonic};
+    public static int color_id;
 
     public static boolean hasNetworkConnection(Context context) {
 
@@ -58,6 +59,35 @@ public class Helper {
         alert.show();
     }
 
+    public static void showUpdatePopup(final Activity activity) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.AlertTheme);
+
+        builder.setMessage("The New Version is available")
+                .setTitle("Please update application for new features")
+                .setCancelable(false)
+                .setPositiveButton("PlayStore", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                String appPackageName = activity.getPackageName();
+                                try {
+                                    activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                                } catch (android.content.ActivityNotFoundException e) {
+                                    activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                                }
+                            }
+                        }
+                )
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                activity.finish();
+                            }
+                        }
+                );
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
     public static void makeCall(String mobile, Context context) {
         Intent callIntent = new Intent(Intent.ACTION_DIAL);
         callIntent.setData(Uri.parse("tel:" + mobile));

@@ -1,6 +1,7 @@
 package com.udaan18.udaan18.android.events;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +23,9 @@ import java.util.List;
 
 public class ManagerAdapter extends RecyclerView.Adapter<ManagerAdapter.ViewHolder> {
 
+    Typeface custom_font_dec;
+    Typeface custom_font_label;
+    Typeface custom_font_reg;
     private Context context;
     private ListItemClickCallBack itemClickCallBack;
     private List<Manager> managers;
@@ -36,6 +40,9 @@ public class ManagerAdapter extends RecyclerView.Adapter<ManagerAdapter.ViewHold
         this.resourceName = resourceName;
         this.context = context;
         this.itemClickCallBack = itemClickCallBack;
+        custom_font_dec = Typeface.createFromAsset(this.context.getAssets(), "fonts/ProzaLibreBold.ttf");
+        custom_font_label = Typeface.createFromAsset(this.context.getAssets(), "fonts/ProzaLibreSemiBold.ttf");
+        custom_font_reg = Typeface.createFromAsset(this.context.getAssets(), "fonts/ProzaLibreRegular.ttf");
     }
 
     @Override
@@ -76,6 +83,8 @@ public class ManagerAdapter extends RecyclerView.Adapter<ManagerAdapter.ViewHold
             managerName = (AppCompatTextView) rootView.findViewById(R.id.textView_name);
             managerMobile = (AppCompatTextView) rootView.findViewById(R.id.textView_mobile);
             this.itemClickCallBack = itemClickCallBack;
+            managerName.setTypeface(custom_font_label);
+            managerMobile.setTypeface(custom_font_reg);
 
             this.rootView.setOnClickListener(this);
         }

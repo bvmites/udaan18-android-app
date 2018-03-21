@@ -1,6 +1,7 @@
 package com.udaan18.udaan18.android.team;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
@@ -24,10 +25,16 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
     private List<Developer> developers;
     private Context context;
     private int lastPosition = -1;
+    private Typeface custom_font_dec;
+    private Typeface custom_font_label;
+    private Typeface custom_font_reg;
 
     public DeveloperAdapter(List<Developer> developers, Context context) {
         this.developers = developers;
         this.context = context;
+        custom_font_dec = Typeface.createFromAsset(context.getAssets(), "fonts/ProzaLibreBold.ttf");
+        custom_font_label = Typeface.createFromAsset(context.getAssets(), "fonts/ProzaLibreSemiBold.ttf");
+        custom_font_reg = Typeface.createFromAsset(context.getAssets(), "fonts/ProzaLibreRegular.ttf");
     }
 
     private static int getColorId(String category, Context context) {
@@ -71,8 +78,6 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
         holder.categoryIcon.setBackgroundColor(ContextCompat.getColor(this.context, colorId));
         holder.title.setText(developers.get(position).getTitle());
         holder.name.setText(developers.get(position).getName());
-
-        //  setAnimation(holder.container, position);
     }
 
 
@@ -100,6 +105,8 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
             this.mobile = (AppCompatImageView) this.container.findViewById(R.id.developer_mobile);
             this.email = (AppCompatImageView) this.container.findViewById(R.id.developer_email);
             this.github = (AppCompatImageView) this.container.findViewById(R.id.developer_github);
+            this.title.setTypeface(custom_font_reg);
+            this.name.setTypeface(custom_font_label);
 
             this.email.setOnClickListener(this);
             this.github.setOnClickListener(this);
