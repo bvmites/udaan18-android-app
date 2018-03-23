@@ -85,5 +85,21 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${espressoVersion}"
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.10'
 
+    //firebase
+    compile 'com.google.firebase:firebase-core:11.8.0'
+
+    //firebase notification
+    compile 'com.google.firebase:firebase-messaging:11.8.0'
+
+    //firebase database
+    compile 'com.google.firebase:firebase-database:11.8.0'
+    compile 'com.firebaseui:firebase-ui-database:0.6.2'
+
+    //piccaso library to set image
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
 
 }
+
+//plugin for firebase service
+apply plugin: 'com.google.gms.google-services'

@@ -158,7 +158,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
                 startActivity(intent);
                 break;
             case R.id.appstore:
-                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.playstore:
                 String appPackageName = this.getActivity().getPackageName();
@@ -178,19 +178,19 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
                 startActivity(intent);
                 break;
             case R.id.windows:
-                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
                 // intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.microsoft.com/en-us/store/p/udaan-17/9p55q9j2bkq7"));
                 // startActivity(intent);
                 break;
             case R.id.our_sponsors:
                 //((MainActivity) getActivity()).loadSponsor();
-                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.arandroid:
-                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.arios:
-                Toast.makeText(getContext(), "Comming soon", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
                 break;
         }
 

@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -59,6 +60,9 @@ public class SplashActivity extends Activity {
 
         if (Helper.hasNetworkConnection(this)) {
             try {
+                PackageInfo packageInfo=activity.getPackageManager().getPackageInfo(activity.getPackageName(),0);
+                int version=packageInfo.versionCode;
+               // Toast.makeText(getApplicationContext(),"version code"+1,Toast.LENGTH_LONG).show();
                 getEventData();
                 getDeveloperData();
                 getTeamUdaanData();
