@@ -178,6 +178,7 @@
           "tagline": "Fast is fine, but Accuracy is everything!"
         }
       ],
+      "alis": "Infra-maniacs",
       "name": "civil",
       "heads": [
         {
@@ -400,6 +401,7 @@
           "tagline": "Think it, Build it, Test it"
         }
       ],
+      "alis": "Mechno philes",
       "name": "mechanical/production",
       "heads": [
         {
@@ -552,6 +554,7 @@
           "tagline": "The Spirit Of Circuit"
         }
       ],
+      "alis": "Dynamo-Bombers",
       "name": "electrical",
       "heads": [
         {
@@ -751,6 +754,7 @@
           "tagline": "No civilians beyond this point !"
         }
       ],
+      "alis": "Coders Squad",
       "name": "computer/it",
       "heads": [
         {
@@ -993,6 +997,7 @@
           "tagline": "Soccer is simple, but it is difficult to play simple"
         }
       ],
+      "alis": "Sonic-A-Tronics",
       "name": "ec/el",
       "heads": [
         {
