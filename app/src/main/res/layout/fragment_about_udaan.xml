@@ -48,6 +48,63 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
 
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/bvm" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/orgnise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Organised by: "
+                        android:textColor="@color/colorWhite"
+                        android:textSize="15dp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/bvm_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/orgnise"
+                        android:text="Birla Vishvakarma"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="25dp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/bvm_name"
+                        android:text="Mahavidyalaya"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="25dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.LinearLayoutCompat>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/color_cultural" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/about_us_connect"
                 android:layout_width="match_parent"
@@ -377,6 +434,7 @@
 
 
             <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/attri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -386,7 +444,7 @@
                 android:textSize="20sp" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/contact_us_icons_attribution"
+                android:id="@+id/freepic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -398,7 +456,7 @@
                 android:textSize="16sp" />
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/contact_us_icons_attribution1"
+                android:id="@+id/flaticon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

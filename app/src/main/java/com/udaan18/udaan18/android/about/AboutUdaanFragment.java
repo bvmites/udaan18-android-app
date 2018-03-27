@@ -37,6 +37,9 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     private final String lat = "22.5525703";
     private final String lon = "72.9240181";
     private final String mapTitle = "BVM Engineering College";
+    private final String FREEPIC_LINK = "https://www.freepik.com";
+    private final String FLATICON_LINK = "https://www.flaticon.com";
+
     private View rootView;
     private AppCompatImageButton mail;
     private AppCompatImageButton youtube;
@@ -58,6 +61,10 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     private AppCompatTextView about_us_ar;
     private AppCompatTextView about_us_reach;
     private AppCompatTextView about_us_address;
+    private AppCompatTextView about_us_freepik;
+    private AppCompatTextView about_us_flaticon;
+    private AppCompatTextView about_us_attri;
+
 
     private Typeface custom_font_dec;
     private Typeface custom_font_label;
@@ -74,7 +81,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_about_udaan, container, false);
         intializeObjects();
-        ((MainActivity) getActivity()).removeTitle("About Udaan");
+        ((MainActivity) getActivity()).removeTitle("About");
         ((MainActivity) getActivity()).setAllColorChanage(R.color.color_about);
         custom_font_dec = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreBold.ttf");
         custom_font_label = Typeface.createFromAsset(getContext().getAssets(), "fonts/ProzaLibreSemiBold.ttf");
@@ -97,6 +104,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         sponcers = (AppCompatTextView) rootView.findViewById(R.id.our_sponsors);
         instagram = rootView.findViewById(R.id.instagram);
         appStore = rootView.findViewById(R.id.appstore);
+        about_us_attri = rootView.findViewById(R.id.attri);
 
         about_us_ar = rootView.findViewById(R.id.our_ar);
         about_us_reach = rootView.findViewById(R.id.about_us_reach);
@@ -104,12 +112,16 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         available_on = rootView.findViewById(R.id.available_on);
         contactUs = rootView.findViewById(R.id.about_us_connect);
         about_us_address = rootView.findViewById(R.id.about_us_address);
+        about_us_flaticon = rootView.findViewById(R.id.flaticon);
+        about_us_freepik = rootView.findViewById(R.id.freepic);
 
         about_us_title.setTypeface(custom_font_tagline);
         about_us_ar.setTypeface(custom_font_label);
         about_us_reach.setTypeface(custom_font_label);
         available_on.setTypeface(custom_font_label);
         contactUs.setTypeface(custom_font_label);
+        about_us_flaticon.setTypeface(custom_font_label);
+        about_us_freepik.setTypeface(custom_font_label);
 
         about_us_address.setTypeface(custom_font_reg);
         sponcers.setTypeface(custom_font_label);
@@ -126,6 +138,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         arAndroid.setOnClickListener(this);
         arIos.setOnClickListener(this);
         appStore.setOnClickListener(this);
+        about_us_freepik.setOnClickListener(this);
+        about_us_flaticon.setOnClickListener(this);
 
     }
 
@@ -133,7 +147,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     public void onResume() {
         super.onResume();
         ((MainActivity) this.getActivity()).removeBack();
-        ((MainActivity) getActivity()).removeTitle("About Udaan");
+        ((MainActivity) getActivity()).removeTitle(getContext().getString(R.string.about_us_title));
     }
 
     @Override
@@ -191,6 +205,12 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.arios:
                 Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.freepic:
+                Helper.openUrlInBrowser(FREEPIC_LINK, this.getContext());
+                break;
+            case R.id.flaticon:
+                Helper.openUrlInBrowser(FLATICON_LINK, this.getContext());
                 break;
         }
 

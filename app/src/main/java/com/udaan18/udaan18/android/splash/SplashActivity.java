@@ -9,12 +9,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.udaan18.udaan18.android.BuildConfig;
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.mainnavigation.MainActivity;
 import com.udaan18.udaan18.android.model.eventCategory.Category;
@@ -23,9 +23,6 @@ import com.udaan18.udaan18.android.model.eventCategory.Developer;
 import com.udaan18.udaan18.android.model.eventCategory.VersionCheck;
 import com.udaan18.udaan18.android.util.Helper;
 import com.udaan18.udaan18.android.util.RestClient;
-import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
-
-import org.json.JSONException;
 
 import java.util.List;
 
@@ -60,9 +57,6 @@ public class SplashActivity extends Activity {
 
         if (Helper.hasNetworkConnection(this)) {
             try {
-                PackageInfo packageInfo=activity.getPackageManager().getPackageInfo(activity.getPackageName(),0);
-                int version=packageInfo.versionCode;
-               // Toast.makeText(getApplicationContext(),"version code"+1,Toast.LENGTH_LONG).show();
                 getEventData();
                 getDeveloperData();
                 getTeamUdaanData();
@@ -129,7 +123,6 @@ public class SplashActivity extends Activity {
                 List<Category> container = response.body();
                 editor.putString(context.getString(R.string.prefs_team_udaan_data_json), (new Gson()).toJson(container));
                 editor.apply();
-                // goNext();
             }
 
             @Override
@@ -147,23 +140,27 @@ public class SplashActivity extends Activity {
             @Override
             public void onResponse(Call<VersionCheck> call, Response<VersionCheck> response) {
                 VersionCheck check = response.body();
-                // Toast.makeText(SplashActivity.this, "App Version" + check.getAppVersion() + "\n data version" + check.getDataVersion(), Toast.LENGTH_SHORT).show();
-
-                try {
-                    if (!activity.getSharedPreferences(activity.getString(R.string.prefs_file_name), Context.MODE_PRIVATE).contains("version")) {
-                        editor.putString("version", (new Gson()).toJson(check));
-                        editor.apply();
-                        setDelay();
-                    } else if (SharedPreferenceHelper.getInstance(getApplicationContext()).getVersion().getAppVersion() < check.getAppVersion()) {
-                        Helper.showUpdatePopup(activity);
-                    } else {
-                        setDelay();
-                    }
-
-
-                } catch (JSONException e) {
-                    Toast.makeText(SplashActivity.this, "error", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(SplashActivity.this, "version" + check.getAppVersion(), Toast.LENGTH_SHORT).show();
+                if (check.getAppVersion() > BuildConfig.VERSION_CODE) {
+                    Helper.showUpdatePopup(SplashActivity.this);
+                } else {
+                    SplashActivity.this.setDelay();
                 }
+//                try {
+//                    if (!activity.getSharedPreferences(activity.getString(R.string.prefs_file_name), Context.MODE_PRIVATE).contains("version")) {
+//                        editor.putString("version", (new Gson()).toJson(check));
+//                        editor.apply();
+//                        setDelay();
+//                    } else if (SharedPreferenceHelper.getInstance(getApplicationContext()).getVersion().getAppVersion() < check.getAppVersion()) {
+//                        Helper.showUpdatePopup(activity);
+//                    } else {
+//                        setDelay();
+//                    }
+//
+//
+//                } catch (JSONException e) {
+//                    Toast.makeText(SplashActivity.this, "error", Toast.LENGTH_SHORT).show();
+//                }
             }
 
             @Override

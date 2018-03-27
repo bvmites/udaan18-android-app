@@ -33,6 +33,7 @@ public class DetailEventFragment extends Fragment {
     private View rootView;
     private RecyclerView recyclerView;
     private CardView eventPrizeCard;
+    private CardView eventNoteCard;
     private AppCompatTextView textViewDetailEventParticipant;
     private AppCompatTextView textViewDetailEventFees;
     private AppCompatTextView textViewDetailEventPrize;
@@ -40,6 +41,7 @@ public class DetailEventFragment extends Fragment {
     private AppCompatTextView textViewDetailEventParticipantLabel;
     private AppCompatTextView textViewDetailEventFeesLabel;
     private AppCompatTextView textViewDetailEventPrizeLabel;
+    private AppCompatTextView textViewDetailEventNote;
     private String resourceName;
     private Typeface custom_font_dec;
     private Typeface custom_font_label;
@@ -100,7 +102,8 @@ public class DetailEventFragment extends Fragment {
         textViewDetailEventFeesLabel = rootView.findViewById(R.id.text_view_detail_event_fees_label);
         textViewDetailEventParticipantLabel = rootView.findViewById(R.id.text_view_details_event_participants_label);
         textViewDetailEventPrizeLabel = rootView.findViewById(R.id.text_view_event_details_prize_label);
-
+        textViewDetailEventNote = rootView.findViewById(R.id.event_note);
+        eventNoteCard = rootView.findViewById(R.id.event_note_card);
         textViewDetailEventTagline.setTypeface(custom_font_dec);
         textViewDetailEventFeesLabel.setTypeface(custom_font_label);
         textViewDetailEventPrizeLabel.setTypeface(custom_font_label);
@@ -108,6 +111,7 @@ public class DetailEventFragment extends Fragment {
         textViewDetailEventFees.setTypeface(custom_font_reg);
         textViewDetailEventParticipant.setTypeface(custom_font_reg);
         textViewDetailEventPrize.setTypeface(custom_font_reg);
+        textViewDetailEventNote.setTypeface(custom_font_label);
 
 
         resourceName = Helper.getResourceNameFromTitle(getActivity().getIntent().getStringExtra(this.getString(R.string.activity_key_title_name)));
@@ -142,6 +146,11 @@ public class DetailEventFragment extends Fragment {
             this.textViewDetailEventPrize.setText(this.event.getPrizeDescription(this.getString(R.string.symbol_rupee)));
         } else {
             this.eventPrizeCard.setVisibility(View.GONE);
+        }
+        if (this.event.getNotes() != null && this.event.getNotes().length() > 1 && this.event.getNotes() != "-") {
+            this.textViewDetailEventNote.setText(this.event.getNotes());
+        } else {
+            this.eventNoteCard.setVisibility(View.GONE);
         }
     }
 

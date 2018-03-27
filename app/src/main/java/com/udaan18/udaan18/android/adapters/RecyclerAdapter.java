@@ -27,7 +27,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
     public RecyclerAdapter(Context context) {
         this.context = context;
-        expansionsCollection.openOnlyOne(false);
+        expansionsCollection.openOnlyOne(true);
 
 
     }
