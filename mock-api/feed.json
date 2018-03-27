@@ -1,15 +1,10 @@
 [
-   {
-    "title": "UDAAN Buzz",
-    "link": "https://www.youtube.com/watch?v=qVKYQioCpzw&t=9s",
-    "text": "Team BVM interacts with BVMites and finds out their views on certain aspects for Udaan.",
-    "time": "25 March, 2018 6:45 PM"
-  },
-   {
-    "title": "BVM Talks 2018",
-    "link": "https://bvmtalks.udaan18.com",
-    "text": "Check the speaker here.",
-    "time": "25 March, 2018 6:39 PM"
+	{
+    "title": "Welcome to Udaan 18",
+    "link": "https://udaan18.com",
+    "text": "Important information will be served here",
+    "image": "https://2.bp.blogspot.com/-EFoHtPMB-us/Wo-0IgcJgJI/AAAAAAAAAC8/xzD7sjwulP4J0X1h_dFHEifhJbwZmD8_wCLcBGAs/s400/images.jpg",
+    "time": "March 24, 2018 12:29 AM"
   },
    {
     "title": "BVM Talks 2018",
@@ -17,12 +12,30 @@
     "text": "Watch the Video",
 		"time": "25 March, 2018 6:30 PM"
   },
-  {
-    "title": "Welcome to Udaan 18",
-    "link": "https://udaan18.com",
-    "text": "Important information will be served here",
-    "image": "https://2.bp.blogspot.com/-EFoHtPMB-us/Wo-0IgcJgJI/AAAAAAAAAC8/xzD7sjwulP4J0X1h_dFHEifhJbwZmD8_wCLcBGAs/s400/images.jpg",
-    "time": "March 24, 2018 12:29:53 AM"
-  }
+	{
+    "title": "BVM Talks 2018",
+    "link": "https://bvmtalks.udaan18.com",
+    "text": "Check the speaker here.",
+    "time": "25 March, 2018 6:39 PM"
+  },
+	{
+    "title": "UDAAN Buzz",
+    "link": "https://www.youtube.com/watch?v=qVKYQioCpzw&t=9s",
+    "text": "Team BVM interacts with BVMites and finds out their views on certain aspects for Udaan.",
+    "time": "25 March, 2018 6:45 PM"
+  },
+	{
+		"title": "UDAAN Days",
+    "link": "",
+    "text": "Showcase your strength by showing how unique your group can be! Celebrate group day with us by clicking selfies and photos. Venue: Front Lawn. Time: 4-6 pm.",
+    "time": "27 March, 2018 12:45 PM"
+	},
+	{
+		"title": "UDAAN Expert talk",
+    "link": "",
+    "text": "Team Udaan gives you all opportunity to know and be part of this revolution by organising a seminar on 'Blockchain and Cryptocurrency'. Venue: BVM Auditorium. Date: 27 March. Time: 6pm onwards.",
+    "time": "27 March, 2018 1:00 PM"
+	}
+  
 ]
   
