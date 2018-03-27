@@ -22,8 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mainnavigation.MainActivity" />
-        <activity android:name=".sponsors.SponsorActivity" />
+        <activity
+            android:name=".mainnavigation.MainActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".notification.MyFirebaseInstanceIDService">
             <intent-filter>

@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -53,6 +52,31 @@ public class Helper {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 activity.finish();
+                            }
+                        }
+                );
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public static void showNetworkNotificationAlertPopup(final Activity activity) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.AlertTheme);
+
+        builder.setMessage("Please turn on the network for new updates")
+                .setTitle("Unable to connect")
+                .setCancelable(true)
+                .setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
+                                activity.startActivity(intent);
+                            }
+                        }
+                )
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
                             }
                         }
                 );

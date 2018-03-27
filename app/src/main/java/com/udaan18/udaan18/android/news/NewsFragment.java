@@ -1,6 +1,5 @@
 package com.udaan18.udaan18.android.news;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,27 +10,27 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.squareup.picasso.Picasso;
 import com.udaan18.udaan18.android.R;
-import com.udaan18.udaan18.android.databinding.FragmentNewsBinding;
 import com.udaan18.udaan18.android.mainnavigation.MainActivity;
+import com.udaan18.udaan18.android.model.eventCategory.Feed;
 import com.udaan18.udaan18.android.notification.NotificationAdapter;
+import com.udaan18.udaan18.android.util.Helper;
+import com.udaan18.udaan18.android.util.RestClient;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import static android.databinding.DataBindingUtil.inflate;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Creator: Varun Barad
@@ -39,15 +38,14 @@ import static android.databinding.DataBindingUtil.inflate;
  * Project: udaan18-android-app
  */
 public class NewsFragment extends Fragment {
+    public static int location = 5;
   RecyclerView recyclerView;
   NotificationAdapter myAdapter;
   List<Udaandata> list;
   FirebaseDatabase fdb;
   DatabaseReference dr;
+    List<Feed> feed;
   private View rootView;
-
-  public static int location = 5;
-  private View dataBinding;
   
   public static NewsFragment newInstance() {
     NewsFragment fragment = new NewsFragment();
@@ -58,32 +56,58 @@ public class NewsFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
     rootView = inflater.inflate(R.layout.fragment_news, container, false);
-      intializeObjects();
       ((MainActivity) getActivity()).removeTitle("Notifications");
       ((MainActivity) getActivity()).setAllColorChanage(R.color.color_news);
-    //return this.dataBinding.getRoot();
+      intializeObjects();
+
+
       return rootView;
 
   }
 
-    public void intializeObjects()
-    { recyclerView=(RecyclerView)rootView.findViewById(R.id.rec);
-        //recyclerView= container.findViewById(R.id.rec);
-        // recyclerView=(RecyclerView)findViewById(R.id.rec);
-       // recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this.getContext());
-        //linearLayoutManager.setReverseLayout(true);
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (Helper.hasNetworkConnection(getContext()))
+            getFeed();
+        else
+            Helper.showNetworkNotificationAlertPopup(getActivity());
+    }
+
+    public void intializeObjects() {
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.rec);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext());
+
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        //recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(),LinearLayoutManager.VERTICAL));
-        list=new ArrayList<>();
-        myAdapter=new NotificationAdapter(getContext(),list);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
+        //list=new ArrayList<>();
+        //myAdapter=new NotificationAdapter(getContext(),list);
+
+//        fdb=FirebaseDatabase.getInstance();
+//        getdatafirebase();
 
 
-        fdb=FirebaseDatabase.getInstance();
-        getdatafirebase();
+    }
 
+    void getFeed() {
+        RestClient client = new RestClient();
+        Call<List<Feed>> call = client.getApiHelper().getFeed();
+        call.enqueue(new Callback<List<Feed>>() {
+            @Override
+            public void onResponse(Call<List<Feed>> call, Response<List<Feed>> response) {
+                feed = response.body();
+                Collections.reverse(feed);
+                myAdapter = new NotificationAdapter(getContext(), feed);
+                recyclerView.setAdapter(myAdapter);
+            }
 
+            @Override
+            public void onFailure(Call<List<Feed>> call, Throwable t) {
+
+            }
+        });
     }
   void getdatafirebase()
   {
@@ -106,9 +130,9 @@ public class NewsFragment extends Fragment {
       public void onChildRemoved(DataSnapshot dataSnapshot) {
 
         Udaandata udaandata=dataSnapshot.getValue(Udaandata.class);
-        list.remove(udaandata);
-        Collections.reverse(list);
-        myAdapter = new NotificationAdapter(getContext(),list);
+          //list.remove(udaandata);
+          //Collections.reverse(list);
+          myAdapter = new NotificationAdapter(getContext(), feed);
         recyclerView.setAdapter(myAdapter);
 
       }
@@ -135,14 +159,6 @@ public class NewsFragment extends Fragment {
     //Long timestamp=System.currentTimeMillis();
     return calendermil;
   }
-
-  //private Long getcurrenttime()
-  //{
-  //  Calendar calendar=Calendar.getInstance();
-  //long calendermil=calendar.getTimeInMillis();
-  //Long timestamp=System.currentTimeMillis();
-  //return calendermil;
-  //}
 
 
 

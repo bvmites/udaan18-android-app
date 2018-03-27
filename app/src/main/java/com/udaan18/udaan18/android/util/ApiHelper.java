@@ -4,6 +4,7 @@ package com.udaan18.udaan18.android.util;
 import com.udaan18.udaan18.android.model.eventCategory.Category;
 import com.udaan18.udaan18.android.model.eventCategory.Container;
 import com.udaan18.udaan18.android.model.eventCategory.Developer;
+import com.udaan18.udaan18.android.model.eventCategory.Feed;
 import com.udaan18.udaan18.android.model.eventCategory.VersionCheck;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import retrofit2.http.GET;
 public interface ApiHelper {
     String BASE_URL = "https://raw.githubusercontent.com/bvmites/udaan18-android-app/master/mock-api/";
 
-    @GET("events_detail.json")
+    @GET("event.json")
     Call<Container> getEvents();
 
     @GET("developer.json")
@@ -27,6 +28,9 @@ public interface ApiHelper {
     @GET("teamudaan.json")
     Call<List<Category>> getCategory();
 
-    @GET("version_check.json")
+    @GET("version.json")
     Call<VersionCheck> getVersion();
+
+    @GET("feed.json")
+    Call<List<Feed>> getFeed();
 }

@@ -11,7 +11,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class CombinedDetailsAdapter extends FragmentStatePagerAdapter {
 
-    private String title[] = {"DEVELOPERS", "TEAM UDAAN"};
+    private String title[] = {"TEAM UDAAN", "DEVELOPERS"};
 
     public CombinedDetailsAdapter(FragmentManager fm) {
         super(fm);
@@ -24,10 +24,10 @@ public class CombinedDetailsAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                fragment = new DeveloperFragment();
+                fragment = new TeamUdaanFragment();
                 break;
             case 1:
-                fragment = new TeamUdaanFragment();
+                fragment = new DeveloperFragment();
                 break;
         }
         return fragment;
