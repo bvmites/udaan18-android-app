@@ -95,6 +95,7 @@ public class TeamSection extends StatelessSection {
             this.textViewTitle = (AppCompatTextView) this.rootView.findViewById(R.id.item_section_team_title);
             this.textViewName.setTypeface(custom_font_label);
             this.textViewTitle.setTypeface(custom_font_reg);
+            itemView.setOnClickListener(this);
         }
 
         @Override

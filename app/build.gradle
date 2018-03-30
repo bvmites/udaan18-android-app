@@ -60,6 +60,8 @@ dependencies {
     // Gson for parsing Json
     implementation "com.google.code.gson:gson:${gsonVersion}"
     implementation 'com.otaliastudios:cameraview:1.5.0'
+    implementation 'com.flying.xiaopo:sticker:1.6.0'
+    implementation 'com.android.support:exifinterface:26.+'
 
     // Expension list libraries
     implementation 'com.github.florent37:expansionpanel:1.1.1'

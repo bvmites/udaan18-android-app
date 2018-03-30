@@ -5,6 +5,7 @@ import com.udaan18.udaan18.android.model.eventCategory.Category;
 import com.udaan18.udaan18.android.model.eventCategory.Container;
 import com.udaan18.udaan18.android.model.eventCategory.Developer;
 import com.udaan18.udaan18.android.model.eventCategory.Feed;
+import com.udaan18.udaan18.android.model.eventCategory.Filters;
 import com.udaan18.udaan18.android.model.eventCategory.VersionCheck;
 
 import java.util.List;
@@ -33,4 +34,7 @@ public interface ApiHelper {
 
     @GET("feed.json")
     Call<List<Feed>> getFeed();
+
+    @GET("filters.json")
+    Call<List<Filters>> getFilters();
 }

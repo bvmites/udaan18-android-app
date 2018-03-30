@@ -61,6 +61,7 @@ public class SplashActivity extends Activity {
                 getDeveloperData();
                 getTeamUdaanData();
                 getVersionData();
+                //getPhotos();
                 // Toast.makeText(SplashActivity.this, "App Version" + Helper.check.getAppVersion() + "\n data version" + Helper.check.getDataVersion(), Toast.LENGTH_SHORT).show();
 
 
@@ -134,6 +135,32 @@ public class SplashActivity extends Activity {
 
     }
 
+//    void getPhotos(){
+//        Call<List<Filters>> call=client.getApiHelper().getFilters();
+//        call.enqueue(new Callback<List<Filters>>() {
+//            @Override
+//            public void onResponse(Call<List<Filters>> call, Response<List<Filters>> response) {
+//                List<Filters> container=response.body();
+//                final String path=getApplicationContext().getFilesDir()+"/"+Helper.DIR_NAME;
+//                for(int i=0;i<container.size();i++) {
+//                    String imgName="filter_"+i+".png";
+//                    Picasso
+//                            .with(getApplicationContext())
+//                            .load(container.get(i).getUrl())
+//                            .into(Helper.picassoImageTarget(getApplicationContext(),Helper.DIR_NAME
+//                                    , imgName));
+//                }
+//               // Toast.makeText(getApplicationContext(),"filter ="+getApplicationContext().getFilesDir(),Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Filters>> call, Throwable t) {
+//
+//            }
+//        });
+//
+//    }
+
     void getVersionData() {
         Call<VersionCheck> call = client.getApiHelper().getVersion();
         call.enqueue(new Callback<VersionCheck>() {
@@ -146,21 +173,6 @@ public class SplashActivity extends Activity {
                 } else {
                     SplashActivity.this.setDelay();
                 }
-//                try {
-//                    if (!activity.getSharedPreferences(activity.getString(R.string.prefs_file_name), Context.MODE_PRIVATE).contains("version")) {
-//                        editor.putString("version", (new Gson()).toJson(check));
-//                        editor.apply();
-//                        setDelay();
-//                    } else if (SharedPreferenceHelper.getInstance(getApplicationContext()).getVersion().getAppVersion() < check.getAppVersion()) {
-//                        Helper.showUpdatePopup(activity);
-//                    } else {
-//                        setDelay();
-//                    }
-//
-//
-//                } catch (JSONException e) {
-//                    Toast.makeText(SplashActivity.this, "error", Toast.LENGTH_SHORT).show();
-//                }
             }
 
             @Override
@@ -173,13 +185,9 @@ public class SplashActivity extends Activity {
 
 
     void setDelay() {
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
+
         Intent i = new Intent(SplashActivity.this, MainActivity.class);
         startActivity(i);
         SplashActivity.this.finish();
-//            }
-//        }, 3000);
     }
 }

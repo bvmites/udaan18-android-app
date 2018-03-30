@@ -1,5 +1,6 @@
 package com.udaan18.udaan18.android.mainnavigation;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
@@ -27,6 +28,7 @@ import com.udaan18.udaan18.android.events.MainCategoryFragment;
 import com.udaan18.udaan18.android.events.TechEventFragment;
 import com.udaan18.udaan18.android.model.eventCategory.Event;
 import com.udaan18.udaan18.android.news.NewsFragment;
+import com.udaan18.udaan18.android.photo.CameraActivity;
 import com.udaan18.udaan18.android.photo.PhotoFragment;
 import com.udaan18.udaan18.android.team.ContainedDetail;
 import com.udaan18.udaan18.android.util.Helper;
@@ -96,16 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 this.loadFragment(this.getCategoryFragment());
                 break;
             case R.id.action_photo:
-                this.dataBinding.toolbarTitle.setText(R.string.photo_title);
-                this.dataBinding.toolbarTitle.setBackgroundColor(getResources().getColor(R.color.color_photo));
-                this.dataBinding.bottomNavigation.setItemBackgroundResource(R.color.color_photo);
-                if (android.os.Build.VERSION.SDK_INT >= 21) {
-                    Window window = (MainActivity.this).getWindow();
-                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                    window.setStatusBarColor(this.getResources().getColor(R.color.color_photo));
-                }
-                this.loadFragment(this.getPhotoFragment());
+                startActivity(new Intent(MainActivity.this, CameraActivity.class));
                 break;
             case R.id.action_aboutUdaan:
                 this.dataBinding.toolbarTitle.setText(R.string.about_us_title);

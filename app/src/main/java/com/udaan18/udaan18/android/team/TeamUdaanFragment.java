@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,11 +66,40 @@ public class TeamUdaanFragment extends Fragment implements TeamSection.ManagerCa
 
     @Override
     public void onItemClick(int position, int sectionId) {
-        Log.d("ManagerFragment", "onItemClick: " + position);
-        if (sectionId == 1) {
-            Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
+
+        if (sectionId == 0) {
+            Toast.makeText(getContext(), "" + teamUdaan.get(sectionId).getMembers().get(position - 1).getName(), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(getContext(), "hello again", Toast.LENGTH_SHORT).show();
+            int sub = teamUdaan.get(sectionId - 1).getMembers().size() + sectionId;
+            Toast.makeText(getContext(), "" + teamUdaan.get(sectionId).getMembers().get(position - sub).getName(), Toast.LENGTH_SHORT).show();
+
         }
+//        switch (sectionId){
+//            case 1:
+//                Toast.makeText(getContext(),""+ teamUdaan.get())
+//                break;
+//            case 2:
+//                break;
+//            case 3:
+//                break;
+//            case 4:
+//                break;
+//            case 5:
+//                break;
+//            case 6:
+//                break;
+//            case 7:
+//                break;
+//            case 8:
+//                break;
+//            case 9:
+//                break;
+//            case 10:
+//                break;
+//            case 11:
+//                break;
+//            case 12:
+//                break;
+//        }
     }
 }
