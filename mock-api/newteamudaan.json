@@ -1,0 +1,189 @@
+ [
+  {
+  "category": "Student Represantatives",
+  "members": [
+              {
+              "name": "Jatan Patel",
+              "title": "General Secretary",
+              "mobile": "+919714677556"
+              },
+              {
+              "name": "Megha Patel",
+              "title": "Ladies Representative",
+              "mobile": "+919099267371"
+              }
+              ]
+  },
+  {
+  "category": "Technical",
+  "members": [
+              {
+              "name": "Harshil Jani",
+              "title": "Head",
+              "mobile": "+918460666218"
+              },
+              {
+              "name": "Umang Patel",
+              "title": "Head",
+              "mobile": "+919974902901"
+              },
+              {
+              "name": "Pradeep Dodiya",
+              "title": "Head",
+              "mobile": "+919714986909"
+              },
+              {
+              "name": "Megh Shah",
+              "title": "Head",
+              "mobile": "+918866068981"
+              }
+              ]
+  },
+  {
+  "category": "Publicity",
+  "members": [
+              {
+              "name": "Anshul Thacker",
+              "title": "Head",
+              "mobile": "+918980575021"
+              },
+              {
+              "name": "Rejoice Paracal",
+              "title": "Head",
+              "mobile": "+917405112685"
+              
+              }
+              ]
+  },
+  {
+  "category": "Documentation",
+  "members": [
+              {
+              "name": "Shreyansh Aghera",
+              "title": "Head",
+              "mobile": "+919638609949"
+              },
+              {
+              "name": "Udit Patel",
+              "title": "Head",
+              "mobile": "+918511106014"
+              }
+              ]
+  },
+  {
+  "category": "Logistics",
+  "members": [
+              {
+              "name": "Harsh Vora",
+              "title": "Head",
+              "mobile": "+919081888842"
+              },
+              {
+              "name": "Hiren Thakkar",
+              "title": "Head",
+              "mobile": "+919429022441"
+              }
+              ]
+  },
+  {
+  "category": "Decoration",
+  "members": [
+              {
+              "name": "Hardik Shilu",
+              "title": "Head",
+              "mobile": "+917600672752"
+              }
+              ]
+  },
+  {
+  "category": "Developers",
+  "members": [
+              {
+              "name": "Vatsal Trivedi",
+              "title": "Head",
+              "mobile": "+917600635053"
+              },
+              {
+              "name": "Chintan Acharya",
+              "title": "Head",
+              "mobile": "+918140474055"
+              }
+              ]
+  },
+  {
+  "category": "Graphics",
+  "members": [
+              {
+              "name": "Tushar Gonawala",
+              "title": "Head",
+              "mobile": "+919375422008"
+              }
+              ]
+  },
+  {
+  "category": "Discipline",
+  "members": [
+              {
+              "name": "King Tandel",
+              "title": "Head",
+              "mobile": "+919978514359"
+              },
+              {
+              "name": "Manan Shah",
+              "title": "Head",
+              "mobile": "+918460201066"
+              },
+              {
+              "name": "Dharam Patel",
+              "title": "Head",
+              "mobile": "+919879644000"
+              }
+              ]
+  },
+  {
+  "category": "Photography",
+  "members": [
+              {
+              "name": "Punit Suthar",
+              "title": "Head",
+              "mobile": "+919426220748"
+              },
+              {
+              "name": "Vivek Bariya",
+              "title": "Head",
+              "mobile": "+917359900555"
+              }
+              ]
+  },
+  {
+  "category": "Cultural",
+  "members": [
+              
+              {
+              "name": "Kishan Patel",
+              "title": "Head",
+              "mobile": "+919924202109"
+              },
+              {
+              "name": "Meet Pachchigar",
+              "title": "Head",
+              "mobile": "+919638502819"
+              }
+              ]
+  },
+  {
+  "category": "Sponsorship",
+  "members": [
+              {
+              "name": "Deep Lakkad",
+              "title": "Head",
+              "mobile": "+919687350604"
+              },
+              {
+              "name": "Vatsal Rami",
+              "title": "Head",
+              "mobile": "+919173004558"
+              }
+              ]
+  }
+  ]
