@@ -1,226 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/sponsors_linear_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:scrollbars="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".mainnavigation.MainActivity">
 
-    <android.support.v4.widget.Space
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:layout_height="match_parent">
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/our_sponsors_connect"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Our Sponsors"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="20sp" />
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/mainAppbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
 
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_fragment_sponser"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:paddingEnd="0dp"
+                app:paddingStart="0dp"
+                app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay">
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/toolbar_fragment_sponser_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/app_name"
+                        android:textColor="@color/colorIcon"
+                        android:textSize="24sp" />
+                </android.support.v7.widget.LinearLayoutCompat>
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
 
 
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dp"
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/s1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-
-            app:srcCompat="@drawable/mail_icon_gray" />
-
-        <android.support.v4.widget.Space
-            android:layout_width="5dp"
-            android:layout_height="match_parent" />
-
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/s2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_facebook" />
-
-        <android.support.v4.widget.Space
-            android:layout_width="5dp"
-            android:layout_height="match_parent" />
-
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/s3"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/instagram" />
-
-        <android.support.v4.widget.Space
-            android:layout_width="5dp"
-            android:layout_height="match_parent" />
-
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/s4"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_youtube" />
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/s5"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-
-            app:srcCompat="@drawable/apple" />
-
-        <android.support.v4.widget.Space
-            android:layout_width="5dp"
-            android:layout_height="match_parent" />
-
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/s6"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/web" />
-
-        <android.support.v4.widget.Space
-            android:layout_width="5dp"
-            android:layout_height="match_parent" />
-
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/s7"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-
-            app:srcCompat="@drawable/ic_windows" />
-
-        <android.support.v4.widget.Space
-            android:layout_width="5dp"
-            android:layout_height="match_parent" />
-
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/s8"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-
-            app:srcCompat="@drawable/windows" />
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/s9"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
+            <android.support.v7.widget.LinearLayoutCompat
+                android:id="@+id/sponsors_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:scrollbars="vertical"
+                android:background="@color/color_about">
 
-            app:srcCompat="@drawable/account" />
+                <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-        <android.support.v4.widget.Space
-            android:layout_width="5dp"
-            android:layout_height="match_parent" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/our_sponsors_connect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Our Sponsors"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="35sp" />
 
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/s10"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/windows" />
+                <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-        <android.support.v4.widget.Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </android.support.v7.widget.LinearLayoutCompat>
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatImageButton
+
+                            android:id="@+id/s1"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:scaleType="fitCenter"
+                            android:background="@color/colorWhite"
+                            app:srcCompat="@drawable/ice" />>
 
 
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
+                    </GridLayout>
 
-</android.support.v7.widget.LinearLayoutCompat>
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatImageButton
+
+                            android:id="@+id/s2"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="8dp"
+                            android:scaleType="fitCenter"
+                            android:background="@color/colorWhite"
+                            app:srcCompat="@drawable/overseas" />>
+
+
+                    </GridLayout>
+                </android.support.v7.widget.LinearLayoutCompat>
+
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatImageButton
+
+                            android:id="@+id/s3"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:scaleType="fitCenter"
+                            android:background="@color/colorWhite"
+                            app:srcCompat="@drawable/khodiyar" />>
+
+
+                    </GridLayout>
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <android.support.v7.widget.AppCompatImageButton
+
+                            android:id="@+id/s4"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="8dp"
+                            android:scaleType="fitCenter"
+                            android:background="@color/colorWhite"
+                            app:srcCompat="@drawable/endeavor" />>
+
+
+                    </GridLayout>
+                </android.support.v7.widget.LinearLayoutCompat>
+            </android.support.v7.widget.LinearLayoutCompat>
+        </android.support.v7.widget.LinearLayoutCompat>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
+
