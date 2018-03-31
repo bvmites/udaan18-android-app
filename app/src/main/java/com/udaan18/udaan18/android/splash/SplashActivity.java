@@ -135,32 +135,6 @@ public class SplashActivity extends Activity {
 
     }
 
-//    void getPhotos(){
-//        Call<List<Filters>> call=client.getApiHelper().getFilters();
-//        call.enqueue(new Callback<List<Filters>>() {
-//            @Override
-//            public void onResponse(Call<List<Filters>> call, Response<List<Filters>> response) {
-//                List<Filters> container=response.body();
-//                final String path=getApplicationContext().getFilesDir()+"/"+Helper.DIR_NAME;
-//                for(int i=0;i<container.size();i++) {
-//                    String imgName="filter_"+i+".png";
-//                    Picasso
-//                            .with(getApplicationContext())
-//                            .load(container.get(i).getUrl())
-//                            .into(Helper.picassoImageTarget(getApplicationContext(),Helper.DIR_NAME
-//                                    , imgName));
-//                }
-//               // Toast.makeText(getApplicationContext(),"filter ="+getApplicationContext().getFilesDir(),Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Filters>> call, Throwable t) {
-//
-//            }
-//        });
-//
-//    }
-
     void getVersionData() {
         Call<VersionCheck> call = client.getApiHelper().getVersion();
         call.enqueue(new Callback<VersionCheck>() {

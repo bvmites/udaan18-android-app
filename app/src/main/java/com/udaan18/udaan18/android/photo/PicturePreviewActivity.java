@@ -1,5 +1,7 @@
 package com.udaan18.udaan18.android.photo;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -10,15 +12,14 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Layout;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -35,18 +36,25 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 
 
-public class PicturePreviewActivity extends AppCompatActivity {
+public class PicturePreviewActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static WeakReference<byte[]> image;
     private StickerView stickerView;
-    private Toolbar toolbar;
-    private Button addText;
+
     private GridView bottomSheet;
     private Boolean saved;
     private TextSticker stickerText;
     private BottomSheetBehavior sheetBehavior;
+
+    private ImageView close;
+    private ImageView sticker;
+    private ImageView text;
+    private ImageView save;
+    private ImageView share;
+    private EditText valueText;
+
     private ArrayAdapter<Integer> bottomSheetAdapter;
-    private Button showSticker;
+
     private ColorSeekBar bar;
     private Integer[] bottomItems = {R.drawable.filter_1, R.drawable.filter_2, R.drawable.filter_3, R.drawable.filter_4,
             R.drawable.filter_5, R.drawable.filter_6, R.drawable.filter_7, R.drawable.filter_8,
@@ -67,12 +75,23 @@ public class PicturePreviewActivity extends AppCompatActivity {
         final ImageView imageView = findViewById(R.id.image);
         stickerView = findViewById(R.id.stkr);
         bottomSheet = (GridView) findViewById(R.id.bottom_sheet);
-        showSticker = findViewById(R.id.show_stickers);
-        addText = findViewById(R.id.add_stickers);
         bar = findViewById(R.id.colorSlider);
         bottomSheetAdapter = new BottomSheetAdapter(this, R.layout.item_grid, bottomItems);
         bottomSheet.setAdapter(bottomSheetAdapter);
         saved = false;
+
+        close = findViewById(R.id.close_preview);
+        sticker = findViewById(R.id.sticker);
+        text = findViewById(R.id.text_on_img);
+        save = findViewById(R.id.item_save);
+        share = findViewById(R.id.item_share);
+
+        close.setOnClickListener(this);
+        sticker.setOnClickListener(this);
+        text.setOnClickListener(this);
+        save.setOnClickListener(this);
+        share.setOnClickListener(this);
+
         bottomSheet.setTranslationY(getStatusBarHeight());
         sheetBehavior = BottomSheetBehavior.from(bottomSheet);
         sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
@@ -101,13 +120,6 @@ public class PicturePreviewActivity extends AppCompatActivity {
             }
         });
 
-        addText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                testAdd();
-            }
-        });
-
         bottomSheet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -118,14 +130,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
             }
         });
 
-        showSticker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-            }
-        });
         sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-        setBack();
         //saveFile();
         final long delay = getIntent().getLongExtra("delay", 0);
         final int nativeWidth = getIntent().getIntExtra("nativeWidth", 0);
@@ -157,25 +162,78 @@ public class PicturePreviewActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_save, menu);
-        return true;
+    public void onBackPressed() {
+        if (sheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
+            sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+        } else {
+            super.onBackPressed();
+        }
     }
 
-    public void setBack() {
-        toolbar = findViewById(R.id.toolbar_photos);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_photo)));
+    void alertForText() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertTheme);
+
+        builder
+                .setView(R.layout.edit_text)
+                .setCancelable(true)
+                .setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                // Toast.makeText(PicturePreviewActivity.this, "here", Toast.LENGTH_SHORT).show();
+
+                                stickerText = new TextSticker(getApplicationContext());
+                                stickerText.setText(valueText.getText().toString());
+                                stickerText.setTextAlign(Layout.Alignment.ALIGN_CENTER);
+                                stickerText.resizeText();
+                                stickerView.addSticker(stickerText);
+                            }
+                        }
+                )
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                            }
+                        }
+                );
+        AlertDialog alert = builder.create();
+        alert.show();
     }
+
+    void getText() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View view = inflater.inflate(R.layout.edit_text, null);
+        builder.setView(view);
+
+        valueText = view.findViewById(R.id.text_for_sticker);
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+        Button bn = view.findViewById(R.id.submit_alert);
+        Button close = view.findViewById(R.id.cancle_alert);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        bn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stickerText = new TextSticker(getApplicationContext());
+                stickerText.setText(valueText.getText().toString());
+                stickerText.setTextAlign(Layout.Alignment.ALIGN_CENTER);
+                stickerText.resizeText();
+                stickerView.addSticker(stickerText);
+                dialog.dismiss();
+            }
+        });
+
+    }
+
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.onBackPressed();
-                return true;
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.item_save:
                 if (!saved) {
                     saved = true;
@@ -199,28 +257,17 @@ public class PicturePreviewActivity extends AppCompatActivity {
                 intent.setType("image/jpeg");
                 intent.putExtra(Intent.EXTRA_STREAM, bitmapUri);
                 startActivity(Intent.createChooser(intent, "Share"));
+                Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.sticker:
+                sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                break;
+            case R.id.text_on_img:
+                getText();
+                break;
+            case R.id.close_preview:
+                onBackPressed();
                 break;
         }
-        return super.onOptionsItemSelected(item);
     }
-
-    @Override
-    public void onBackPressed() {
-        if (sheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
-            sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    public void testAdd() {
-        stickerText = new TextSticker(this);
-        stickerText.setText("Hello, world!");
-        // sticker.setTextColor(Color.BLUE);
-        stickerText.setTextAlign(Layout.Alignment.ALIGN_CENTER);
-        stickerText.resizeText();
-        stickerView.addSticker(stickerText);
-    }
-
-
 }

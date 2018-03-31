@@ -47,9 +47,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     private AppCompatImageButton playStore;
     private AppCompatImageButton weblink;
     private AppCompatImageButton maps;
-    private AppCompatImageButton windows;
     private AppCompatImageButton arIos;
-    private AppCompatImageButton arAndroid;
     private AppCompatImageButton instagram;
     private AppCompatTextView sponcers;
     private AppCompatImageButton appStore;
@@ -98,9 +96,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         playStore = (AppCompatImageButton) rootView.findViewById(R.id.playstore);
         weblink = (AppCompatImageButton) rootView.findViewById(R.id.website);
         maps = (AppCompatImageButton) rootView.findViewById(R.id.map_view);
-        windows = (AppCompatImageButton) rootView.findViewById(R.id.windows);
+
         arIos = (AppCompatImageButton) rootView.findViewById(R.id.arios);
-        arAndroid = (AppCompatImageButton) rootView.findViewById(R.id.arandroid);
         sponcers = (AppCompatTextView) rootView.findViewById(R.id.our_sponsors);
         instagram = rootView.findViewById(R.id.instagram);
         appStore = rootView.findViewById(R.id.appstore);
@@ -132,10 +129,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         playStore.setOnClickListener(this);
         weblink.setOnClickListener(this);
         maps.setOnClickListener(this);
-        windows.setOnClickListener(this);
         instagram.setOnClickListener(this);
         sponcers.setOnClickListener(this);
-        arAndroid.setOnClickListener(this);
         arIos.setOnClickListener(this);
         appStore.setOnClickListener(this);
         about_us_freepik.setOnClickListener(this);
@@ -191,17 +186,9 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
                 intent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
                 startActivity(intent);
                 break;
-            case R.id.windows:
-                Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
-                // intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.microsoft.com/en-us/store/p/udaan-17/9p55q9j2bkq7"));
-                // startActivity(intent);
-                break;
             case R.id.our_sponsors:
-                //((MainActivity) getActivity()).loadSponsor();
-                Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.arandroid:
-                Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
+                ((MainActivity) getActivity()).loadSponsor();
+                // Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.arios:
                 Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();

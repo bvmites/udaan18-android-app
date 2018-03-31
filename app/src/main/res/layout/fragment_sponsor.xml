@@ -1,50 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".mainnavigation.MainActivity">
-
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/mainAppbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_fragment_sponser"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"
-                app:contentInsetLeft="0dp"
-                app:contentInsetStart="0dp"
-                app:contentInsetStartWithNavigation="0dp"
-                app:paddingEnd="0dp"
-                app:paddingStart="0dp"
-                app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay">
-
-                <android.support.v7.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/toolbar_fragment_sponser_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorPrimary"
-                        android:gravity="center"
-                        android:singleLine="true"
-                        android:text="@string/app_name"
-                        android:textColor="@color/colorIcon"
-                        android:textSize="24sp" />
-                </android.support.v7.widget.LinearLayoutCompat>
-            </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.AppBarLayout>
-
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -57,9 +16,9 @@
                 android:id="@+id/sponsors_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/color_about"
                 android:orientation="vertical"
-                android:scrollbars="vertical"
-                android:background="@color/color_about">
+                android:scrollbars="vertical">
 
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
@@ -72,7 +31,7 @@
                     android:gravity="center"
                     android:text="Our Sponsors"
                     android:textAlignment="center"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorWhite"
                     android:textSize="35sp" />
 
                 <android.support.v4.widget.Space
@@ -97,8 +56,8 @@
                             android:layout_marginEnd="4dp"
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
-                            android:scaleType="fitCenter"
                             android:background="@color/colorWhite"
+                            android:scaleType="fitCenter"
                             app:srcCompat="@drawable/ice" />>
 
 
@@ -117,8 +76,8 @@
                             android:layout_marginEnd="8dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="8dp"
-                            android:scaleType="fitCenter"
                             android:background="@color/colorWhite"
+                            android:scaleType="fitCenter"
                             app:srcCompat="@drawable/overseas" />>
 
 
@@ -144,8 +103,8 @@
                             android:layout_marginEnd="4dp"
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
-                            android:scaleType="fitCenter"
                             android:background="@color/colorWhite"
+                            android:scaleType="fitCenter"
                             app:srcCompat="@drawable/khodiyar" />>
 
 
@@ -164,8 +123,8 @@
                             android:layout_marginEnd="8dp"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="8dp"
-                            android:scaleType="fitCenter"
                             android:background="@color/colorWhite"
+                            android:scaleType="fitCenter"
                             app:srcCompat="@drawable/endeavor" />>
 
 
@@ -174,5 +133,4 @@
             </android.support.v7.widget.LinearLayoutCompat>
         </android.support.v7.widget.LinearLayoutCompat>
     </android.support.design.widget.CoordinatorLayout>
-</layout>
 

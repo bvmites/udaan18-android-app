@@ -123,6 +123,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.back:
                 startActivity(new Intent(CameraActivity.this, MainActivity.class));
+                CameraActivity.this.finish();
                 break;
         }
     }
@@ -135,6 +136,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
             return;
         } else {
             startActivity(new Intent(CameraActivity.this, MainActivity.class));
+            CameraActivity.this.finish();
         }
         super.onBackPressed();
     }

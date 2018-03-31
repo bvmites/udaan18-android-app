@@ -12,25 +12,55 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/mainAppbar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+            android:layout_height="50dp"
+            android:background="@color/color_photo"
+            android:orientation="horizontal"
+            android:weightSum="5">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_photos"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/color_photo"
-                app:contentInsetLeft="0dp"
-                app:contentInsetStart="0dp"
-                app:contentInsetStartWithNavigation="0dp"
-                app:paddingEnd="0dp"
-                app:paddingStart="0dp"
-                app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay">
-            </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.AppBarLayout>
+            <ImageButton
+                android:id="@+id/close_preview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/md_transparent"
+                app:srcCompat="@drawable/window_close" />
+
+            <ImageButton
+                android:id="@+id/sticker"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/md_transparent"
+                app:srcCompat="@drawable/emoticon_happy" />
+
+            <ImageButton
+                android:id="@+id/text_on_img"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/md_transparent"
+                app:srcCompat="@drawable/format_text" />
+
+            <ImageButton
+                android:id="@+id/item_save"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/md_transparent"
+                app:srcCompat="@drawable/content_save" />
+
+            <ImageButton
+                android:id="@+id/item_share"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/md_transparent"
+                app:srcCompat="@drawable/share" />
+
+        </LinearLayout>
+
 
         <com.xiaopo.flying.sticker.StickerView
             android:id="@+id/stkr"
@@ -55,52 +85,6 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             app:colorSeeds="@array/material_colors" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:weightSum="3">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/show_stickers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/color_photo"
-                android:padding="5dp"
-                android:text="Stickers"
-                android:textColor="@color/colorWhite" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/add_stickers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@color/color_photo"
-                android:padding="5dp"
-                android:text="Add Text"
-                android:textColor="@color/colorWhite" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
-
     </LinearLayout>
 
     <GridView
