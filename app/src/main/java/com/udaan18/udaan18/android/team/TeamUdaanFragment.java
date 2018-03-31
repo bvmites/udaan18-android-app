@@ -8,11 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.model.eventCategory.Category;
 import com.udaan18.udaan18.android.model.eventCategory.TeamSection;
+import com.udaan18.udaan18.android.util.Helper;
 import com.udaan18.udaan18.android.util.SharedPreferenceHelper;
 
 import org.json.JSONException;
@@ -66,12 +66,17 @@ public class TeamUdaanFragment extends Fragment implements TeamSection.ManagerCa
 
     @Override
     public void onItemClick(int position, int sectionId) {
-
+        int sub = 0;
         if (sectionId == 0) {
-            Toast.makeText(getContext(), "" + teamUdaan.get(sectionId).getMembers().get(position - 1).getName(), Toast.LENGTH_SHORT).show();
+            Helper.makeCall(teamUdaan.get(sectionId).getMembers().get(position - 1).getMobile(), getContext());
+            //Toast.makeText(getContext(), "" + teamUdaan.get(sectionId).getMembers().get(position - 1).ge, Toast.LENGTH_SHORT).show();
         } else {
-            int sub = teamUdaan.get(sectionId - 1).getMembers().size() + sectionId;
-            Toast.makeText(getContext(), "" + teamUdaan.get(sectionId).getMembers().get(position - sub).getName(), Toast.LENGTH_SHORT).show();
+            for (int i = 0; i < sectionId; i++) {
+                sub += teamUdaan.get(i).getMembers().size();
+            }
+            sub += sectionId + 1;
+            Helper.makeCall(teamUdaan.get(sectionId).getMembers().get(position - sub).getMobile(), getContext());
+            //Toast.makeText(getContext(), "" + teamUdaan.get(sectionId).getMembers().get(position - sub).getName(), Toast.LENGTH_SHORT).show();
 
         }
 //        switch (sectionId){

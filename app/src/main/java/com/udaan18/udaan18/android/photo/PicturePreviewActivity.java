@@ -1,9 +1,11 @@
 package com.udaan18.udaan18.android.photo;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.content.ContextCompat;
@@ -22,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.otaliastudios.cameraview.CameraUtils;
+import com.rtugeek.android.colorseekbar.ColorSeekBar;
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.util.FileUtil;
 import com.xiaopo.flying.sticker.DrawableSticker;
@@ -40,9 +43,11 @@ public class PicturePreviewActivity extends AppCompatActivity {
     private Button addText;
     private GridView bottomSheet;
     private Boolean saved;
+    private TextSticker stickerText;
     private BottomSheetBehavior sheetBehavior;
     private ArrayAdapter<Integer> bottomSheetAdapter;
     private Button showSticker;
+    private ColorSeekBar bar;
     private Integer[] bottomItems = {R.drawable.filter_1, R.drawable.filter_2, R.drawable.filter_3, R.drawable.filter_4,
             R.drawable.filter_5, R.drawable.filter_6, R.drawable.filter_7, R.drawable.filter_8,
             R.drawable.filter_9, R.drawable.filter_10, R.drawable.filter_11};
@@ -64,6 +69,7 @@ public class PicturePreviewActivity extends AppCompatActivity {
         bottomSheet = (GridView) findViewById(R.id.bottom_sheet);
         showSticker = findViewById(R.id.show_stickers);
         addText = findViewById(R.id.add_stickers);
+        bar = findViewById(R.id.colorSlider);
         bottomSheetAdapter = new BottomSheetAdapter(this, R.layout.item_grid, bottomItems);
         bottomSheet.setAdapter(bottomSheetAdapter);
         saved = false;
@@ -86,6 +92,15 @@ public class PicturePreviewActivity extends AppCompatActivity {
                 }
             }
         });
+        stickerText = new TextSticker(this);
+        bar.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
+            @Override
+            public void onColorChangeListener(int colorBarPosition, int alphaBarPosition, int color) {
+                stickerText.setTextColor(color);
+                //colorSeekBar.getAlphaValue();
+            }
+        });
+
         addText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,12 +193,12 @@ public class PicturePreviewActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.item_share:
-                if (saved) {
-
-                } else {
-                    Toast.makeText(PicturePreviewActivity.this, "Save First",
-                            Toast.LENGTH_SHORT).show();
-                }
+                String bitmapPath = MediaStore.Images.Media.insertImage(getContentResolver(), stickerView.createBitmap(), "title", null);
+                Uri bitmapUri = Uri.parse(bitmapPath);
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("image/jpeg");
+                intent.putExtra(Intent.EXTRA_STREAM, bitmapUri);
+                startActivity(Intent.createChooser(intent, "Share"));
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -199,13 +214,12 @@ public class PicturePreviewActivity extends AppCompatActivity {
     }
 
     public void testAdd() {
-        final TextSticker sticker = new TextSticker(this);
-        sticker.setText("Hello, world!");
-        sticker.setTextColor(Color.BLUE);
-        sticker.setTextAlign(Layout.Alignment.ALIGN_CENTER);
-        sticker.resizeText();
-
-        stickerView.addSticker(sticker);
+        stickerText = new TextSticker(this);
+        stickerText.setText("Hello, world!");
+        // sticker.setTextColor(Color.BLUE);
+        stickerText.setTextAlign(Layout.Alignment.ALIGN_CENTER);
+        stickerText.resizeText();
+        stickerView.addSticker(stickerText);
     }
 
 

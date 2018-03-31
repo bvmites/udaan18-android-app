@@ -29,26 +29,6 @@
                 app:paddingEnd="0dp"
                 app:paddingStart="0dp"
                 app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay">
-
-                <android.support.v7.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/text_photos"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
-                        android:background="@color/color_photo"
-                        android:gravity="center_vertical"
-                        android:padding="5dp"
-                        android:singleLine="true"
-                        android:text="Stickers"
-                        android:textColor="@color/colorIcon"
-                        android:textSize="24sp" />
-                </android.support.v7.widget.LinearLayoutCompat>
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
 
@@ -68,6 +48,13 @@
                 android:adjustViewBounds="true" />
 
         </com.xiaopo.flying.sticker.StickerView>
+
+        <com.rtugeek.android.colorseekbar.ColorSeekBar
+            android:id="@+id/colorSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:colorSeeds="@array/material_colors" />
 
         <LinearLayout
             android:layout_width="match_parent"

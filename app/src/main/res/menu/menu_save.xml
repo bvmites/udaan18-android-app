@@ -11,4 +11,14 @@
         android:icon="@drawable/share"
         android:title="Share"
         app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/item_sticker"
+        android:icon="@drawable/emoticon_happy"
+        android:title="Sticker"
+        app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/item_text"
+        android:icon="@drawable/format_text"
+        android:title="Text"
+        app:showAsAction="ifRoom|withText" />
 </menu>

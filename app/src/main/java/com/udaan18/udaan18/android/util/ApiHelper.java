@@ -26,7 +26,7 @@ public interface ApiHelper {
     @GET("developer.json")
     Call<List<Developer>> getDevelopers();
 
-    @GET("teamudaan.json")
+    @GET("newteamudaan.json")
     Call<List<Category>> getCategory();
 
     @GET("version.json")

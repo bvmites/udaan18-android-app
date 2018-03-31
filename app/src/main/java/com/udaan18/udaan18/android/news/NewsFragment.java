@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -45,6 +46,7 @@ public class NewsFragment extends Fragment {
   FirebaseDatabase fdb;
   DatabaseReference dr;
     List<Feed> feed;
+    private ProgressBar process;
   private View rootView;
   
   public static NewsFragment newInstance() {
@@ -58,9 +60,8 @@ public class NewsFragment extends Fragment {
     rootView = inflater.inflate(R.layout.fragment_news, container, false);
       ((MainActivity) getActivity()).removeTitle("Notifications");
       ((MainActivity) getActivity()).setAllColorChanage(R.color.color_news);
+      process = rootView.findViewById(R.id.simpleProgressBar);
       intializeObjects();
-
-
       return rootView;
 
   }
@@ -101,6 +102,7 @@ public class NewsFragment extends Fragment {
                 Collections.reverse(feed);
                 myAdapter = new NotificationAdapter(getContext(), feed);
                 recyclerView.setAdapter(myAdapter);
+                process.setVisibility(View.GONE);
             }
 
             @Override

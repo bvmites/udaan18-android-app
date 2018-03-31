@@ -14,6 +14,10 @@ public class Member {
     @SerializedName("title")
     private String title;
 
+
+    @SerializedName("mobile")
+    private String mobile;
+
     public Member(String name, String title) {
         this.name = name;
         this.title = title;
@@ -25,6 +29,14 @@ public class Member {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }
 
