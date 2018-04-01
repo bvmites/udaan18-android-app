@@ -196,7 +196,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
                 break;
 
             case  R.id.schedule:
-                ((MainActivity) getActivity()).loadSchedule();
+                intent=new Intent((MainActivity) getActivity(),Schedule.class);
+                startActivity(intent);
                 break;
             case R.id.arios:
                 Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();

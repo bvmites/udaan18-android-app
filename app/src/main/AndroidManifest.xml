@@ -46,7 +46,7 @@
             </intent-filter>
         </service>
 
-
+        <activity android:name=".about.Schedule"></activity>
     </application>
 
 </manifest>

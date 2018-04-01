@@ -62,7 +62,7 @@ dependencies {
     implementation "com.google.code.gson:gson:${gsonVersion}"
     implementation 'com.otaliastudios:cameraview:1.5.0'
     implementation 'com.flying.xiaopo:sticker:1.6.0'
-    implementation 'com.android.support:exifinterface:26.+'
+    implementation "com.android.support:exifinterface:${supportLibraryVersion}"
     implementation 'com.github.rtugeek:ColorSeekBar:1.6.2'
 
     // Expension list libraries
@@ -88,25 +88,23 @@ dependencies {
 
     // Core espresso library for UI tests
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${espressoVersion}"
-    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.10'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.10'
 
     //firebase
-    compile 'com.google.firebase:firebase-core:11.8.0'
+    implementation 'com.google.firebase:firebase-core:11.8.0'
 
     //firebase notification
-    compile 'com.google.firebase:firebase-messaging:11.8.0'
+    implementation 'com.google.firebase:firebase-messaging:11.8.0'
 
     //firebase database
-    compile 'com.google.firebase:firebase-database:11.8.0'
-    compile 'com.firebaseui:firebase-ui-database:0.6.2'
+    implementation 'com.google.firebase:firebase-database:11.8.0'
+    implementation 'com.firebaseui:firebase-ui-database:0.6.2'
 
     //piccaso library to set image
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
     //pdf library to show schedule
-    compile 'com.github.barteksc:android-pdf-viewer:2.0.3'
-
-
+    implementation 'com.github.barteksc:android-pdf-viewer:2.0.3'
 
 
 }
