@@ -123,7 +123,6 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.back:
                 startActivity(new Intent(CameraActivity.this, MainActivity.class));
-                CameraActivity.this.finish();
                 break;
         }
     }
@@ -159,11 +158,11 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         if (mCapturingPicture) return;
         switch (camera.toggleFacing()) {
             case BACK:
-                message("Switched to back camera!", false);
+                //  message("Switched to back camera!", false);
                 break;
 
             case FRONT:
-                message("Switched to front camera!", false);
+                // message("Switched to front camera!", false);
                 break;
         }
     }
@@ -181,7 +180,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         control.applyValue(camera, value);
         BottomSheetBehavior b = BottomSheetBehavior.from(controlPanel);
         b.setState(BottomSheetBehavior.STATE_HIDDEN);
-        message("Changed " + control.getName() + " to " + name, false);
+        // message("Changed " + control.getName() + " to " + name, false);
         return true;
     }
 
