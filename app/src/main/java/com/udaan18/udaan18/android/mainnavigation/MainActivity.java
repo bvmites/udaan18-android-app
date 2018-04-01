@@ -19,6 +19,7 @@ import android.view.WindowManager;
 
 import com.udaan18.udaan18.android.R;
 import com.udaan18.udaan18.android.about.AboutUdaanFragment;
+import com.udaan18.udaan18.android.about.ScheduleFragment;
 import com.udaan18.udaan18.android.about.SponsorFragment;
 import com.udaan18.udaan18.android.databinding.ActivityMainBinding;
 import com.udaan18.udaan18.android.events.DepartmentFragment;
@@ -306,6 +307,12 @@ public class MainActivity extends AppCompatActivity {
     public void loadSponsor() {
         SponsorFragment fragment = null;
         fragment = SponsorFragment.newInstance();
+        this.loadFragmentWithBackstack(fragment);
+    }
+
+    public void loadSchedule() {
+        ScheduleFragment fragment = null;
+        fragment = ScheduleFragment.newInstance();
         this.loadFragmentWithBackstack(fragment);
     }
 }

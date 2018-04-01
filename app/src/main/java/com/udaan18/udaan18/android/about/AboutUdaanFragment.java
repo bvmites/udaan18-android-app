@@ -50,6 +50,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
     private AppCompatImageButton arIos;
     private AppCompatImageButton instagram;
     private AppCompatTextView sponcers;
+    private AppCompatTextView schedule;
     private AppCompatImageButton appStore;
 
 
@@ -90,6 +91,8 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
 
     public void intializeObjects() {
 
+        schedule=(AppCompatTextView) rootView.findViewById(R.id.schedule);
+
         mail = (AppCompatImageButton) rootView.findViewById(R.id.mail);
         youtube = (AppCompatImageButton) rootView.findViewById(R.id.youtube);
         facebook = (AppCompatImageButton) rootView.findViewById(R.id.facebook);
@@ -123,6 +126,7 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
         about_us_address.setTypeface(custom_font_reg);
         sponcers.setTypeface(custom_font_label);
 
+        schedule.setOnClickListener(this);
         mail.setOnClickListener(this);
         youtube.setOnClickListener(this);
         facebook.setOnClickListener(this);
@@ -189,6 +193,10 @@ public class AboutUdaanFragment extends Fragment implements View.OnClickListener
             case R.id.our_sponsors:
                 ((MainActivity) getActivity()).loadSponsor();
                 // Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
+                break;
+
+            case  R.id.schedule:
+                ((MainActivity) getActivity()).loadSchedule();
                 break;
             case R.id.arios:
                 Toast.makeText(getContext(), "Coming soon", Toast.LENGTH_SHORT).show();
